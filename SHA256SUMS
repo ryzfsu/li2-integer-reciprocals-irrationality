@@ -65,7 +65,7 @@ fa75c287f53981f25cd1557c181dbf75348eee4a85ebc38b6fef673b82518df1  ./anc/SCRIPTS_
 2155b72793846deea9aa8c16cae4e2e07d2d9f9ee61ff10e9fcf1f9e683867ce  ./anc/scripts/trace_ranges.py
 44bcb39dd2e8805e676d000c5b33a8edcc8d4cf059dcca8b44acfea370f71a2b  ./anc/scripts/v_engine.py
 29483760da63387fd7a09fe87ed30a63fca11abd4fa82c2fa1f526a76548748f  ./main.pdf
-be1eb857e2a351c4958132c491a3582592f0d5bff16039f4a23d83c9ed5a3a4c  ./README.md
+121bb474f1be04529f9006a006a2d785114786fb786a1818d05d1cb4756f6826  ./README.md
 2c488c9bacf1d29f99e853005a6c23dfc7fee8adaa43d8dd7e70bb5f9a990efd  ./source/chapters/certificate-algorithm.tex
 bbc74fc1917216661c1d1e3351e89ad9f1ee99b3380a82e164bfa9550670bbbb  ./source/chapters/hp-tail.tex
 cc8fcfd603f2626596268e2788df12395049e3f65899852f21d33056d212d4e0  ./source/chapters/nonvanishing.tex

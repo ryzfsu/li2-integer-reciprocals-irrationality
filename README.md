@@ -2,6 +2,8 @@
 
 Ruiyi Zhang
 
+DOI: [10.5281/zenodo.23296412](https://doi.org/10.5281/zenodo.23296412)
+
 The manuscript proves that `Li_2(1/n)` is irrational for every nonzero integer `n`.
 
 The proof combines a determinant criterion with exact fixed-base integerization,
@@ -33,3 +35,19 @@ Python 3.12 with python-flint 0.9.0. From the repository root:
       --tex-root source --out /tmp/li2-paper-replay
 
 The run succeeds when `verification.json` reports `"status": "PASS"` (about five minutes).
+
+## Citation
+
+Ruiyi Zhang, *Irrationality of the dilogarithm at reciprocals of integers*, preprint, Zenodo, 2026. https://doi.org/10.5281/zenodo.23296412
+
+```bibtex
+@misc{zhang2026li2reciprocals,
+  author    = {Zhang, Ruiyi},
+  title     = {Irrationality of the dilogarithm at reciprocals of integers},
+  year      = {2026},
+  publisher = {Zenodo},
+  note      = {Preprint},
+  doi       = {10.5281/zenodo.23296412},
+  url       = {https://doi.org/10.5281/zenodo.23296412}
+}
+```
