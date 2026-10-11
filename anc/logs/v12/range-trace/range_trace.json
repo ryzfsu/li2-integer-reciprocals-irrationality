@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "q_values": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "rows": {
+    "2": {
+      "alpha": "3479/800",
+      "margin": "311/10000"
+    },
+    "3": {
+      "alpha": "396707/100000",
+      "margin": "607/6250"
+    },
+    "4": {
+      "alpha": "368211/100000",
+      "margin": "12981/100000"
+    },
+    "5": {
+      "alpha": "8631/2500",
+      "margin": "14649/100000"
+    },
+    "6": {
+      "alpha": "81523/25000",
+      "margin": "977/6250"
+    },
+    "7": {
+      "alpha": "309651/100000",
+      "margin": "4053/25000"
+    }
+  },
+  "seed_primes": {
+    "2": 11,
+    "3": 11,
+    "4": 23,
+    "5": 11,
+    "6": 17,
+    "7": 17
+  },
+  "literal_determinant": "V G_m(T;a) from chapters/v-arithmetic.tex",
+  "interfaces": [
+    "formal divisor and denominator",
+    "fixed-base residue/outer/PNT estimates",
+    "directed full-support field bounds and all-m smoothing",
+    "eventual nonvanishing sequence"
+  ],
+  "scope": "textual source consistency only; not a proof or numerical verification",
+  "sha256": {
+    "source/main.tex": "44eceac2f4a5f8c8b2305ef74e1967aafa9f42cdd70652108df40cdfe47e81ea",
+    "source/chapters/v-analytic.tex": "973525e1cd0a8a26a64de765a52a09adb8cafde70a899d0a3dfd6dce400b789d",
+    "source/chapters/v-arithmetic.tex": "04cd36274e5c28b4e00e4c066a8a5fbd8952fe52e8f90a729b12a5016e1b6887",
+    "source/chapters/nonvanishing.tex": "cc8fcfd603f2626596268e2788df12395049e3f65899852f21d33056d212d4e0"
+  }
+}

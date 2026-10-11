@@ -1,0 +1,636 @@
+\section{Signed logarithmic energy and smoothing}
+\label{sec:v-analytic}
+
+For each fixed $q\in\{2,3,4,5,6,7\}$, directed interval checks on the printed
+reference and the smoothing estimate below give an all-$m$ determinant
+bound.  The interval checks certify the energy rate; the smoothing lemma
+supplies the estimate for every $m=4n\ge64$.
+
+Throughout, $q$ is a fixed integer with $2\le q\le7$, $a=-q$,
+$m=4n$.  The three local shape parameters are set to $s=k=h=n$, so that
+$L=m+h=5m/4$.  The three masses are
+$(M_x,M_v,M_z)=(1,5/4,1)$.  Write
+\[
+ I(\sigma,\eta)=\iint\log|u-w|\,d\sigma(u)d\eta(w),\qquad
+ D_q(\sigma,\eta)=\iint\log|q+uv|\,d\sigma(u)d\eta(v),
+\]
+and
+\begin{equation}\label{eq:v-energy}
+ \mathcal Q_q(\mu)=I(\mu_x,\mu_x)+I(\mu_v,\mu_v)+I(\mu_z,\mu_z)
+       +I(\mu_v,\mu_z)-D_q(\mu_x,\mu_v).
+\end{equation}
+The supports used for the continuous problem are
+\[
+ \mathcal K_x=\mathcal K_v=[0,1],\qquad
+ \mathcal K_z(q)=[-q,-r]\cup[r,1]\cup\{|z|=r\},\qquad r=3/5.
+\]
+For a reference triple $\nu=(\nu_x,\nu_v,\nu_z)$ of these masses, put
+\begin{align*}
+ U_i(w)&=\int\log|w-t|\,d\nu_i(t),\\
+ D_v(w)&=\int\log|q+wt|\,d\nu_v(t),\\
+ D_x(w)&=\int\log|q+tw|\,d\nu_x(t).
+\end{align*}
+and define the three fields
+\begin{align}
+ \widehat F_x(w)&=2U_x(w)-D_v(w),\notag\\
+ \widehat F_v(w)&=2U_v(w)+U_z(w)-D_x(w),\label{eq:v-q-fields}\\
+ \widehat F_z(w)&=2U_z(w)+U_v(w),\notag
+\end{align}
+For the full logarithmic energy we add the one-body terms separately:
+\begin{align}
+ F_x(w)&=\widehat F_x(w)+\tfrac34\log|w|,\notag\\
+ F_v(w)&=\widehat F_v(w)+\tfrac14\log|w|,\label{eq:v-fields}\\
+ F_z(w)&=\widehat F_z(w)-\tfrac54\log|w|.\notag
+\end{align}
+The constant field from the determinant prefactor is
+\begin{equation}\label{eq:v-C0}
+ C_0(q)=\tfrac32\log q.
+\end{equation}
+
+We first identify the determinant at the dilogarithm value. Put
+\[
+ M_{ij}(q)=\int_0^1\!\int_0^1\frac{x^i y^j}{q+xy}\,dx\,dy,
+ \qquad \beta_q=\operatorname{Li}_2(-1/q),
+ \qquad \lambda_q=\log(1+1/q).
+\]
+For $j\ge0$ set the two moment sequences
+\[
+ m_j=\int_0^1\frac{u^j}{q+u}\,du,
+ \qquad n_j=\int_0^1\frac{u^j\log(1/u)}{q+u}\,du.
+\]
+Polynomial division gives, for $j\ge1$,
+\[
+ m_j=-q m_{j-1}+\frac1j,\qquad
+ n_j=-q n_{j-1}+\frac1{j^2},
+\]
+while $m_0=\lambda_q$ and $n_0=-\beta_q$. Hence, with the
+polynomials $t_j,b_j$ of Section~\ref{sec:v-arithmetic},
+\[
+ m_j=(-q)^j\lambda_q+t_j,\qquad n_j=b_j-(-q)^j\beta_q.
+\]
+The substitution $u=xy$ yields
+\[
+ M_{ij}(q)=\frac{m_i-m_j}{j-i}\quad(i\ne j),
+ \qquad M_{ii}(q)=n_i,
+\]
+and therefore
+\begin{equation}\label{eq:v-moment-identity}
+ M(q)=B(-q)+\lambda_q C(-q)-\beta_q A(-q).
+\end{equation}
+Adding $\lambda_q$ times each $C$ row to the corresponding row of
+$B(-q)-\beta_qA(-q)$ preserves the determinant. Thus the determinant of
+Section~\ref{sec:v-arithmetic}, evaluated at $T=\beta_q$,
+is exactly the determinant with middle block $M(q)$.
+
+\subsection{The path and the signed energy}
+
+Let $\gamma_+(t)=re^{it}$ for $0\le t\le\pi$ and
+$\gamma_-(t)=re^{it}$ for $\pi\le t\le2\pi$.  Orient the two real
+segments increasingly and set
+\begin{equation}\label{eq:v-path}
+ \Gamma_q=[-q,-r]+[r,1]+(c_q-1)\gamma_++c_q\gamma_-,
+ \qquad c_q=\frac{\log q+i\pi}{2\pi i}.
+\end{equation}
+For every integer $d$,
+\begin{equation}\label{eq:v-laurent}
+ \int_{\Gamma_q}z^{d-1}\,dz=
+ \begin{cases}(1-(-q)^d)/d,&d\ne0,\\0,&d=0.\end{cases}
+\end{equation}
+For $d\ne0$, integrate $z^{d-1}$ on each piece using the primitive
+$z^d/d$; the two circular half-arcs contribute exactly the terms needed
+to cancel the intermediate endpoints $\pm r$.  For $d=0$, the real pieces
+give $-\log q$, while the circular pieces give
+$i\pi(2c_q-1)=\log q$.  This also fixes the branch convention at the
+zero Laurent moment.
+
+The same Andreief identity~\cite{Andreief,Forrester} and Cauchy--Vandermonde
+expansions~\cite{Krattenthaler} as for the determinant
+in Section~\ref{sec:v-arithmetic}, now using \eqref{eq:v-laurent}, give
+\begin{equation}\label{eq:v-integral}
+ G_m(\operatorname{Li}_2(-1/q);-q)
+ =\frac{q^{3m^2/2-m}}{(m!)^2L!}
+   \int_{[0,1]^m}\int_{[0,1]^L}\int_{\Gamma_q^m}
+       \Phi_q(x,v,z)\,dz\,dv\,dx,
+\end{equation}
+where
+\[
+ \Phi_q=\frac{\Delta(x)^2\Delta(v)^2\Delta(z)^2
+       \prod_{d=1}^m\prod_{b=1}^L(z_d-v_b)
+       \prod_{i=1}^m x_i^{3m/4}
+       \prod_{b=1}^L v_b^{m/4}
+       \prod_{d=1}^m z_d^{-5m/4}}
+       {\prod_{i=1}^m\prod_{b=1}^L(q+x_iv_b)}.
+\]
+
+\begin{proof}[Proof of the integral representation]
+By \eqref{eq:v-laurent},
+\(C_{ij}=(-q)^i\int_{\Gamma_q}z^{j-i-1}\,dz\).  Put
+\(f_i(v)=\int_0^1x^i/(q+xv)\,dx\).  Then the lower rational block and the
+V block are respectively
+\[
+ M_{ij}=\int_0^1f_i(v)v^j\,dv,\qquad
+ V_{\ell j}=\int_0^1v^{\ell-1}v^j\,dv.
+\]
+For integrable families, Andreief's identity~\cite{Andreief,Forrester} is
+\[
+ \det\left(\int f_i(t)g_j(t)\,dt\right)_{i,j=1}^N
+ =\frac1{N!}\int
+   \det(f_i(t_b))_{i,b=1}^N\det(g_j(t_b))_{b,j=1}^N
+   \prod_{b=1}^Ndt_b.
+\]
+Apply it successively to the $L$ lower/V rows, the $m$ contour rows, and
+the $m$ functions $f_i$.  These three applications account respectively
+for $1/L!$, $1/m!$, and $1/m!$:
+\[
+ G_m=\frac1{(m!)^2L!}\int D_zD_{zv}D_xD_{xv}\,dx\,dv\,dz.
+\]
+Here $e_\Delta=m(m-1)/2$ and, with
+\(\mathbf w=(z_1,\ldots,z_m,v_1,\ldots,v_L)\), the four determinants are
+\begin{align*}
+ D_z&=\det\bigl((-q)^iz_d^{-i-1}\bigr)_{i\in I,d}
+   =(-1)^{e_\Delta}(-q)^{\sum_{i\in I}i}
+     \Delta(z)\prod_dz_d^{-3m/2},\\
+ D_{zv}&=\det(\mathbf w_b^j)_{b,j\in J}
+   =(-1)^{mL}\Delta(z)\Delta(v)
+     \prod_dz_d^{m/4}\prod_bv_b^{m/4}\prod_{d,b}(z_d-v_b),\\
+ D_x&=\det(x_{i'}^i)_{i\in I,i'}
+   =\Delta(x)\prod_{i'}x_{i'}^{m/2},\\
+ D_{xv}&=\det\begin{pmatrix}
+ ((q+x_{i'}v_b)^{-1})_{i',b}\\(v_b^{\ell-1})_{\ell,b}
+ \end{pmatrix}
+   =\frac{(-1)^{e_\Delta}q^{e_\Delta}\Delta(x)\Delta(v)\prod_{i'}x_{i'}^{m/4}}
+          {\prod_{i',b}(q+x_{i'}v_b)}.
+\end{align*}
+The last equality is the Cauchy--Vandermonde identity~\cite{Krattenthaler}.
+For completeness,
+for $t_{i'}=q/x_{i'}$ it follows from
+\[
+ \det\begin{pmatrix}((t_{i'}+v_b)^{-1})_{i',b}\\
+ (v_b^{\ell-1})_{\ell,b}\end{pmatrix}
+ =\frac{\Delta(t)\Delta(v)}{\prod_{i',b}(t_{i'}+v_b)},
+\]
+after multiplying the first $m$ rows by $x_{i'}^{-1}$ and using
+\(\Delta(t)=(-1)^{e_\Delta}q^{e_\Delta}\Delta(x)\prod_{i'}x_{i'}^{1-m}\).
+Here is a proof of the identity, for every $m,h\ge0$ with $L=m+h$.
+Treat the $t_i$ and $v_b$ as independent indeterminates.  The case $m=0$
+is the Vandermonde determinant.  Assume the formula for $m-1$ and all
+$h\ge0$, and regard both sides as rational functions of $v_L$.  Expanding
+the determinant along its last column, its residue at $v_L=-t_i$ is
+$(-1)^{i+L}$ times the complementary minor.  By induction this residue is
+\[
+ (-1)^{i+L}
+ \frac{\Delta(\widehat t_i)\Delta(v_1,\ldots,v_{L-1})}
+      {\prod_{j\ne i}\prod_{b<L}(t_j+v_b)}.
+\]
+The proposed quotient has the same residue: substitute $v_L=-t_i$,
+cancel the factors $t_j-t_i$ and $t_i+v_b$, and use
+$\Delta(t)=(-1)^{i-1}\Delta(\widehat t_i)
+\prod_{j\ne i}(t_j-t_i)$.  Hence the difference has no finite poles.
+After cancellation of the denominator $\prod_i(t_i+v_L)$, the difference
+is a polynomial in $v_L$ of degree at most $h-1$.  It vanishes at each of
+the $L-1$ values $v_L=v_b$ ($b<L$), since both sides have the factor
+$\Delta(v)$.  For $m\ge1$, $L-1=m+h-1\ge h$, so these roots force the
+polynomial to be zero.  When $h=0$, the difference tends to zero at
+infinity instead.  This proves the Cauchy--Vandermonde identity.
+
+Multiplying the four displayed factors gives precisely $\Phi_q$: the
+$m/2$ from $D_x$ and the $m/4$ from $D_{xv}$ combine to the displayed
+$3m/4$ power of each $x_{i'}$.  The sign is
+$(-1)^{\sum_{i\in I}i+2e_\Delta+mL}=1$: here
+$\sum_{i\in I}i=2n(8n-1)$ and $mL=20n^2$ are even.  The q-power is
+\[
+ \sum_{i\in I}i+e_\Delta
+ =m(2n)+m(m-1)
+ =\frac{3m^2}{2}-m,
+ \qquad (m=4n,\ L=5n).
+\]
+The factors $q+x_iv_b$ are at least
+$q$, while $|z|\ge r$ on $\Gamma_q$; all three integrations therefore
+converge absolutely.  The $m!$, $L!$, and $m!$ factors are exactly the three
+Andreief symmetrizations, proving \eqref{eq:v-integral}.
+\end{proof}
+For triples of positive measures of the stated masses, define
+\begin{equation}\label{eq:v-full-energy}
+ \mathcal E_q(\mu)=C_0(q)+\mathcal Q_q(\mu)
+ +\tfrac34\int\log|x|\,d\mu_x
+ +\tfrac14\int\log|v|\,d\mu_v
+ -\tfrac54\int\log|z|\,d\mu_z.
+\end{equation}
+
+\begin{lemma}[signed-energy concavity for fixed $q$]
+\label{lem:v-concavity}
+Let $\mu,\nu$ be triples of positive measures of masses
+$(1,5/4,1)$, supported in compact subsets of the indicated supports or
+their sufficiently small tubular neighborhoods.  Assume that the pairings
+in $\mathcal Q_q$ are finite real numbers.  No absolute logarithmic moment
+assumption is imposed on a competitor's $x$- or $v$-component.  Then
+\[
+ \mathcal Q_q(\mu)\le-\mathcal Q_q(\nu)
+       +\int \widehat F_x\,d\mu_x+\int \widehat F_v\,d\mu_v
+       +\int \widehat F_z\,d\mu_z,
+\]
+where the hatted fields are formed from $\nu$.  Consequently the same
+inequality for the full energy is obtained by adding the displayed one-body
+terms to the hatted fields, i.e. by using $F_x,F_v,F_z$ in the field bounds.
+\end{lemma}
+
+\begin{proof}
+By the shared quadratic-duality identity in
+Section~\ref{sec:certificate-algorithm}, it suffices to prove that the
+zero-mass quadratic remainder $\mathcal Q_q(\mu-\nu)$ is nonpositive.
+First suppose that all $v$-supports avoid zero.  For a signed measure
+$\sigma$ of mass zero, write $\|\sigma\|^2=-I(\sigma,\sigma)\ge0$;
+this is the zero-mass logarithmic-energy positivity lemma.  Put
+$R_q(v)=-q/v$.  The exact identities
+\begin{align*}
+ \log|q+xv|&=\log|x-R_q(v)|+\log|v|,\\
+ \log|R_q(v)-R_q(w)|&=\log q+\log|v-w|-\log|v|-\log|w|
+\end{align*}
+Integrating against zero-mass measures cancels all one-variable terms and
+gives
+\begin{align*}
+ D_q(\sigma_x,\sigma_v)&=I(\sigma_x,(R_q)_*\sigma_v),\\
+ I((R_q)_*\sigma_v,(R_q)_*\sigma_v)&=I(\sigma_v,\sigma_v).
+\end{align*}
+Let $\sigma_i=\mu_i-\nu_i$, and set
+$\sigma'_x=\sigma_x$, $\sigma'_v=(R_q)_*\sigma_v$,
+$\sigma'_z=-(R_q)_*\sigma_z$.  Then
+\[
+ \mathcal Q_q(\sigma)
+ =-\|\sigma'_x\|^2-\|\sigma'_v\|^2-\|\sigma'_z\|^2
+   +\langle\sigma'_x,\sigma'_v\rangle
+   +\langle\sigma'_v,\sigma'_z\rangle,
+ \qquad \langle\alpha,\beta\rangle=-I(\alpha,\beta).
+\]
+The right side equals
+\[
+ -\tfrac12\bigl(\|\sigma'_x-\sigma'_v\|^2
+              +\|\sigma'_v-\sigma'_z\|^2
+              +\|\sigma'_x\|^2+\|\sigma'_z\|^2\bigr)\le0.
+\]
+The shared identity gives the asserted quadratic inequality.  For a
+competitor $\mu_v$ whose support meets zero, fix a smooth probability
+measure $\rho$ supported in $[3/4,7/8]$.  For $0<\delta<1/4$, let
+$\lambda_\delta=\mu_v|_{\{|v|<\delta\}}$, let
+$e_\delta=\lambda_\delta(\mathbb C)$, and set
+\[
+ \mu_{v,\delta}=\mu_v-\lambda_\delta+e_\delta\rho.
+\]
+Finite logarithmic self-energy excludes an atom at zero, so
+$e_\delta\to0$ and $\mu_{v,\delta}\Rightarrow\mu_v$.  Absolute
+integrability of the logarithmic pairings in $\mathcal Q_q$ implies that
+the integrals over the deleted sets tend to zero.  The replacement terms
+involving $e_\delta\rho$ tend to zero as well: $\rho$ is separated from
+$\{|v|<\delta\}$, and its logarithmic potential is bounded on the compact
+supports.  The kernel $\log|q+uv|$ is bounded and continuous on the stated
+tubes because $q\ge2$ and $|u|,|v|\le1+o(1)$.  Hence
+$\mathcal Q_q(\mu_{x},\mu_{v,\delta},\mu_z)\to\mathcal Q_q(\mu)$.
+The reference fields $\widehat F_i$ are continuous and bounded on these
+compact sets, so their integrals also converge.  Applying the already
+proved inequality to $\mu_{v,\delta}$ and taking the limit proves the
+quadratic inequality without requiring $\int|\log|v||\,d\mu_v<\infty$.
+
+The one-body integrals in $\mathcal E_q$ are then interpreted as extended
+real integrals.  On the compact $x$- and $v$-supports, $\log|w|$ is bounded
+above and can have integral $-\infty$; on the $z$-support, $|z|\ge r-o(1)$,
+so the $z$-term is finite.  Adding these linear terms to the quadratic
+inequality is therefore valid in the extended reals.  In particular, when
+the full energy is $-\infty$ the asserted upper bound is automatic.  This
+argument uses no implication from finite self-energy to a finite absolute
+logarithmic moment.
+\end{proof}
+
+Each printed reference has finitely many positive-length rational interval
+rows, compact $z$ support in $[-q,-3/5]$, and Poisson centres with
+$|c|<3/5$; the $x$ and $v$ chains start at the positive endpoints listed in
+the data section and end at $1$.  Hence all six reference supports are
+compact and avoid zero.  Interval densities are bounded by the finite
+maximum of their rational mass/length ratios, while a Poisson row of mass
+$w$ has density
+\[
+ \frac{w}{2\pi}\frac{r^2-|c|^2}{|re^{i\theta}-c|^2}
+ \le\frac{w(r+|c|)}{2\pi r(r-|c|)},\qquad r=3/5.
+\]
+Thus the printed references have finite logarithmic moments directly from
+their rational supports, without any general self-energy implication.
+
+Combining the lemma with the one-body terms gives the explicit full-energy
+upper bound used below:
+\begin{equation}\label{eq:v-full-energy-dual}
+ \mathcal E_q(\mu)
+ \le C_0(q)-\mathcal Q_q(\nu)
+      +\int F_x\,d\mu_x+\int F_v\,d\mu_v+\int F_z\,d\mu_z.
+\end{equation}
+Thus, if the full fields are bounded above by $K_{x,q},K_{v,q},K_{z,q}$
+on their respective admissible supports, then
+\begin{equation}\label{eq:v-energy-bound}
+ \mathcal E_q(\mu)\le -\bigl(\mathcal Q_q(\nu)-C_0(q)-K_{x,q}
+                         -\tfrac54K_{v,q}-K_{z,q}\bigr).
+\end{equation}
+
+The inversion is valid uniformly for the fixed bases considered here:
+on $|v|\le1+3/4096$,
+$|R_q'(v)|=q/|v|^2>1$ for $q\ge2$.  Thus a bounded arclength density
+pushes forward to a bounded arclength density on each inverted segment or
+circle.  No $q=2$ numerical identity is used in the concavity argument.
+
+\subsection{Directed fixed-base certificates}
+
+For a reference triple $\nu_q$, suppose its energy lower endpoint is
+$Q_{q,-}$ and its support-wide field upper bounds are
+$F_x\le K_{x,q}$, $F_v\le K_{v,q}$, $F_z\le K_{z,q}$.  Lemma
+\ref{lem:v-concavity} and \eqref{eq:v-full-energy} give the quadratic
+rate
+\begin{equation}\label{eq:v-alpha}
+ \alpha_q=Q_{q,-}-\tfrac32\log q-K_{x,q}
+                         -\tfrac54K_{v,q}-K_{z,q}.
+\end{equation}
+The following are the directed interval-bound results.  The field thresholds
+are exact terminating decimals.  The displayed $\alpha$ values are strict
+lower bounds rounded down, and each $\tau$ is an outward-rounded upper bound.
+
+\begin{table}[ht]
+\centering\normalsize
+\renewcommand{\arraystretch}{1.12}
+\caption{Fixed-base directed certificates for $a=-q$.}
+\label{tab:v-certificates}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}c c c c c c c c@{}}
+\hline
+$q$&rows&$K_x$&$K_v$&$K_z$&$\alpha_q$&$\tau_q$&margin\\
+\hline
+2&$41/48/62/149$&$-4.621$&$-4.475$&$-0.085$&$>4.34875$&$<4.31765$\footnotemark&$>0.03110$\\
+3&$40/48/62/143$&$-5.076$&$-4.632$&$0.388$&$>3.96707$&$<3.86995$&$>0.09712$\\
+4&$40/48/62/141$&$-5.408$&$-4.727$&$0.779$&$>3.68211$&$<3.55230$&$>0.12981$\\
+5&$39/48/62/137$&$-5.670$&$-4.791$&$1.108002$&$>3.45240$&$<3.30591$&$>0.14649$\\
+6&$41/47/61/135$&$-5.886$&$-4.839$&$1.391$&$>3.26092$&$<3.10460$&$>0.15632$\\
+7&$39/47/62/131$&$-6.071$&$-4.876$&$1.639$&$>3.09651$&$<2.93439$&$>0.16212$\\
+\hline
+\end{tabular}
+\end{table}
+\footnotetext{The exact rate is
+\(\tau_2=A_{40}-(53/48)\log2=4.317643952609845\ldots\); the displayed
+decimal is a directed upper bound.}
+
+The energy lower endpoints used in \eqref{eq:v-alpha} are printed separately
+so that the energy and field slacks can be checked independently:
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.12}
+\caption{Directed lower endpoints for the reference energies.}
+\label{tab:v-energy-lower}
+\begin{tabular}{@{}c c@{}}
+\hline
+$q$ & $Q_{q,-}$\\
+\hline
+2&$>-4.911272$\\
+3&$>-4.863007$\\
+4&$>-4.776198$\\
+5&$>-4.684191$\\
+6&$>-4.595191$\\
+7&$>-4.511619$\\
+\hline
+\end{tabular}
+\end{table}
+
+For each $q=2,\ldots,7$, put $\delta=1/250$.  The boxes
+$0\le x,v\le\delta$ are discharged by the endpoint bounds
+\eqref{eq:v-endpoint}.  On $[\delta,1]$ and on the two real $z$ intervals,
+including the complete negative interval $[-q,-3/5]$, the subdivision
+recursively bisects each rational midpoint.  A cell is accepted exactly when
+its directed upper field interval is finite and strictly below the displayed
+threshold; otherwise both children are visited, in left-first
+order, with maximum depth $30$.  Circle cells use the same rule in the
+parameter $t\in[0,1]$, and the endpoints $t=0,1$ are checked directly.
+This is the complete partition rule.  The six references contain $1733$ rows
+in all, and their rows are printed in Section~\ref{sec:v-reference-data}.
+The smoothing lemma below supplies the complex-tube transfer and the all-$m$
+estimate.
+
+\subsection{Reference densities and directed endpoint disks}
+\label{subsec:v-allm-data}
+
+All constants below are computed from the signed decimal tables in
+Section~\ref{sec:v-reference-data}.  For
+each interval row $[a,b]$ of mass $w$, put $H=w/(b-a)$.  Let $H_{x,q}$,
+$H_{v,q}$ and $H_{z,q}$ be the largest such value in the $x$, $v$ and
+negative-real $z$ chains.  For a Poisson row $(c,w)$ write
+\[
+ \rho_c=2^{-120}\left\lceil2^{120}|c|\right\rceil,
+ \qquad
+ P_q=\sum_{(c,w)}\frac{w(r+\rho_c)}{r(r-\rho_c)}.
+\]
+The ceiling is evaluated by integer square root on the printed rational
+coordinates, and the construction checks $\rho_c<r$ row by row.  Since the
+Poisson density on $|z|=r$ is at most
+$w(r+\rho_c)/(2\pi r(r-\rho_c))$ per unit arclength, and a circle meets a
+disk of radius $t$ in arclength at most $2\pi t$, the reference measures
+satisfy $\nu_i(B(w,t))\le A_{i,q}t$, where
+\[
+ A_{x,q}=2H_{x,q},\qquad A_{v,q}=2H_{v,q},\qquad
+ A_{z,q}=2H_{z,q}+P_q.
+\]
+Define
+\[
+ B_{i,q}=6A_{i,q}+2M_i,\qquad
+ \Sigma_q=2B_{x,q}+\frac72B_{v,q}+\frac{13}{4}B_{z,q},
+ \qquad \mathcal C_q=10+3\Sigma_q.
+\]
+In the table, $\Sigma_q$ is rounded upward to $10^{-3}$ and this rounded
+rational value is used in $\mathcal C_q$.  The path variation is
+\[
+ \mathcal T_q=q+1-2r+r\sqrt{\pi^2+\log^2q}.
+\]
+The $E_{x,q}$ and $E_{v,q}$ columns are rounded upward to $10^{-4}$;
+the $\mathcal T_q$ column is rounded upward to $10^{-6}$.
+
+For $\delta=1/250$, put $P(t)=t(\log t-1)$ and define the exact real
+integrals
+\[
+ J_{x,q}=\int\log(t+\delta)\,d\nu_x(t),\quad
+ J_{v,q}=\int\log(t+\delta)\,d\nu_v(t),\quad
+ J_{z,q}=\int\log(|z|+\delta)\,d\nu_z(z).
+\]
+An interval contributes $w(P(b+\delta)-P(a+\delta))/(b-a)$; for a
+negative $z$ interval use endpoints $-a,-b$ in increasing order.  The
+Poisson rows together contribute their total mass times $\log(r+\delta)$.
+For $|w_0|\le\delta$, the triangle inequality and the masses give
+\begin{align}
+ F_x(w_0)&\le E_{x,q}:=2J_{x,q}-\frac54\log(q-\delta)
+                      +\frac34\log\delta,\notag\\
+ F_v(w_0)&\le E_{v,q}:=2J_{v,q}+J_{z,q}-\log(q-\delta)
+                      +\frac14\log\delta.\label{eq:v-endpoint}
+\end{align}
+The endpoint bounds are directed upper endpoints rounded upward at
+$10^{-4}$.  The same table gives $\Sigma_q$ rounded upward at $10^{-3}$ and
+$\mathcal T_q$ rounded upward at $10^{-6}$; throughout the proof set
+$\mathcal C_q=10+3\Sigma_q$ using the printed $\Sigma_q$.
+\begin{table}[ht]
+\centering\normalsize
+\renewcommand{\arraystretch}{1.12}
+\caption{Endpoint and all-$m$ transfer data recomputed from the printed tables.}
+\label{tab:v-transfer-constants}
+\begin{tabular}{@{}crrrr@{}}
+\hline
+$q$&$E_{x,q}$&$E_{v,q}$&$\Sigma_q$ (upper)&$\mathcal T_q$ (upper)\\
+\hline
+2&$-6.2821$&$-4.4935$&$14092.327$&$3.730292$\\
+3&$-6.7656$&$-4.6587$&$13219.499$&$4.796889$\\
+4&$-7.1126$&$-4.7555$&$12702.122$&$5.860319$\\
+5&$-7.3835$&$-4.8208$&$12351.983$&$6.917916$\\
+6&$-7.6061$&$-4.8688$&$12095.881$&$7.969979$\\
+7&$-7.7947$&$-4.9057$&$11898.583$&$9.017257$\\
+\hline
+\end{tabular}
+\end{table}
+
+The endpoint entries satisfy $E_{x,q}<K_{x,q}$ and $E_{v,q}<K_{v,q}$,
+where the field bounds are in Table~\ref{tab:v-certificates}.  The displayed
+$\Sigma_q$ values
+give the explicit coefficients $\mathcal C_q=10+3\Sigma_q$; no unprinted density or
+endpoint constant is used below.
+
+\subsection{The all-$m$ smoothing estimate}
+\label{subsec:v-allm-proof}
+
+\begin{lemma}[logarithmic-potential modulus]
+\label{lem:v-potential-modulus}
+If a compactly supported positive measure $\eta$ of mass $M$ satisfies
+$\eta(B(w,t))\le At$ for every disk, then for $d=|w-w'|\le1/3$,
+\[
+ |U_\eta(w)-U_\eta(w')|
+ \le(6A+2M)d\bigl(1+\log(1/d)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Let $N=\{z:|w-z|\le2d\}$.  On $N$ both distances are at most $3d$.
+Approximating the closed disk from outside gives $\eta(N)\le2Ad$.  For
+either centre $w_*=w,w'$, layer cake bounds
+the integral on $N$ by
+\[
+ \int_N\log\frac1{|w_*-z|}\,d\eta(z)
+ \le\int_0^\infty\min(2Ad,Ae^{-s})\,ds
+ =2Ad\bigl(1+\log(1/(2d))\bigr).
+\]
+Off $N$, the logarithmic difference is at most $2d/|w-z|$, while another
+layer-cake integration gives
+$\int_{|w-z|>2d}|w-z|^{-1}d\eta(z)\le M+A\log(1/(2d))$.
+Adding these bounds gives at most
+$6Ad\log(1/d)+2Md$, which is bounded by the displayed expression.
+\end{proof}
+
+For $q=2,\ldots,7$, let $\alpha_q$ be the strict lower endpoints in
+Table~\ref{tab:v-certificates}.  In particular, the printed table verifies
+$\alpha_q>\tau_q$ in each of the six cases.  Then for every
+$m=4n\ge64$,
+\begin{equation}\label{eq:v-allm-bound}
+ \log|G_m(\operatorname{Li}_2(-1/q);-q)|
+ \le-\alpha_qm^2+\mathcal C_qm\log m,
+ \qquad \mathcal C_q=10+3\Sigma_q.
+\end{equation}
+\begin{proof}
+Fix $q$ and a nonzero integrand point in \eqref{eq:v-integral}.  Put
+$\epsilon=m^{-2}$.  Replace each atom $u$ of its empirical measures by
+the uniform probability measure on
+$u+2i\epsilon+\epsilon e^{i\vartheta}$.  Every point of this circle is
+within $3\epsilon$ of $u$.  The common translation preserves pairwise
+centres; subharmonicity of $\log|z|$ shows that every off-diagonal positive
+logarithmic pair energy does not decrease.  Each diagonal circle has
+self-energy $\log\epsilon$, and there are $m+5m/4+m=13m/4$ atoms.  Thus,
+writing $\mu^\epsilon$ for the smoothed empirical triple and
+$\mathcal Q_{q,\rm disc}$ for the three self-energies with their diagonals
+removed,
+\[
+ \mathcal Q_{q,\rm disc}(\mu)
+ \le\mathcal Q_q(\mu^\epsilon)
+       +\frac{13}{4m}\log(1/\epsilon)+C_{D,q}\epsilon,
+ \quad C_{D,q}=8L_{D,q},
+ \quad L_{D,q}=\frac{1+3/4096}{q-(1+3/4096)^2}.
+\]
+Indeed, on the two smearing disks $|u|,|v|\le1+3\epsilon$ and
+$|uv-xv_0|\le6\epsilon+9\epsilon^2$.  The denominator stays at distance
+at least $q-(1+3/4096)^2$ from zero.  The mean-value bound for
+$\log|q+uv|$, multiplied by the cross mass $5/4$, is at most
+\[
+\left(\frac{15}{2}+\frac{45}{4}\epsilon\right)L_{D,q}\epsilon
+\le C_{D,q}\epsilon,
+\]
+since $\epsilon\le1/4096$.
+
+The smoothed measures are tame and their $v$-support avoids zero, so
+Lemma~\ref{lem:v-concavity} applies.  The modulus lemma and the constants
+in Table~\ref{tab:v-transfer-constants} bound the changes in all reference
+potentials by
+\[
+ \Sigma_q(3\epsilon)\bigl(1+\log(1/(3\epsilon))\bigr).
+\]
+For the two denominator potentials in the dual fields, each derivative in
+the field variable is at most $L_{D,q}$ on the tube.  Their total mass
+coefficient is $5/2$, so their transfer error is at most
+$C_{D,q}\epsilon$.
+
+For the positive one-body terms, if a real centre $t\ge\delta/2$, the
+circle mean of $\log|t+2i\epsilon+\epsilon e^{i\vartheta}|$ is
+$\log|t+2i\epsilon|\le\log t+8\epsilon^2/\delta^2$.  The combined
+weighted loss for $x$ and $v$ is therefore at most
+$(17/2)\epsilon^2/\delta^2$.  If $t<\delta/2$, the whole smearing circle
+lies in $|w|\le\delta$, so \eqref{eq:v-endpoint} gives the endpoint bound directly.
+For the negative $z$ one-body term, $|z|\ge r$,
+$|z^\epsilon-z|\le3\epsilon$, and $3\epsilon<r$ give
+\[
+ \left|\log|z^\epsilon|-\log|z|\right|
+ \le\frac{3\epsilon}{r-3\epsilon}.
+\]
+Consequently,
+\[
+ -\frac54\log|z^\epsilon|
+ \le-\frac54\log|z|+\frac{15\epsilon}{4(r-3\epsilon)}.
+\]
+The centres lie on the certified supports; combining the last three
+estimates with the endpoint bounds and the directed field bounds yields
+\begin{align*}
+ \frac{\log|\Phi_q|}{m^2}
+ \le{}&-\mathcal Q_q(\nu_q)+K_{x,q}+\frac54K_{v,q}+K_{z,q}
+ +\frac{13}{4m}\log(1/\epsilon)\\
+ &+3\Sigma_q\epsilon\bigl(1+\log(1/(3\epsilon))\bigr)
+ +\left(2C_{D,q}+\frac{15}{4(r-3/4096)}\right)\epsilon
+ +\frac{17}{2}\frac{\epsilon^2}{\delta^2}.
+\end{align*}
+Here the coefficient $2C_{D,q}$ accounts separately for the denominator
+in the smoothed energy and in the transferred dual fields.  For all
+$q\ge2$, the rational comparison
+$100(1+3/4096)<101(2-(1+3/4096)^2)$ gives
+$L_{D,q}<101/100$, hence $C_{D,q}<8.08$.  Also
+$15/(4(r-3/4096))<7$, and
+\[
+ \frac{17}{2\delta^2m^2}\le\frac{531250}{4096}<130
+ \qquad(m\ge64).
+\]
+The total constant after multiplying by $m^2$ is therefore less than
+$16.2+7+130<200$.
+
+The path length is exactly $\mathcal T_q$.  Since $q\le7$ and $e>8/3$, we have
+$\log q<2$.  Also $\pi<22/7$, so
+$\sqrt{\pi^2+\log^2q}<4$, whence
+$\mathcal T_q/q<21/10<e$.  The prefactor in \eqref{eq:v-integral} contributes
+$(3m^2/2-m)\log q$, and the path contributes $m\log\mathcal T_q$; their linear
+part is $m\log(\mathcal T_q/q)\le m$.  Add these terms and drop the favorable
+$-\log((m!)^2L!)$.  With $\epsilon=m^{-2}$, the diagonal term is
+$(13/2)m\log m$.  Also
+\[
+ 3\Sigma_q\bigl(1+\log(m^2/3)\bigr)\le3\Sigma_qm\log m,
+ \quad 200\le m\log m,
+ \quad m\le\tfrac14m\log m
+\]
+for $m\ge64$.  The resulting coefficient is at most
+$13/2+3\Sigma_q+1+1/4<10+3\Sigma_q$.  Finally the definition of $\alpha_q$ in
+\eqref{eq:v-alpha} gives \eqref{eq:v-allm-bound}.  If the determinant
+integrand vanishes, the bound holds trivially; otherwise all empirical
+measures above are defined and the argument applies.  This proves the
+claim for every $m=4n\ge64$, not just for the finite certificate values.
+\end{proof}
+
+Thus the directed margins and the all-$m$ analytic estimate are separate
+inputs: the former supplies $\alpha_q>\tau_q$, while
+\eqref{eq:v-allm-bound} supplies the full quantifier with an explicit
+finite coefficient for each fixed $q=2,\ldots,7$.

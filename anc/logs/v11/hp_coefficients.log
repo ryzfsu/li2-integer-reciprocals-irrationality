@@ -1,0 +1,2 @@
+PASS: exact Fraction regressions for HP coefficient displays, n=0..100
+Scope: finite regression only; the all-degree proof is in hp-tail.tex.

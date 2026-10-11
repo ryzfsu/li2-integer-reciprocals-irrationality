@@ -1,0 +1,424 @@
+\section{Arithmetic for the signed determinant}
+\label{sec:v-arithmetic}
+
+This section supplies the arithmetic interface for the negative
+\(V\)-family.  The base is fixed before \(m\) tends to infinity.  Thus the
+statement is made separately for \(q=2,3,4,5,6,7\), with \(a=-q\); it is
+not a theorem uniform in an unbounded parameter \(q\).  The proof has four
+parts: an exact polynomial divisor, residue-block valuations away from the
+fixed primes, an outer pole assignment, and a weighted prime-number-theorem
+sum.  All subsequent limits follow from the displayed residue valuations and
+outer assignment bounds.
+
+Put \(m=4n\), \(s=k=h=n\), and
+\[
+ I=[2n,6n),\qquad J=[n,10n),\qquad
+ \Lambda=\{1,\ldots,n\},\qquad N=10n-1,\quad U=11n-1.
+\]
+For an integer parameter \(a\), define
+\[
+ t_j=\sum_{r=1}^{j}\frac{a^{j-r}}r,\qquad
+ b_j=\sum_{r=1}^{j}\frac{a^{j-r}}{r^2},
+ \qquad t_0=b_0=0,
+\]
+and, for \(i\in I\), \(j\in J\), \(\ell\in\Lambda\),
+\[
+ C_{ij}=\begin{cases}(a^i-a^j)/(j-i),&i\ne j,\\0,&i=j,\end{cases}
+ \quad
+ B_{ij}=\begin{cases}(t_i-t_j)/(j-i),&i\ne j,\\b_i,&i=j,\end{cases}
+\]
+\[
+ A_{ij}=a^i\delta_{ij},\qquad V_{\ell j}=\frac1{j+\ell},\qquad
+ G_m(T;a)=\det\begin{bmatrix}C(a)\\ B(a)-TA(a)\\ V\end{bmatrix}.
+\]
+The determinant has size \(2m+n\).  All valuations below are coefficientwise
+in \(T\): \(v_p(F)=\min_r v_p([T^r]F)\).
+
+\subsection{Denominator and the formal divisor}
+
+Let \(d_r=\operatorname{lcm}(1,\ldots,r)\) and
+\[
+ \Delta_m=d_N^{3m}d_U^n,\qquad
+ D_m=\left\lceil\frac{53m^2}{48}\right\rceil-m
+      =\left\lceil\frac{53n^2}{3}\right\rceil-4n.
+\]
+
+\begin{lemma}[denominator]
+\label{lem:v-denom}
+For an indeterminate \(a\),
+\[
+ \Delta_mG_m(T;a)\in\mathbb Z[a,T].
+ \]
+\end{lemma}
+
+\begin{proof}
+Every denominator in a \(C\)-entry divides \(d_N\).  In an off-diagonal
+\(B\)-entry one harmonic denominator and one divided-difference denominator
+occur, while \(b_i\) has two harmonic denominators; hence \(d_N^2\) clears
+each lower row.  The denominators of the \(V\)-rows divide \(d_U\).
+Multiplying the rows and expanding the determinant proves the assertion.
+\end{proof}
+
+\begin{lemma}[formal $a$-divisor]
+\label{lem:v-formal-divisor}
+Coefficientwise in \(T\),
+\[
+ \Delta_mG_m(T;a)\in a^{D_m}(a-1)^m\mathbb Z[a,T].
+\]
+\end{lemma}
+
+\begin{proof}
+The following argument is coefficientwise in \(\mathbb Q[[a]][T]\), so
+every use of an infinite series can be replaced by a finite truncation for a
+fixed coefficient.  For \(u_t(r)=(r-t)^{-1}\) when \(r\ne t\), and
+\(u_t(t)=0\), put \(S_1(a)=\sum_{v\ge1}a^v/v\) and
+\(S_2(a)=\sum_{v\ge1}a^v/v^2\).  Direct coefficient comparison, including
+the diagonal entries, gives
+\[
+ C_{ij}=a^i u_i(j)+a^j u_j(i),
+\]
+\[
+ (B-S_1C)_{ij}
+ =\sum_{t\ge0}a^tu_t(i)u_t(j)-\frac{a^i+a^j}{(i-j)^2}
+ \quad(i\ne j),
+\]
+and
+\[
+ (B-TA)_{ii}=\sum_{t\ge0}a^tu_t(i)^2-a^i(T+S_2(a)).
+\]
+The last formula is the diagonal term and is the reason no off-diagonal
+limiting convention is needed.
+
+Expand first along the \(n\) rows of \(V\).  In each remaining \(2m\)-row
+minor, use the preceding rank-one expansion.  A nonzero term selects
+\(2m=8n\) distinct features.  If \(b,x,y,z\) count, respectively, the
+series features, the upper boundary features, the lower boundary features,
+and the column boundary features, then \(b+x+y+z=8n\).  Distinctness gives
+the lower bound
+\[
+ \Psi\ge {b\choose2}+{x\choose2}+x\max(2n,b)
+       +2ny+{y\choose2}+nz+{z\choose2}.
+\]
+Here the \(b\) series indices are distinct; an upper boundary index cannot
+be one of them because the two corresponding right vectors coincide.  The
+\(x\) and \(y\) indices are distinct members of \(I=[2n,6n)\), while the
+\(z\) column indices are distinct members of \(J=[n,10n)\).  These are the
+only features used in the count, so a collision can only delete a term and
+cannot lower the displayed lower bound.
+Writing \(B_0=b+x\), the right side is at least
+\[
+ Q(B_0,y)=B_0^2+B_0y+y^2-9nB_0-7ny+40n^2-4n
+ =\frac{53n^2}{3}-4n+r^2+rs+s^2
+\]
+for suitable real \(r,s\).  Since the order is integral, every coefficient
+of every \(2m\)-minor has order at least \(D_m\).  The \(V\)-minors are
+rational constants independent of \(a,T\), so expansion along \(V\) gives
+\(a^{D_m}\mid G_m(T;a)\) in \(\mathbb Q[a,T]\).  Combining this with the
+denominator lemma and monic division gives
+\(a^{D_m}\mid\Delta_mG_m\) in \(\mathbb Z[a,T]\).
+
+Finally every \(C\)-entry is divisible by \(a-1\) in \(\mathbb Q[a]\),
+including the zero diagonal convention.  There are \(m\) such rows, hence
+\((a-1)^m\mid G_m\).  The two monic factors \(a^{D_m}\) and \((a-1)^m\)
+are coprime, so their product divides the integral polynomial
+\(\Delta_mG_m\).  This proves the lemma for every \(n\ge1\), not only for
+the finite verification values.
+\end{proof}
+
+For \(a=-q\), the formal divisor implies the exact coefficientwise bound
+\[
+ v_p([T^r]G_m(T;-q))\ge v_p(q)D_m+v_p(q+1)m
+       -3m\lfloor\log_pN\rfloor-n\lfloor\log_pU\rfloor .
+\]
+The two credited prime sets are disjoint because \(\gcd(q,q+1)=1\).  Notice
+that this argument includes composite \(q\) and powers \(p^e\); no
+square-free assumption is being made.
+For reference, the finite exceptional sets in the five middle cases are
+\[
+\begin{array}{c|c@{\qquad}c|c}
+q&\mathcal P_q=\{p:p\mid q(q+1)\}&q&\mathcal P_q\\ \hline
+3&\{2,3\}&4&\{2,5\}\\
+5&\{2,3,5\}&6&\{2,3,7\}\\
+7&\{2,7\}&&
+\end{array}
+\]
+The \(q=2\) row is \(\{2,3\}\), and is treated by the same rule.
+
+\subsection{The $p$-unit residue blocks}
+
+Fix an odd prime \(p\nmid q(q+1)\) with \(p^2>\max(N,U)\), and write
+\(i=u+kp\), \(j=u+\ell p\), \(0\le u<p\).  Since \(a=-q\) and
+\(a^p\equiv a\pmod p\), splitting the defining sums at multiples of \(p\)
+gives
+\begin{align*}
+ p t_{u+kp}
+ &=\sum_{\substack{1\le r\le u+kp\\p\nmid r}}
+       \frac{p a^{u+kp-r}}r
+   +\sum_{s=1}^{k}\frac{a^{u+p(k-s)}}s
+   \equiv a^u t_k\pmod p,\\
+ p^2 b_{u+kp}
+ &=\sum_{\substack{1\le r\le u+kp\\p\nmid r}}
+       \frac{p^2a^{u+kp-r}}{r^2}
+   +\sum_{s=1}^{k}\frac{a^{u+p(k-s)}}{s^2}
+   \equiv a^u b_k\pmod p,\qquad
+ p^2TA_{ij}\equiv0\pmod p.
+\end{align*}
+Here \(k,\ell<p\) follows from \(i\le N\), \(j\le U\), and
+\(p^2>\max(N,U)\), so each displayed denominator \(s\) is a \(p\)-unit.
+Thus the scaled entries satisfy
+\[
+ pC_{u+kp,u+\ell p}\equiv a^uC_{k\ell}\pmod p,\qquad
+ p^2B_{u+kp,u+\ell p}\equiv a^uB_{k\ell}\pmod p,
+\]
+whereas
+\[
+ pV_{r,u+\ell p}\equiv0\quad\text{unless }r+u=pw,\qquad
+ pV_{r,u+\ell p}=\frac1{\ell+w}\quad(r+u=pw).
+\]
+The denominators in the last expression are units because \(p^2>U\).
+Cross-residue \(C\) and \(B\) entries vanish after the displayed row
+scalings.  The reduced residue-\(u\) block has \(2|K_u|+|W_u|\) rows and
+\(|L_u|\) columns.  Therefore its rank over \(\mathbb F_p\) is at most
+\[
+ \min(2|K_u|+|W_u|,|L_u|)
+\]
+where
+\[
+ K_u=\{k:1/2\le u/m+kp/m<3/2\},\quad
+ L_u=\{\ell:1/4\le u/m+\ell p/m<5/2\},
+\]
+\[
+W_u=\{w\ge1:0<w p/m-u/m\le1/4\}.
+\]
+Let $\operatorname{rk}_u$ denote the actual rank of this reduced block.
+After permuting rows and columns by residue class, the globally scaled square
+matrix of order $2m+n$ is block diagonal with precisely these blocks.  Hence
+its rank modulo $p$ equals $\sum_u\operatorname{rk}_u$, and its determinant
+has valuation at least
+\[
+ (2m+n)-\sum_u\operatorname{rk}_u.
+\]
+The total row-scaling factor is $p^{3m+n}$: the $C$, $B$, and $V$ rows were
+scaled by $p$, $p^2$, and $p$, respectively.  Undoing this factor gives
+\[
+ v_p(G_m(T;-q))\ge -\left(m+\sum_u\operatorname{rk}_u\right).
+\]
+These valuations are coefficientwise in $T$.  Indeed, the Gauss valuation on
+$\mathbb Q_p(T)$ is discrete with residue field $\mathbb F_p(T)$; Smith
+normal form over its valuation ring gives
+$v_p(\det M)\ge (2m+n)-\operatorname{rank}(M\bmod p)$ for every integral
+square matrix $M$ of order $2m+n$.  Thus only the actual block ranks
+$\operatorname{rk}_u$ are credited,
+not a count of non-divisible rows.  Summing the block ranks gives the
+exponent used below.
+The only rank saving deliberately credited in the valuation sum is the profile
+\(K=\{0\},L=\{0,1\},W=\varnothing\).  After dividing its rows by the
+unit \(a^u\), its quotient matrix is
+\[
+ \begin{pmatrix}0&1-a\\0&-1\end{pmatrix},
+\]
+which has rank one over every residue field.  This is a universal identity;
+no accidental rank deficiency of another profile is credited.
+
+For \(\rho=p/m\), define
+\[
+ K(x,\rho)=\{k\ge0:1/2\le x+k\rho<3/2\},\quad
+ L(x,\rho)=\{\ell\ge0:1/4\le x+\ell\rho<5/2\},
+\]
+\[
+ W(x,\rho)=\{w\ge1:0<w\rho-x\le1/4\},
+\qquad 0\le x<\rho,
+\]
+and define
+\[
+\begin{aligned}
+ \mathfrak r(x,\rho)
+   &=\min(2|K(x,\rho)|+|W(x,\rho)|,|L(x,\rho)|)\\
+   &\quad-\mathbf 1_{\{K(x,\rho)=\{0\},\,
+       L(x,\rho)=\{0,1\},\,W(x,\rho)=\varnothing\}},\\
+ \mathfrak c(\rho)&=1+\int_0^\rho\mathfrak r(x,\rho)\,dx .
+\end{aligned}
+\]
+with the rank-one profile subtracted on its exact active cells.  The endpoint
+conventions are left-closed/right-open for \(K,L\), and
+\(w\rho-1/4\le x<w\rho\) for \(W\).  Every wall has the form
+\(x=c+b\rho\) with \(4c,b\in\mathbb Z\).  Since \(m=4n\), the function is
+constant on each lattice interval \([u/m,(u+1)/m)\), and hence
+\[
+ \sum_{u=0}^{p-1}\mathfrak r(u/m,p/m)
+   =m\int_0^{p/m}\mathfrak r(x,p/m)\,dx.
+\]
+The residue-block lemma is therefore
+\[
+ v_p(G_m(T;-q))\ge -m\mathfrak c(p/m).
+\]
+The proof uses only the p-unit conditions and the index geometry, so it is
+independent of the value of the fixed \(q\).
+
+For the arrangement with cutoff $R=40$, all active walls on
+\(1/40<\rho<5/4\) are enumerated by the finite affine rule above.  Define
+the finite critical set explicitly by
+\[
+ \mathcal W_{40}=\{1/40,5/4\}\cup
+ \left\{\frac{c-c'}{b'-b}:\ x=c+b\rho,\ x=c'+b'\rho
+ \text{ are listed walls, }\frac1{40}<\frac{c-c'}{b'-b}<\frac54\right\}.
+\]
+At each open interval of this set, choose the least rational midpoint and
+generate the $x$-cells and profiles by the endpoint inequalities above;
+the profile is constant on the resulting cells.  Their
+exact ordering gives 412 \(\rho\)-slabs, 2472 \(x\)-cells and 582 profiles;
+the one intentionally deficient profile integrates to the saving \(5/48\).
+More explicitly, retain on \(1/40\le\rho\le5/4\) and \(0\le x\le\rho\)
+the affine walls
+\[
+\begin{gathered}
+x=0,\quad x=\rho,\quad
+x=\tfrac12-k\rho,\quad x=\tfrac32-k\rho,\\
+x=\tfrac14-\ell\rho,\quad x=\tfrac52-\ell\rho,\quad
+x=w\rho-\tfrac14,\quad x=w\rho .
+\end{gathered}
+\]
+for all nonnegative \(k,\ell\) and positive \(w\) whose line meets the
+closed strip.  Only finitely many such lines occur; sort their pairwise
+rational intersections and evaluate the exact midpoint profile on each cell.
+This finite rule gives the 412 \(\rho\)-slabs, 2472 \(x\)-cells and 582
+profiles without floating-point geometry.
+The corresponding exact finite comparisons use only the displayed residue
+blocks and the stated rank formula.
+
+\subsection{Outer poles and precedence}
+
+For \(p>5n\), use row potentials \(\lambda_B(i),\lambda_V(\ell)\) and
+column potentials \(\chi(j)\) as follows:
+\[
+\begin{array}{c|c|c|c}
+ \text{range}&(\lambda_B,\lambda_V,\chi)&\text{cost}&\text{pole}\\ \hline
+ 5n<p<6n&(1+[i\ge p],1,[j\ge p+2n])&19n-2p&C,B,V\\
+ 6n\le p<8n&([i+p<10n],1,[j\ge p])&19n-2p&C,B,V\\
+ 8n\le p<10n&(0,1,[j\ge p])&11n-p&C,B,V\\
+ 10n\le p\le U&(0,[p-\ell\in J],0)&11n-p&V
+\end{array}
+\]
+Here brackets are indicator functions.  A \(C\)-entry has at most a simple
+pole at \(j=i+p\); a \(B\)-entry has the simple harmonic pole and, when the
+residue agrees, the second pole (including the diagonal double pole); and a
+\(V\)-entry has a simple pole at \(j+\ell=p\) or \(2p\).  The potentials in
+the table dominate these orders entry by entry.  In particular, the two
+families of \(V\)-poles are explicitly included, and no pole is assigned to
+two ranges.  This proves
+\[
+ v_p(G_m(T;-q))\ge-E_p^{\rm out},\qquad
+ E_p^{\rm out}=\begin{cases}19n-2p,&5n<p<8n,\\11n-p,&8n\le p\le U.
+\end{cases}
+\]
+The \(C\)-row potential in the last row is \(0\); its absence there records
+that no \(C\)-pole occurs once \(p>10n\).
+The argument uses only p-unit cancellation and pole locations; it is unchanged
+when \(-2\) is replaced by any fixed \(-q\) in the p-unit branch.
+
+For completeness, fix the finite set \(\mathcal P_q=\{p:p\mid q(q+1)\}\).  Let
+\(\mathcal W_{40}\) be the exact set of affine \(\rho\)-walls in this
+arrangement, with \(1/40\) and \(5/4\) included as closed endpoints.  Define
+the baseline exponent
+\[
+ e_{\rm nat}(p)=3m\left\lfloor\log_p N\right\rfloor
+                 +n\left\lfloor\log_p U\right\rfloor,
+\]
+which is the coefficientwise exponent supplied by \(\Delta_m=d_N^{3m}d_U^n\),
+and assign the exponent to each prime by the following ordered rule:
+\[
+ E_{p,q}=\begin{cases}
+ e_{\rm nat}(p)-v_p(q)D_m-v_p(q+1)m,&p\in\mathcal P_q,\\[2pt]
+ e_{\rm nat}(p),&p\notin\mathcal P_q,\ p\le m/40,\\
+ e_{\rm nat}(p),&p\notin\mathcal P_q,\ p^2\le\max(N,U),\\
+ e_{\rm nat}(p),&p\notin\mathcal P_q,\ p/m\in\mathcal W_{40},\\[2pt]
+ m+\sum_u\mathfrak r(u/m,p/m),&
+ \substack{p\notin\mathcal P_q,\ 1/40<p/m<5/4,\\ p/m\notin\mathcal W_{40}},\\[2pt]
+ E_p^{\rm out},&5n<p\le U,\ p\notin\mathcal P_q,\\[2pt]
+ 0,&p>U.
+ \end{cases}
+\]
+The first matching line always takes precedence; the cases are therefore an
+ordered partition even when a small-prime condition overlaps a wall.
+The outer line begins after the inner range.
+The coefficientwise bounds above imply
+\[
+ D^*_{m,q}:=\prod_p p^{E_{p,q}},\qquad
+ D^*_{m,q}G_m(T;-q)\in\mathbb Z[T].
+\]
+The exponent in the first line can be negative; this is allowed because the
+formal divisor supplies the corresponding coefficient valuation.  No primitive
+content or gcd equality is asserted.
+
+\subsection{Prime summation and the fixed-base rate}
+
+Let \(\vartheta(y)=\sum_{p\le y}\log p\) and
+\[
+ \eps_{\rm PNT}(X)=\sup_{y\ge X}\left|\frac{\vartheta(y)}y-1\right|.
+\]
+For every affine profile \(f\) on a rational \(\rho\)-cell,
+Stieltjes summation gives
+\[
+ m\sum_{t_0m<p<t_1m}f(p/m)\log p
+ =m^2\int_{t_0}^{t_1}f(\rho)\,d\rho
+ +O\!\left(\eps_{\rm PNT}(m/40)m^2+m\log(3m)\right).
+\]
+The baseline strip contributes \(13/160\), the deliberately credited profile
+contributes \(-5/48\), and the outer potentials contribute \(45/32\).  The
+exact rational value for this arrangement (including all intervening cells) is
+\[
+ \begin{aligned}
+ A_{40}&=N_{40}/D_{40}=5.082993964478118\ldots,\\
+ N_{40}&=132263363803421925450338622847809742317124551497,\\
+ D_{40}&=26020759561732371877438650035601516684254668800.
+ \end{aligned}
+\]
+Higher prime powers contribute \(O(m^{3/2}\log(3m))\).  The exact sum over
+the fixed exceptional set is
+\[
+ \sum_{p\in\mathcal P_q}E_{p,q}\log p
+ =\sum_{p\in\mathcal P_q}e_{\rm nat}(p)\log p-D_m\log q-m\log(q+1).
+\]
+Only the first term on the right is the exceptional-prime cost; since
+\(\mathcal P_q\) is fixed and \(N,U=O(m)\), it is \(O_q(m\log(3m))\).  The
+\((q+1)^m\) formal factor contributes the separate linear term
+\(-m\log(q+1)\).  As
+\(D_m=53m^2/48-m+O(1)\), the other formal term contributes
+\(-\frac{53}{48}m^2\log q+O_q(m)\).  Thus
+\[
+ \log D^*_{m,q}\le
+ \left(A_{40}-\frac{53}{48}\log q\right)m^2+r_{q,m},
+\]
+where
+\[
+ r_{q,m}=O\!\left(\eps_{\rm PNT}(m/40)m^2
+ +m^{3/2}\log(3m)+m\log(3m)+C_q^{\rm exc}m\log(3m)+B_qm\right),
+\]
+\(C_q^{\rm exc}=13|\mathcal P_q|/4\), and \(B_q\) is fixed after \(q\) is fixed.  Since
+\(\eps_{\rm PNT}(X)\to0\), this is \(o_q(m^2)\).  The quadratic rates are
+\[
+\begin{array}{c|c}
+q&A_{40}-(53/48)\log q\\\hline
+3&3.869942895741\\
+4&3.552293940742\\
+5&3.305906269499\\
+6&3.104592883873\\
+7&2.934384841563
+\end{array}
+\]
+For \(q=2\), the same formal rate is
+\(4.317643952609845\ldots\); its analytic passage is the \(q=2\) instance of
+Section~\ref{sec:v-analytic}.
+
+\begin{proposition}[fixed-base arithmetic transfer]
+\label{prop:v-fixed-arithmetic}
+For each fixed \(q\in\{2,3,4,5,6,7\}\), the determinant has a rational
+coefficientwise integerizer satisfying
+\[
+ \limsup_{m\to\infty,\ 4\mid m}m^{-2}\log D^*_{m,q}
+ \le A_{40}-\frac{53}{48}\log q.
+\]
+For \(q=2,3,4,5,6,7\), the proof is the formal divisor, residue/outer bounds,
+wall precedence and PNT argument above.  The finite comparisons instantiate
+the displayed formulas; they do not replace the all-$m$ argument.
+\end{proposition}

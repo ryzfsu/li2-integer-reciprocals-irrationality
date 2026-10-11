@@ -1,0 +1,257 @@
+V endpoint/circle	chapters/certificate-algorithm.tex:29	\paragraph{P0 endpoint measures.}
+HP contour/endpoint	chapters/certificate-algorithm.tex:32	The contour has $N=64$ nodes
+V endpoint/circle	chapters/certificate-algorithm.tex:39	reflect. The contour density is $(2\pi)^{-1}\sum_jc_jF_{48}(\theta-\theta_j)$.
+HP contour/endpoint	chapters/certificate-algorithm.tex:39	reflect. The contour density is $(2\pi)^{-1}\sum_jc_jF_{48}(\theta-\theta_j)$.
+V endpoint/circle	chapters/certificate-algorithm.tex:41	density bounds, and the printed ellipse $(\xi,A,B)$. For an interval row use
+P0 collar/source	chapters/certificate-algorithm.tex:42	the primitive $H(u)=u(\log u-1)$ with $H(0)=0$; for the contour use the
+HP contour/endpoint	chapters/certificate-algorithm.tex:42	the primitive $H(u)=u(\log u-1)$ with $H(0)=0$; for the contour use the
+HP contour/endpoint	chapters/certificate-algorithm.tex:55	they are not assumed to be rational.  On the contour,
+HP contour/endpoint	chapters/certificate-algorithm.tex:77	logarithms evaluated by outward rounding.  For a complex contour point and a
+HP contour/endpoint	chapters/certificate-algorithm.tex:85	$H(u)=u(\log|u|-1)$, $H(0)=0$.  Thus all mixed contour--interval
+P0 collar/source	chapters/certificate-algorithm.tex:86	potentials, their primitives, and the contour self-energy
+HP contour/endpoint	chapters/certificate-algorithm.tex:86	potentials, their primitives, and the contour self-energy
+V endpoint/circle	chapters/certificate-algorithm.tex:96	endpoint in units of $1/(5\cdot10^{13})$; each displayed length is in units of
+V endpoint/circle	chapters/certificate-algorithm.tex:100	mass, accumulate each pair left to right and top to bottom. In each Poisson
+V endpoint/circle	chapters/certificate-algorithm.tex:104	agree with Table~\ref{tab:v-certificates}. Complete the Poisson list by adjoining the
+V endpoint/circle	chapters/certificate-algorithm.tex:106	checks every count, increment, support, total mass, and conjugate pair. Real
+V endpoint/circle	chapters/certificate-algorithm.tex:107	rows are uniform. A Poisson row
+P0 smoothing/sweep	chapters/certificate-algorithm.tex:108	is harmonic measure on $|z|=r=3/5$, with density
+V endpoint/circle	chapters/certificate-algorithm.tex:108	is harmonic measure on $|z|=r=3/5$, with density
+V endpoint/circle	chapters/certificate-algorithm.tex:129	P0 contour & $u/\pi\in[j/256,(j+1)/256]$, $0\le j<256$; Arb, 45 digits; upper half only, lower by exact conjugation & lower field endpoint $\ge h_\eta$; otherwise rational midpoint bisection, left first, depth at most 10\\
+HP contour/endpoint	chapters/certificate-algorithm.tex:129	P0 contour & $u/\pi\in[j/256,(j+1)/256]$, $0\le j<256$; Arb, 45 digits; upper half only, lower by exact conjugation & lower field endpoint $\ge h_\eta$; otherwise rational midpoint bisection, left first, depth at most 10\\
+V endpoint/circle	chapters/certificate-algorithm.tex:131	V endpoint boxes & $0\le x,v\le\delta$, $\delta=1/250$; use the printed $E_{x,q},E_{v,q}$ & accept the two boxes when $E_{x,q}<K_{x,q}$ and $E_{v,q}<K_{v,q}$\\
+V endpoint/circle	chapters/certificate-algorithm.tex:132	V real supports & $x,v\in[\delta,1]$, $z\in[-q,-3/5]$ and $[3/5,1]$; Arb, 90 digits & accept iff the directed upper endpoint is strictly below its printed threshold; otherwise bisect the rational midpoint, left first, to depth 30\\
+V endpoint/circle	chapters/certificate-algorithm.tex:133	V circle bounds & each half-circle parameter $z=(3/5)e^{i\pi t}$, $t\in[0,1]$; Arb, 90 digits & same strict threshold test and bisection; circle endpoints are checked directly\\
+V endpoint/circle	chapters/certificate-algorithm.tex:137	The V supports cover the entire admissible set.  The lower circle follows by
+V endpoint/circle	chapters/certificate-algorithm.tex:138	conjugation.  The two real endpoint boxes are discharged by the displayed
+V endpoint/circle	chapters/certificate-algorithm.tex:139	endpoint inequalities rather than by evaluating $\log 0$.  Nonfinite balls,
+V endpoint/circle	chapters/certificate-algorithm.tex:140	unvisited endpoints, or unresolved cells are rejected.
+V endpoint/circle	chapters/certificate-algorithm.tex:141	Finally recompute $Q_q$ and require the directed lower endpoint of
+V endpoint/circle	chapters/certificate-algorithm.tex:149	the bisection rule are auxiliary computation, not additional data.
+HP contour/endpoint	chapters/hp-tail.tex:4	limit; constants in contour and remainder estimates may depend on that base.
+V endpoint/circle	chapters/hp-tail.tex:104	boundary terms vanish at both endpoints, and the two moment families for
+V endpoint/circle	chapters/hp-tail.tex:127	The first two coefficients follow from the endpoint residues. Put
+V endpoint/circle	chapters/hp-tail.tex:237	including at endpoints.  Now
+V endpoint/circle	chapters/hp-tail.tex:256	\subsection{Negative coefficient bound: contour and endpoint estimate}
+HP contour/endpoint	chapters/hp-tail.tex:256	\subsection{Negative coefficient bound: contour and endpoint estimate}
+HP contour/endpoint	chapters/hp-tail.tex:262	\begin{equation}\label{eq:hp-contour-res}
+HP contour/endpoint	chapters/hp-tail.tex:266	where the rectangle encloses the poles $0,1,\ldots,n$.  Set $\beta_q>0$
+HP contour/endpoint	chapters/hp-tail.tex:272	rectangle with vertical sides $\Re w=-1/2,n+1/2$ and horizontal sides
+HP contour/endpoint	chapters/hp-tail.tex:276	$n\beta_q\ge1/2$.  All numerator zeros lie outside the rectangle at distance
+HP contour/endpoint	chapters/hp-tail.tex:279	oriented rectangle.
+HP contour/endpoint	chapters/hp-tail.tex:281	We give the uniform sum-to-integral estimate needed on these contours.
+HP contour/endpoint	chapters/hp-tail.tex:282	If $\xi=w/n$ lies on the scaled rectangle, then
+HP contour/endpoint	chapters/hp-tail.tex:294	there, the only possible near-singularity lies in the first mesh cell:
+V endpoint/circle	chapters/hp-tail.tex:295	its real part is exactly halfway between the endpoint and the first mesh
+V endpoint/circle	chapters/hp-tail.tex:301	by $C_q+\int_{1/n}^{O_q(1)}dr/r=O_q(\log(n+1))$.  Endpoint shifts of one
+HP contour/endpoint	chapters/hp-tail.tex:304	logarithmic singularity is handled explicitly rather than hidden in a
+HP contour/endpoint	chapters/hp-tail.tex:305	smooth-function Euler--Maclaurin assertion.
+V endpoint/circle	chapters/hp-tail.tex:308	Riemann-sum estimate, including the endpoint cell.  Put
+HP contour/endpoint	chapters/hp-tail.tex:308	Riemann-sum estimate, including the endpoint cell.  Put
+HP contour/endpoint	chapters/hp-tail.tex:312	total variation is $O_q(1)$.  On a vertical edge the only possible singular
+HP contour/endpoint	chapters/hp-tail.tex:316	uniform on all four edges and does not invoke a smooth Euler--Maclaurin
+V endpoint/circle	chapters/hp-tail.tex:317	formula across a logarithmic endpoint.
+V endpoint/circle	chapters/hp-tail.tex:356	halves occur at their lower endpoints.  The strictly concave lower horizontal
+V endpoint/circle	chapters/hp-tail.tex:358	both endpoints.
+HP contour/endpoint	chapters/hp-tail.tex:361	the real integration intervals because their logarithmic singularities are
+HP contour/endpoint	chapters/hp-tail.tex:363	neighborhood of the limiting rectangle.  The maxima over the boundaries of
+HP contour/endpoint	chapters/hp-tail.tex:364	the scaled finite rectangles converge to the maximum over the limiting
+HP contour/endpoint	chapters/hp-tail.tex:365	boundary.  The original rectangles have perimeter $O_q(n)$, while
+HP contour/endpoint	chapters/hp-tail.tex:374	contour.  An antiderivative gives the analytic phase
+V endpoint/circle	chapters/hp-tail.tex:446	endpoints.  The Taylor sum for $e^4$ through degree 16 and a geometric tail
+V endpoint/circle	chapters/hp-tail.tex:451	Opposite signs of the defining cubics at the following rational endpoints
+V endpoint/circle	chapters/hp-tail.tex:492	The lower endpoint residues give
+V endpoint/circle	chapters/nonvanishing.tex:194	the seed determinant is supported on the primes $2,3,5,7$ (cancellation may
+HP contour/endpoint	chapters/p0-analytic.tex:6	continuum interpolation.  All measures, intervals, and the contour below are
+V endpoint/circle	chapters/p0-analytic.tex:7	fixed as $q$ varies.  The two endpoint reference measures are the exact data
+HP contour/endpoint	chapters/p0-analytic.tex:29	Section~\ref{sec:p0}, with $a=q$.  The diagonal contour identity is
+HP contour/endpoint	chapters/p0-analytic.tex:30	\begin{equation}\label{eq:p0-contour-q}
+HP contour/endpoint	chapters/p0-analytic.tex:57	same three Vandermonde interactions as at $q=2$: contour-contour, pinned-
+HP contour/endpoint	chapters/p0-analytic.tex:58	pinned, and frequency-frequency each have coefficient one; pinned-contour
+HP contour/endpoint	chapters/p0-analytic.tex:59	has coefficient two; pinned-frequency and contour-frequency each have
+HP contour/endpoint	chapters/p0-analytic.tex:75	diagonal term in \eqref{eq:p0-contour-q} row by row chooses
+HP contour/endpoint	chapters/p0-analytic.tex:76	$S\subset I_m$; the remaining $d=m-|S|$ rows are represented by contour
+HP contour/endpoint	chapters/p0-analytic.tex:84	Restoring the fixed-grid Vandermonde factors leaves contour-contour,
+HP contour/endpoint	chapters/p0-analytic.tex:86	pinned-contour with coefficient two, and the other two mixed interactions
+HP contour/endpoint	chapters/p0-analytic.tex:119	then expanding the diagonal summands in the contour formula row by row.
+HP contour/endpoint	chapters/p0-analytic.tex:131	Each pinned index is therefore counted twice in a contour denominator and
+HP contour/endpoint	chapters/p0-analytic.tex:133	contour-contour, pinned-pinned, and frequency-frequency interactions with
+HP contour/endpoint	chapters/p0-analytic.tex:134	coefficient one, pinned-contour with coefficient two, and each remaining
+HP contour/endpoint	chapters/p0-analytic.tex:154	$m^{-2m-2d}$ before the contour differentials and $m^{-2m-d}$ after them.
+V endpoint/circle	chapters/p0-analytic.tex:181	For measures on the corresponding reflected supports write
+HP contour/endpoint	chapters/p0-analytic.tex:200	truncate at the logarithmic singularity, integrate the resulting bounded
+P0 collar/source	chapters/p0-analytic.tex:202	the continuous primitive \(u(\log|u|-1)\), with value \(0\) at \(u=0\).
+V endpoint/circle	chapters/p0-analytic.tex:203	The measures used below have bounded densities and compact support, so this
+V endpoint/circle	chapters/p0-analytic.tex:217	combination of its endpoint energies, and taking an infimum gives
+V endpoint/circle	chapters/p0-analytic.tex:253	zero-mass signed measures.  The density constraints then give
+V endpoint/circle	chapters/p0-analytic.tex:267	circle centered at $z$.
+V endpoint/circle	chapters/p0-analytic.tex:272	The first two measures have density at most one,
+V endpoint/circle	chapters/p0-analytic.tex:274	Circle averaging gives
+V endpoint/circle	chapters/p0-analytic.tex:275	\begin{equation}\label{eq:p0-circle}
+P0 smoothing/sweep	chapters/p0-analytic.tex:281	on the smoothing disks.  The contour field is subharmonic, including across
+V endpoint/circle	chapters/p0-analytic.tex:281	on the smoothing disks.  The contour field is subharmonic, including across
+HP contour/endpoint	chapters/p0-analytic.tex:281	on the smoothing disks.  The contour field is subharmonic, including across
+P0 smoothing/sweep	chapters/p0-analytic.tex:282	the zero segment of $F_{g,q}$.  Thus smoothing has no additional field
+P0 smoothing/sweep	chapters/p0-analytic.tex:283	error; the explicit $2d\log m$ is the full smoothing loss.
+V endpoint/circle	chapters/p0-analytic.tex:332	Summing endpoint-to-cell differences over disjoint frequency cells costs
+HP contour/endpoint	chapters/p0-analytic.tex:375	$\cos u$ on the ellipse parametrization.  The pinned-contour displacement
+HP contour/endpoint	chapters/p0-analytic.tex:376	costs $m/d_+$, the fixed contour denominators cost $3m/(2d_+)$, and the
+HP contour/endpoint	chapters/p0-analytic.tex:377	contour-frequency displacement costs $m/(2d_-)$.  The pinned-frequency
+HP contour/endpoint	chapters/p0-analytic.tex:386	For the finite contour product the required inequality is one-sided.  Fix
+V endpoint/circle	chapters/p0-analytic.tex:393	The negative part of $f$ is supported near $r$; after translating $r$ and
+V endpoint/circle	chapters/p0-analytic.tex:396	right-endpoint quadrature error for $H$ is nonpositive on the decreasing
+V endpoint/circle	chapters/p0-analytic.tex:398	is bounded by the variation on the increasing piece.  The sampled endpoint
+V endpoint/circle	chapters/p0-analytic.tex:401	$\log(6(g+1))$ at the right endpoint, so this variation is at most
+HP contour/endpoint	chapters/p0-analytic.tex:414	contour-product estimate.
+HP contour/endpoint	chapters/p0-analytic.tex:416	\begin{equation}\label{eq:p0-q-contour-product}
+HP contour/endpoint	chapters/p0-analytic.tex:421	Since $g+1\le m$ for $m\ge8$, the contour
+V endpoint/circle	chapters/p0-analytic.tex:422	and circle errors together contribute $2m\log m+m\beta_m$.
+P0 smoothing/sweep	chapters/p0-analytic.tex:475	\subsection{Tube transfer, frequency tail, and summation}
+P0 smoothing/sweep	chapters/p0-analytic.tex:478	harmonic measure $\omega_z$ on $\Gamma$; outside $D$ use exterior harmonic
+P0 smoothing/sweep	chapters/p0-analytic.tex:483	$\mathcal J(w_1)-\mathcal J(w_2)=(w_1-w_2)(c-d/(w_1w_2))$ and the Green
+P0 smoothing/sweep	chapters/p0-analytic.tex:490	deficit is the Green function of $D$; the exterior deficit is the
+P0 smoothing/sweep	chapters/p0-analytic.tex:491	nonnegative disk Green function; the cross-boundary deficit is zero.
+V endpoint/circle	chapters/p0-analytic.tex:491	nonnegative disk Green function; the cross-boundary deficit is zero.
+P0 smoothing/sweep	chapters/p0-analytic.tex:513	$\chi=1/8$ is more than $1/32$ from $[0,2]$, so the Green function there is
+P0 collar/source	chapters/p0-analytic.tex:514	at most $\log160<6$.  The barrier $48\chi$ on the collar gives
+P0 smoothing/sweep	chapters/p0-analytic.tex:514	at most $\log160<6$.  The barrier $48\chi$ on the collar gives
+P0 smoothing/sweep	chapters/p0-analytic.tex:519	interior field-sweep loss for $A_0-\phi_q$ is at most $288\delta/B$.
+P0 collar/source	chapters/p0-analytic.tex:529	The logarithmic source in $\phi_q$ needs a separate collar estimate.  Put
+P0 collar/source	chapters/p0-analytic.tex:534	$\operatorname{dist}(z,\Gamma)\le\delta$, the explicit primitive
+P0 collar/source	chapters/p0-analytic.tex:539	on the two sides of the source segment gives $|\nabla V|<4$ on the collar.
+P0 collar/source	chapters/p0-analytic.tex:541	pullback is $6$-Lipschitz, including the one-sided cusp at
+V endpoint/circle	chapters/p0-analytic.tex:571	The dual problem is posed on the printed support interval \([1/2,20]\).
+HP contour/endpoint	chapters/p0-analytic.tex:600	contour-frequency factors gives
+HP contour/endpoint	chapters/p0-analytic.tex:615	from $r$ and $s$; each contour-frequency factor is bounded by the
+HP contour/endpoint	chapters/p0-analytic.tex:668	frequency sets.  The normalized contour length is at most $mA$, hence
+P0 smoothing/sweep	chapters/p0-analytic.tex:670	$c_*+\log39+1+A<56$, the finite configuration bound, the tube transfer
+P0 smoothing/sweep	chapters/p0-analytic.tex:673	\begin{lemma}[Uniform smoothing bound]\label{lem:p0-smoothing-transfer}
+P0 collar/source	chapters/p0-analytic.tex:684	factor.  The additional $40\log m$ is the explicit logarithmic collar cost.
+P0 smoothing/sweep	chapters/p0-analytic.tex:689	$m^{-2}$ tube problem.  Tube transfer bounds their energy below by
+HP contour/endpoint	chapters/p0-analytic.tex:692	the $\binom{39m/2}{m}$ retained frequency choices, and the contour integral
+V endpoint/circle	chapters/p0-analytic.tex:707	\subsection{Endpoint certificates and the interval comparison}
+V endpoint/circle	chapters/p0-analytic.tex:712	\begin{equation}\label{eq:p0-q-endpoint-bounds}
+HP contour/endpoint	chapters/p0-analytic.tex:717	minimizers.  In each certificate the contour inequality is checked on the
+V endpoint/circle	chapters/p0-analytic.tex:719	support; the frequency positive-part integral is checked through $81/10$.
+V endpoint/circle	chapters/p0-analytic.tex:720	The endpoint inequalities at $81/10$ are part of the directed integrals
+V endpoint/circle	chapters/p0-analytic.tex:725	The infinite tail has a direct bound that uses only the masses and supports
+V endpoint/circle	chapters/p0-analytic.tex:726	of these two references.  Both $\eta_0$ have mass one and support in
+V endpoint/circle	chapters/p0-analytic.tex:728	mass one and support in $[1/2,9/2]$.  Also $B_0'$ is the Cauchy transform
+V endpoint/circle	chapters/p0-analytic.tex:758	omitted tail.  The directed endpoint records are summarized in
+V endpoint/circle	chapters/p0-analytic.tex:767	\caption{Scalar data in the two directed endpoint certificates.}
+V endpoint/circle	chapters/p0-analytic.tex:802	endpoint comparison:
+V endpoint/circle	chapters/p0-analytic.tex:821	\eqref{eq:p0-q-endpoint-bounds}.  By concavity of $\alpha$,
+V endpoint/circle	chapters/p0-analytic.tex:823	$\tau_+$ at $q_0=63/25$.  The two directed endpoint checks show
+P0 smoothing/sweep	chapters/p0-analytic.tex:833	smoothing estimate; the fixed-base integerizer and nonvanishing sequence are
+V endpoint/circle	chapters/p0-analytic.tex:835	no interpolation of integerizers, seed primes, or endpoint reference
+P0 collar/source	chapters/p0-arithmetic.tex:198	at $x=0$; hence the argument does not assume a formal primitive for $1/a$.
+V endpoint/circle	chapters/p0-arithmetic.tex:247	\begin{lemma}[endpoint pole divisor]\label{lem:p0-pole}
+V endpoint/circle	chapters/p0-arithmetic.tex:346	$1/2<p/m<5/2$, generate the groups from the affine endpoints below,
+V endpoint/circle	chapters/p0-arithmetic.tex:351	At the low-ratio endpoint $p/m=1/2$, the wall convention $3m$ applies.
+V endpoint/circle	chapters/p0-arithmetic.tex:352	The group widths are integers because $4\mid m$ and all endpoint intercepts
+P0 collar/source	chapters/p0-arithmetic.tex:393	primitive polynomial $R_s$ above, whose Gauss valuation is zero.  Every
+V endpoint/circle	chapters/p0-arithmetic.tex:454	All group endpoints are generated by a finite exact rule.  For a fixed open
+V endpoint/circle	chapters/p0-arithmetic.tex:456	$q=\lfloor1/(2\rho_0)\rfloor$ and order the affine endpoints
+V endpoint/circle	chapters/p0-arithmetic.tex:461	by their values $A+B\rho_0$.  Consecutive endpoints give a group of width
+V endpoint/circle	chapters/p0-arithmetic.tex:544	integer because $m$ is divisible by four and all endpoint intercepts have
+HP contour/endpoint	chapters/p0-reference-data.tex:2	displayed denominator; the contour list gives the first half of the
+V endpoint/circle	chapters/p0-reference-data.tex:8	\caption{$q=2$ endpoint (27 independent masses).}\label{tab:q2data}\\
+HP contour/endpoint	chapters/p0-reference-data.tex:20	contour pair masses & $103692576010,101009799410,96050653090,$\\
+V endpoint/circle	chapters/p0-reference-data.tex:29	\caption{$q=11$ endpoint (20 independent masses).}\label{tab:q11data}\\
+HP contour/endpoint	chapters/p0-reference-data.tex:39	contour pair masses & $105521636098,103136532801,98660112985,92490547592,$\\
+P0 smoothing/sweep	chapters/v-analytic.tex:1	\section{Signed logarithmic energy and smoothing}
+P0 smoothing/sweep	chapters/v-analytic.tex:5	reference and the smoothing estimate below give an all-$m$ determinant
+P0 smoothing/sweep	chapters/v-analytic.tex:6	bound.  The interval checks certify the energy rate; the smoothing lemma
+V endpoint/circle	chapters/v-analytic.tex:22	The supports used for the continuous problem are
+P0 collar/source	chapters/v-analytic.tex:99	For $d\ne0$, integrate $z^{d-1}$ on each piece using the primitive
+V endpoint/circle	chapters/v-analytic.tex:101	to cancel the intermediate endpoints $\pm r$.  For $d=0$, the real pieces
+HP contour/endpoint	chapters/v-analytic.tex:141	Apply it successively to the $L$ lower/V rows, the $m$ contour rows, and
+V endpoint/circle	chapters/v-analytic.tex:223	$(1,5/4,1)$, supported in compact subsets of the indicated supports or
+V endpoint/circle	chapters/v-analytic.tex:241	First suppose that all $v$-supports avoid zero.  For a signed measure
+V endpoint/circle	chapters/v-analytic.tex:272	competitor $\mu_v$ whose support meets zero, fix a smooth probability
+V endpoint/circle	chapters/v-analytic.tex:273	measure $\rho$ supported in $[3/4,7/8]$.  For $0<\delta<1/4$, let
+V endpoint/circle	chapters/v-analytic.tex:285	supports.  The kernel $\log|q+uv|$ is bounded and continuous on the stated
+V endpoint/circle	chapters/v-analytic.tex:294	real integrals.  On the compact $x$- and $v$-supports, $\log|w|$ is bounded
+V endpoint/circle	chapters/v-analytic.tex:295	above and can have integral $-\infty$; on the $z$-support, $|z|\ge r-o(1)$,
+V endpoint/circle	chapters/v-analytic.tex:304	rows, compact $z$ support in $[-q,-3/5]$, and Poisson centres with
+V endpoint/circle	chapters/v-analytic.tex:305	$|c|<3/5$; the $x$ and $v$ chains start at the positive endpoints listed in
+V endpoint/circle	chapters/v-analytic.tex:306	the data section and end at $1$.  Hence all six reference supports are
+V endpoint/circle	chapters/v-analytic.tex:308	maximum of their rational mass/length ratios, while a Poisson row of mass
+V endpoint/circle	chapters/v-analytic.tex:309	$w$ has density
+V endpoint/circle	chapters/v-analytic.tex:315	their rational supports, without any general self-energy implication.
+V endpoint/circle	chapters/v-analytic.tex:325	on their respective admissible supports, then
+V endpoint/circle	chapters/v-analytic.tex:333	$|R_q'(v)|=q/|v|^2>1$ for $q\ge2$.  Thus a bounded arclength density
+V endpoint/circle	chapters/v-analytic.tex:334	pushes forward to a bounded arclength density on each inverted segment or
+V endpoint/circle	chapters/v-analytic.tex:335	circle.  No $q=2$ numerical identity is used in the concavity argument.
+V endpoint/circle	chapters/v-analytic.tex:339	For a reference triple $\nu_q$, suppose its energy lower endpoint is
+V endpoint/circle	chapters/v-analytic.tex:340	$Q_{q,-}$ and its support-wide field upper bounds are
+V endpoint/circle	chapters/v-analytic.tex:375	The energy lower endpoints used in \eqref{eq:v-alpha} are printed separately
+V endpoint/circle	chapters/v-analytic.tex:380	\caption{Directed lower endpoints for the reference energies.}
+V endpoint/circle	chapters/v-analytic.tex:397	$0\le x,v\le\delta$ are discharged by the endpoint bounds
+V endpoint/circle	chapters/v-analytic.tex:398	\eqref{eq:v-endpoint}.  On $[\delta,1]$ and on the two real $z$ intervals,
+V endpoint/circle	chapters/v-analytic.tex:403	order, with maximum depth $30$.  Circle cells use the same rule in the
+V endpoint/circle	chapters/v-analytic.tex:404	parameter $t\in[0,1]$, and the endpoints $t=0,1$ are checked directly.
+P0 smoothing/sweep	chapters/v-analytic.tex:407	The smoothing lemma below supplies the complex-tube transfer and the all-$m$
+V endpoint/circle	chapters/v-analytic.tex:410	\subsection{Reference densities and directed endpoint disks}
+V endpoint/circle	chapters/v-analytic.tex:417	negative-real $z$ chains.  For a Poisson row $(c,w)$ write
+V endpoint/circle	chapters/v-analytic.tex:425	Poisson density on $|z|=r$ is at most
+V endpoint/circle	chapters/v-analytic.tex:426	$w(r+\rho_c)/(2\pi r(r-\rho_c))$ per unit arclength, and a circle meets a
+V endpoint/circle	chapters/v-analytic.tex:427	disk of radius $t$ in arclength at most $2\pi t$, the reference measures
+V endpoint/circle	chapters/v-analytic.tex:455	negative $z$ interval use endpoints $-a,-b$ in increasing order.  The
+V endpoint/circle	chapters/v-analytic.tex:456	Poisson rows together contribute their total mass times $\log(r+\delta)$.
+V endpoint/circle	chapters/v-analytic.tex:462	+\frac14\log\delta.\label{eq:v-endpoint}
+V endpoint/circle	chapters/v-analytic.tex:464	The endpoint bounds are directed upper endpoints rounded upward at
+V endpoint/circle	chapters/v-analytic.tex:471	\caption{Endpoint and all-$m$ transfer data recomputed from the printed tables.}
+V endpoint/circle	chapters/v-analytic.tex:487	The endpoint entries satisfy $E_{x,q}<K_{x,q}$ and $E_{v,q}<K_{v,q}$,
+V endpoint/circle	chapters/v-analytic.tex:490	give the explicit coefficients $\mathcal C_q=10+3\Sigma_q$; no unprinted density or
+V endpoint/circle	chapters/v-analytic.tex:491	endpoint constant is used below.
+P0 smoothing/sweep	chapters/v-analytic.tex:493	\subsection{The all-$m$ smoothing estimate}
+V endpoint/circle	chapters/v-analytic.tex:498	If a compactly supported positive measure $\eta$ of mass $M$ satisfies
+V endpoint/circle	chapters/v-analytic.tex:499	$\eta(B(w,t))\le At$ for every disk, then for $d=|w-w'|\le1/3$,
+V endpoint/circle	chapters/v-analytic.tex:507	Approximating the closed disk from outside gives $\eta(N)\le2Ad$.  For
+V endpoint/circle	chapters/v-analytic.tex:522	For $q=2,\ldots,7$, let $\alpha_q$ be the strict lower endpoints in
+V endpoint/circle	chapters/v-analytic.tex:535	$u+2i\epsilon+\epsilon e^{i\vartheta}$.  Every point of this circle is
+V endpoint/circle	chapters/v-analytic.tex:538	logarithmic pair energy does not decrease.  Each diagonal circle has
+V endpoint/circle	chapters/v-analytic.tex:550	Indeed, on the two smearing disks $|u|,|v|\le1+3\epsilon$ and
+V endpoint/circle	chapters/v-analytic.tex:556	The smoothed measures are tame and their $v$-support avoids zero, so
+V endpoint/circle	chapters/v-analytic.tex:569	circle mean of $\log|t+2i\epsilon+\epsilon e^{i\vartheta}|$ is
+V endpoint/circle	chapters/v-analytic.tex:572	$(17/2)\epsilon^2/\delta^2$.  If $t<\delta/2$, the whole smearing circle
+V endpoint/circle	chapters/v-analytic.tex:573	lies in $|w|\le\delta$, so \eqref{eq:v-endpoint} gives the endpoint bound directly.
+V endpoint/circle	chapters/v-analytic.tex:580	The centres lie on the certified supports; combining the last three
+V endpoint/circle	chapters/v-analytic.tex:581	estimates with the endpoint bounds and the directed field bounds yields
+V endpoint/circle	chapters/v-arithmetic.tex:224	with the rank-one profile subtracted on its exact active cells.  The endpoint
+V endpoint/circle	chapters/v-arithmetic.tex:249	generate the $x$-cells and profiles by the endpoint inequalities above;
+V endpoint/circle	chapters/v-arithmetic.tex:303	arrangement, with \(1/40\) and \(5/4\) included as closed endpoints.  Define
+P0 collar/source	chapters/v-arithmetic.tex:332	formal divisor supplies the corresponding coefficient valuation.  No primitive
+V endpoint/circle	chapters/v-reference-data.tex:5	$j=0$ means no correction. Start each chain at its printed endpoint (units
+V endpoint/circle	chapters/v-reference-data.tex:7	each mass at zero and accumulate $\Delta m_i$. For Poisson rows divide all
+V endpoint/circle	chapters/v-reference-data.tex:11	the displayed masses and supports, determine every reference measure uniquely.
+V endpoint/circle	chapters/v-reference-data.tex:57	\begin{VPoissonTable}{2}{149}{75}
+V endpoint/circle	chapters/v-reference-data.tex:83	\end{VPoissonTable}
+V endpoint/circle	chapters/v-reference-data.tex:128	\begin{VPoissonTable}{3}{143}{72}
+V endpoint/circle	chapters/v-reference-data.tex:153	\end{VPoissonTable}
+V endpoint/circle	chapters/v-reference-data.tex:198	\begin{VPoissonTable}{4}{141}{71}
+V endpoint/circle	chapters/v-reference-data.tex:223	\end{VPoissonTable}
+V endpoint/circle	chapters/v-reference-data.tex:268	\begin{VPoissonTable}{5}{137}{69}
+V endpoint/circle	chapters/v-reference-data.tex:292	\end{VPoissonTable}
+V endpoint/circle	chapters/v-reference-data.tex:338	\begin{VPoissonTable}{6}{135}{68}
+V endpoint/circle	chapters/v-reference-data.tex:362	\end{VPoissonTable}
+V endpoint/circle	chapters/v-reference-data.tex:407	\begin{VPoissonTable}{7}{131}{66}
+V endpoint/circle	chapters/v-reference-data.tex:430	\end{VPoissonTable}
+V endpoint/circle	main.tex:17	\newenvironment{VPoissonTable}[3]{%
+V endpoint/circle	main.tex:20	\multicolumn{9}{c}{Poisson $q=#1$; #2 rows, #3 prefix triples}\\
+V endpoint/circle	main.tex:24	\multicolumn{9}{c}{Poisson $q=#1$ (continued)}\\
+V endpoint/circle	main.tex:57	by a common variational problem and two endpoint certificates; the negative
+HP contour/endpoint	main.tex:58	middle range is handled by signed contour integrals at the six bases
+HP contour/endpoint	main.tex:82	We call the positive determinant P0 and the signed contour
+V endpoint/circle	main.tex:85	The endpoint energy lower bounds and fixed-base field bounds are
+HP contour/endpoint	main.tex:119	\(-7\le a\le-2\) & signed determinant & arithmetic, contour energy, nonvanishing\\
+V endpoint/circle	main.tex:188	endpoint certificates use exact rational measures on
+HP contour/endpoint	main.tex:192	with 64 contour nodes and Fej\'er degree 48.  They give
+V endpoint/circle	main.tex:198	\(q_0=63/25\), and slope \(-431/608\).  The directed endpoint gaps exceed
+V endpoint/circle	main.tex:201	nonvanishing sequence are applied separately at each integer base.  The endpoint measures
+HP contour/endpoint	main.tex:213	full signed contour in Section~\ref{sec:v-analytic} is required.  For each
+HP contour/endpoint	main.tex:214	\(q=2,\ldots,7\), the contour geometry, printed reference data, and directed
+P0 smoothing/sweep	main.tex:215	field bounds, together with the smoothing estimate in Section~\ref{sec:v-analytic}, give a
+V endpoint/circle	main.tex:324	\section{Positive endpoint data}\label{sec:positive-data}
+PASS: 256 classified source-line hits across 10 TeX files

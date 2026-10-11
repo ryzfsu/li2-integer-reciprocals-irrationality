@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "precision_digits": 60,
+  "quadrature": "mpmath over 64 equal subintervals",
+  "checks": [
+    {
+      "point": "0.5",
+      "type": "interior",
+      "direct": "0.1633586196710616816215829088102794905160695352069830988",
+      "formula": "0.1633586196710616816215829088102794905160695352069830988",
+      "absolute_difference": "3.88938454866e-62"
+    },
+    {
+      "point": "-3.0",
+      "type": "reflected exterior",
+      "direct": "0.4462361663149430397394034394337180476679435960463666136",
+      "formula": "0.4462361663149430397394034394337180476679435960463666136",
+      "absolute_difference": "1.1668153646e-61"
+    }
+  ]
+}

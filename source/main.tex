@@ -1,0 +1,328 @@
+\documentclass{amsart}
+\usepackage{amsmath,amssymb,mathtools,array,longtable,booktabs,geometry,multicol}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\newenvironment{VChainTable}[6]{%
+\begingroup\normalsize\normalfont%
+\begin{longtable}{@{}rrrrrrrr@{}}%
+\multicolumn{8}{c}{$q=#1$; $n=#3$; $#2$; $start=#4$; $corr=(#5,#6)$}\\
+\hline
+$\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$\\
+\hline\endfirsthead
+\multicolumn{8}{c}{$q=#1$ (continued)}\\
+\hline
+$\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$ & $\ell_i$ & $\Delta m_i$\\
+\hline\endhead
+}{\end{longtable}\endgroup}
+\newenvironment{VPoissonTable}[3]{%
+\begingroup\normalsize\normalfont%
+\begin{longtable}{@{}rrrrrrrrr@{}}%
+\multicolumn{9}{c}{Poisson $q=#1$; #2 rows, #3 prefix triples}\\
+\hline
+$\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$ & $\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$ & $\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$\\
+\hline\endfirsthead
+\multicolumn{9}{c}{Poisson $q=#1$ (continued)}\\
+\hline
+$\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$ & $\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$ & $\Delta x_i$ & $\Delta y_i$ & $\Delta m_i$\\
+\hline\endhead
+}{\end{longtable}\endgroup}
+\geometry{paperwidth=46pc,paperheight=62pc,textwidth=38pc,textheight=54pc}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\newcommand{\Li}{\operatorname{Li}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+
+\begin{document}
+\title[Reciprocal dilogarithms]{Irrationality of the dilogarithm at reciprocals of integers}
+\author{Ruiyi Zhang}
+\address{Independent Researcher, Columbia, Maryland, USA}
+\email{ryzfsu@gmail.com}
+\subjclass[2020]{Primary 11J72; Secondary 33B30}
+\keywords{dilogarithm, determinant, logarithmic energy, Hermite--Pad\'e, Frobenius}
+
+\begin{abstract}
+We prove that \(\Li_2(1/n)\) is irrational for every nonzero integer \(n\).
+The proof combines a determinant criterion with exact fixed-base
+integerization, logarithmic-potential estimates, Frobenius nonvanishing, and a
+three-form Hermite--Pad\'e construction.  The finite positive range is treated
+by a common variational problem and two endpoint certificates; the negative
+middle range is handled by signed contour integrals at the six bases
+\(-2,\ldots,-7\); the two remaining tails follow from an explicit
+Hermite--Pad\'e estimate.  Every numerical constant used in the argument is
+given as a rational bound or an explicitly directed interval.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+For an integer $s$ with $|s|\ge2$, irrationality of $\Li_2(1/s)$ was proved
+by Hata~\cite{Hata} for all $s\le-5$ and $s\ge7$, and by Rhin and
+Viola~\cite{RhinViola} for $s=6$.  A recent preprint of
+Prellberg~\cite{Prellberg} treats $s=-4,-3$ and $5$.  These works are cited
+for history only: no irrationality statement from them is used below, and
+the proof is self-contained.  The cases $s=-2,2,3,4$ were open; among them
+is $\Li_2(1/2)=\pi^2/12-(\log2)^2/2$.  For $s=\pm1$ the values are rational
+multiples of $\pi^2$, which is irrational~\cite{Legendre}.
+
+The general tools are the prime number theorem~\cite{Davenport}; Kummer's
+carry theorem~\cite{Kummer} and Lucas' congruence~\cite{Lucas}; the
+Cauchy--Binet formula~\cite{Gantmacher} and its integral form due to
+Andr\'eief~\cite{Andreief,Forrester}; Cauchy's double-alternant determinant
+~\cite{Krattenthaler}; logarithmic potential theory~\cite{SaffTotik}; and
+Stirling's formula~\cite{WhittakerWatson}.
+
+We call the positive determinant P0 and the signed contour
+determinant V.  These names refer to the two explicit constructions below.
+
+The endpoint energy lower bounds and fixed-base field bounds are
+computer-assisted: directed interval arithmetic verifies them from the
+printed tables, with the algorithm and code supplied in the ancillary files.
+
+The proof applies the criterion below to one defined determinant at a time.
+Sections~\ref{sec:p0-arithmetic}--\ref{sec:p0-analytic} treat positive bases;
+Sections~\ref{sec:v-arithmetic}--\ref{sec:v-analytic} treat the negative
+bases; Section~\ref{sec:hp} treats both tails, and
+Section~\ref{sec:nonvanishing} supplies eventual nonvanishing sequences.  The final
+assembly checks the ranges and their boundary points.
+
+\section{Main theorem}
+For \(|z|\le1\), put
+\[
+  \Li_2(z)=\sum_{r\ge1}\frac{z^r}{r^2}.
+\]
+\begin{theorem}\label{thm:main}
+For every nonzero integer $n$, the number $\Li_2(1/n)$ is irrational.
+\end{theorem}
+
+For $n=1$ and $n=-1$ this follows from
+\(\Li_2(1)=\pi^2/6\) and \(\Li_2(-1)=-\pi^2/12\), together with the
+irrationality of $\pi^2$~\cite{Legendre}; the determinant argument covers all
+$|n|\ge2$.
+
+\subsection{Coverage map}
+The ranges below are disjoint and cover all remaining nonzero integers.
+\begin{center}\normalsize
+\begin{tabular}{@{}p{0.20\linewidth}p{0.28\linewidth}p{0.40\linewidth}@{}}
+\toprule
+base range & construction & ingredients\\
+\midrule
+\(\pm1\) & classical evaluations & $\pi^2$\\
+\(2\le a\le11\) & positive determinant & arithmetic, energy, nonvanishing\\
+\(-7\le a\le-2\) & signed determinant & arithmetic, contour energy, nonvanishing\\
+\(a\ge12\) or \(a\le-8\) & three-form Hermite--Pad\'e & residues, integerization, saddle estimates\\
+\bottomrule
+\end{tabular}
+\end{center}
+In each application of the criterion, the determinant, integerizer, analytic
+estimate, and nonvanishing sequence belong to the same polynomial family at the
+indicated base.
+
+\section{The determinant criterion}\label{sec:criterion}
+Let \((m_k)_{k\ge1}\) be a strictly increasing sequence of positive integers,
+and let \(G_{m_k,a}(T)\in\Q[T]\) have degree at most \(m_k\).  Suppose that,
+for every fixed integer \(a\) under consideration, there are positive
+rational numbers \(D_{m_k,a}\)
+ and a fixed real target \(t\) such that
+\begin{align}
+ D_{m_k,a}G_{m_k,a}(T)&\in\Z[T], &
+ \limsup_{k\to\infty}m_k^{-2}\log D_{m_k,a}&\le\tau(a), \label{eq:criterion-int}\\
+ \log|G_{m_k,a}(t)|&\le-\alpha(a)m_k^2+O(m_k\log m_k), \label{eq:criterion-small}
+\end{align}
+and, for every rational \(\xi\), there is \(k_0=k_0(a,\xi)\) such that
+\[
+ G_{m_k,a}(\xi)\ne0\qquad(k\ge k_0).
+\]
+If
+\(\alpha(a)>\tau(a)\), then \(t\) is irrational.
+
+Indeed, if \(t=\xi=u/v\in\Q\) in lowest terms, then for every sufficiently
+large \(k\),
+\(v^{m_k}D_{m_k,a}G_{m_k,a}(\xi)\) is a nonzero integer, while
+\eqref{eq:criterion-int} and \eqref{eq:criterion-small} make its absolute
+value tend to zero.  The determinant, integerizer and nonvanishing statements
+must refer to the same polynomial.
+
+\section{Positive determinant}\label{sec:p0}
+For \(g=m/2\), let \(I_m=\{m/4,\ldots,5m/4-1\}\) and
+\(J_m=\{0,\ldots,2m-1\}\).  Set
+\[
+ U_i(a)=a^i\binom{i+g}{g},\quad
+ t_i(a)=\sum_{r=1}^i\frac{U_{i-r}(a)}r
+ +a^i\sum_{s=1}^g\frac{(-1)^{s-1}}s
+       \binom{i+g}{g-s}\left(\left(\frac a{a-1}\right)^s-1\right).
+\]
+For \(i\ne j\), define
+\[
+ C_{ij}(a)=\frac{U_i(a)-U_j(a)}{j-i},\qquad
+ B_{ij}(a)=\frac{t_i(a)-t_j(a)}{j-i},
+\]
+and put \(A_{ij}(a)=0\).  On the diagonal,
+\[
+ A_{ii}(a)=U_i(a),\quad C_{ii}(a)=-U_i(a)\sum_{s=1}^g\frac1{i+s},
+\]
+\[
+ B_{ii}(a)=\sum_{r=1}^i\frac{U_{i-r}(a)}{r^2}
+ -a^i\sum_{s=2}^g\frac{(-1)^s}{s}\binom{i+g}{g-s}
+       \sum_{r=1}^{s-1}\frac{(a/(a-1))^r-1}{r}.
+\]
+The P0 determinant is
+\begin{equation}\label{eq:p0det}
+ G_{m,a}(T)=\det\begin{bmatrix}C(a)_{I_m,J_m}\\
+                      B(a)_{I_m,J_m}-T A(a)_{I_m,J_m}\end{bmatrix}.
+\end{equation}
+\input{chapters/p0-arithmetic}
+
+\input{chapters/p0-analytic}
+
+\section{Positive bases from 2 to 11}\label{sec:positive}
+The fixed feasible set and affine fields give concavity in
+\(\lambda=\log(a/2)\), as proved in Section~\ref{sec:p0-analytic}.  The
+endpoint certificates use exact rational measures on
+\[
+ (\xi,A,B)=\left(\frac{11281}{10000},\frac{12783}{10000},\frac{229}{200}\right),
+\]
+with 64 contour nodes and Fej\'er degree 48.  They give
+\[
+ \alpha_2\ge\frac{248035}{125000},\qquad
+ \alpha_{11}\ge\frac{77597}{100000}.
+\]
+The arithmetic comparison uses \(K<1271001/500000\), tangent point
+\(q_0=63/25\), and slope \(-431/608\).  The directed endpoint gaps exceed
+\(0.0032381198893\) and \(0.0033926392227\), respectively.  These checks and
+the tangent majorant cover \(2\le a\le11\).  The integerization and
+nonvanishing sequence are applied separately at each integer base.  The endpoint measures
+are printed in Appendix~\ref{sec:positive-data}.
+
+\section{Negative bases $-7\le a\le-2$}\label{sec:negative-middle}\label{sec:minus2}
+The signed determinant construction uses the
+\([C;B-TA;V]\) determinant.  At \(a=-2\), its directed analytic bound is
+\(\alpha_2>4.34875\), while the fixed arithmetic rate is
+\(\tau_2=A_{40}-(53/48)\log2=4.317643952609845\ldots\), giving margin
+\(>0.03110\).  The denominator estimate, prime sum, analytic bound and
+prime-power nonvanishing sequence includes \(q=2\) and is instantiated at each
+remaining base.
+For \(a=-q\), the field acquires the term \(-\pi\operatorname{Im}z\), so the
+full signed contour in Section~\ref{sec:v-analytic} is required.  For each
+\(q=2,\ldots,7\), the contour geometry, printed reference data, and directed
+field bounds, together with the smoothing estimate in Section~\ref{sec:v-analytic}, give a
+strict \(\alpha_q>\tau_q\), while Sections~\ref{sec:v-arithmetic} and
+\ref{sec:nonvanishing} supply the matching integerizer and eventual
+nonvanishing sequence.
+Thus all six bases \(-7\le a\le-2\) are closed individually, without an
+interpolation claim across \(q\).
+
+\input{chapters/v-arithmetic}
+\input{chapters/v-analytic}
+\input{chapters/nonvanishing}
+\input{chapters/hp-tail}
+
+\section{Assembly of the proof}
+The positive construction supplies the criterion for $2\le n\le11$, the
+signed construction supplies it for $-7\le n\le-2$, and the Hermite--Pad\'e
+construction supplies it for $n\ge12$ and $n\le-8$.  Together with the two
+classical evaluations at $n=\pm1$, these ranges prove Theorem~\ref{thm:main}.
+
+\section*{Use of AI tools}
+The author devised the method.  Codex (OpenAI, GPT-5.6 Sol) assisted with
+mathematical exploration and implementation.  Claude Code (Anthropic,
+Claude Opus 5.5) assisted with review of the implementation, parameters, and
+printed data; that review is not a proof of the mathematical claims.  The
+directed numerical bounds are computer-assisted:
+they were obtained with outward-rounded interval arithmetic as specified in
+Appendix~\ref{sec:certificate-algorithm}.  The author is responsible for the
+mathematical statements and their interpretation.
+
+\section*{Declarations}
+\textbf{Competing interests.} The author has no competing interests.
+
+\textbf{Funding.} No funding was received for this work.
+
+\textbf{Data availability.} The ancillary files contain the printed-data
+replay and its logs. The source-range script checks text and table structure
+only; it does not certify the mathematical estimates.
+
+\begin{thebibliography}{99}
+
+\bibitem{Andreief}
+C.~Andr\'eief,
+Note sur une relation entre les int\'egrales d\'efinies des produits des
+fonctions,
+\emph{M\'em. Soc. Sci. Phys. Nat. Bordeaux} (3) \textbf{2} (1886), 1--14.
+
+\bibitem{Davenport}
+H.~Davenport,
+\emph{Multiplicative Number Theory}, 3rd ed., revised by H.~L.~Montgomery,
+Graduate Texts in Mathematics~74, Springer, New York, 2000.
+
+\bibitem{Forrester}
+P.~J.~Forrester,
+Meet Andr\'eief, Bordeaux 1886, and Andreev, Kharkov 1882--1883,
+\emph{Random Matrices Theory Appl.} \textbf{8} (2019), no.~2, 1930001.
+
+\bibitem{Gantmacher}
+F.~R.~Gantmacher,
+\emph{The Theory of Matrices}, Vol.~1,
+Chelsea, New York, 1959.
+
+\bibitem{Hata}
+M.~Hata,
+Rational approximations to the dilogarithm,
+\emph{Trans. Amer. Math. Soc.} \textbf{336} (1993), no.~1, 363--387.
+
+\bibitem{Krattenthaler}
+C.~Krattenthaler,
+Advanced determinant calculus,
+\emph{S\'em. Lothar. Combin.} \textbf{42} (1999), Art.~B42q, 67~pp.
+
+\bibitem{Kummer}
+E.~E.~Kummer,
+\"Uber die Erg\"anzungss\"atze zu den allgemeinen Reciprocit\"atsgesetzen,
+\emph{J. Reine Angew. Math.} \textbf{44} (1852), 93--146.
+
+\bibitem{Legendre}
+A.-M.~Legendre,
+\emph{\'El\'ements de g\'eom\'etrie}, Firmin Didot, Paris, 1794, Note~IV.
+
+\bibitem{Lucas}
+E.~Lucas,
+Th\'eorie des fonctions num\'eriques simplement p\'eriodiques,
+\emph{Amer. J. Math.} \textbf{1} (1878), 184--240 and 289--321.
+
+\bibitem{Prellberg}
+T.~Prellberg,
+Three irrationality results for the dilogarithm: Rhin--Viola and
+Viola--Zudilin constructions at $-1/4$, $1/5$, and $-1/3$,
+preprint, arXiv:2609.06895, 2026.
+
+\bibitem{RhinViola}
+G.~Rhin and C.~Viola,
+The permutation group method for the dilogarithm,
+\emph{Ann. Sc. Norm. Super. Pisa Cl. Sci.} (5) \textbf{4} (2005), no.~3,
+389--437.
+
+\bibitem{SaffTotik}
+E.~B.~Saff and V.~Totik,
+\emph{Logarithmic Potentials with External Fields},
+Grundlehren der mathematischen Wissenschaften~316, Springer, Berlin, 1997.
+
+\bibitem{WhittakerWatson}
+E.~T.~Whittaker and G.~N.~Watson,
+\emph{A Course of Modern Analysis}, 4th ed.,
+Cambridge University Press, Cambridge, 1927.
+
+\end{thebibliography}
+
+\appendix
+\section{Positive endpoint data}\label{sec:positive-data}
+\input{chapters/p0-reference-data}
+\input{chapters/v-reference-data}
+\input{chapters/certificate-algorithm}
+\end{document}

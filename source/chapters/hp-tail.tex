@@ -1,0 +1,566 @@
+\section{Hermite--Pad\'e tails}\label{sec:hp}
+This section proves the two tails from the displayed construction, without
+using an irrationality theorem as input.  The base is fixed throughout each
+limit; constants in contour and remainder estimates may depend on that base.
+
+\begin{theorem}\label{thm:hp-tail}
+For every fixed integer $a\ge12$ or $a\le-8$, the determinant construction
+below proves that $\operatorname{Li}_2(1/a)$ is irrational.
+\end{theorem}
+
+\subsection{Residues, tails, and exact integerization}
+For $n\ge0$ put
+\begin{equation}\label{eq:hp-phi}
+ \Phi_n(w)=\frac{\prod_{r=n+1}^{3n+1}(w-r)}
+                   {\prod_{j=0}^{n}(w-j)^2}
+ =\sum_{j=0}^{n}\left(\frac{u_{n,j}}{(w-j)^2}
+                         +\frac{v_{n,j}}{w-j}\right).
+\end{equation}
+Writing $H_k=\sum_{r=1}^k1/r$ and $H_0=0$, direct residue calculation gives
+\begin{equation}\label{eq:hp-residues}
+ u_{n,j}=-\frac{(3n+1-j)!}{(j!)^2((n-j)!)^3},\qquad
+ v_{n,j}=u_{n,j}\bigl(3H_{n-j}-2H_j-H_{3n+1-j}\bigr).
+\end{equation}
+Set
+\[
+ B_n(z)=\sum_{j=0}^n v_{n,j}z^j,\qquad
+ C_n(z)=\sum_{j=0}^n u_{n,j}z^j,
+\]
+and
+\[
+ A_n(z)=-\sum_{k=1}^{n}z^k\sum_{j=0}^{k-1}
+       \left(\frac{v_{n,j}}{k-j}+\frac{u_{n,j}}{(k-j)^2}\right).
+\]
+The coefficient of $z^k$ in $B_n(-\log(1-z))+C_n\operatorname{Li}_2(z)$ is
+the partial-fraction sum $\sum_{j<k}(v_{n,j}/(k-j)+u_{n,j}/(k-j)^2)$.
+For $1\le k\le n$ it is canceled by $A_n$; for $n<k\le3n+1$ it is zero
+because $\Phi_n(k)=0$; for $k\ge3n+2$ it equals $\Phi_n(k)$.  Therefore
+\begin{equation}\label{eq:hp-tail-series}
+ R_n(z):=A_n(z)+B_n(z)(-\log(1-z))+C_n(z)\operatorname{Li}_2(z)
+       =\sum_{k\ge3n+2}\Phi_n(k)z^k.
+\end{equation}
+The adjacent Casoratian
+\begin{equation}\label{eq:hp-casoratian}
+ E_n(z):=B_{n+1}(z)R_n(z)-B_n(z)R_{n+1}(z)
+       =W_n(z)+V_n(z)\operatorname{Li}_2(z)
+\end{equation}
+has
+\[
+ W_n=B_{n+1}A_n-B_nA_{n+1},\qquad
+ V_n=B_{n+1}C_n-B_nC_{n+1}.
+\]
+The logarithm cancels identically.  Both $W_n,V_n$ have degree at most
+$N=2n+1$.
+
+Here is an all-degree proof of the coefficient formula needed for
+integerization.  Let $b_n=\binom{2n+1}{n}$ and
+\[
+ J_n(t)=\sum_{k=0}^{N}(-1)^k\binom Nk\binom{n+k}{k}^{\!2}t^k.
+\]
+For $\Re(s)>-1$ the integral is absolutely convergent, and direct
+termwise integration gives
+\begin{equation}\label{eq:hp-mellin}
+ \int_0^1t^sJ_n(t)\,dt=
+ \frac{(2n+1)!}{(n!)^2}
+ \frac{[s(s-1)\cdots(s-n+1)]^2}
+      {(s+1)(s+2)\cdots(s+2n+2)}.
+\end{equation}
+The right side then supplies the meromorphic continuation in $s$; no
+continuation is used before the stated half-plane of convergence.
+Write $V_n(z)=\sum_{i=0}^Nv_i z^i$ and
+$\Pi_n(t)=t^NV_n(1/t)=\sum_{j=0}^N\pi_jt^j$, so $\pi_j=v_{N-j}$.
+The polynomial part of $E_n$ has degree at most $N$.  For
+$k=N+\ell$, $1\le\ell\le n$, its coefficient is therefore
+\[
+ 0=\sum_{i=0}^N\frac{v_i}{(k-i)^2}
+   =\sum_{j=0}^N\frac{\pi_j}{(\ell+j)^2},
+\]
+which is $-\int_0^1t^{\ell-1}\Pi_n(t)\log t\,dt=0$.  The second
+elimination, $C_{n+1}R_n-C_nR_{n+1}$, cancels $\operatorname{Li}_2$;
+its nonpolynomial part is $V_n(z)\log(1-z)$.  The same coefficient range
+gives
+\[
+ 0=\sum_{i=0}^N\frac{v_i}{k-i}
+   =\sum_{j=0}^N\frac{\pi_j}{\ell+j}
+   =\int_0^1t^{\ell-1}\Pi_n(t)\,dt.
+\]
+Thus the two exact moment families are
+\begin{equation}\label{eq:hp-moments}
+ \int_0^1t^j\Pi_n(t)\,dt=0,\qquad
+ \int_0^1t^j\Pi_n(t)\log t\,dt=0\quad(0\le j<n).
+\end{equation}
+The Mellin transform of any
+polynomial of degree at most $N$ has denominator
+$\prod_{r=1}^{N+1}(s+r)$ and numerator degree at most $N$.  The first family
+in \eqref{eq:hp-moments} makes this numerator vanish at $s=0,\ldots,n-1$;
+the second makes each zero double.  Hence the numerator is divisible by
+$[s(s-1)\cdots(s-n+1)]^2$, leaving a factor of degree at most one.  The
+solution space of \eqref{eq:hp-moments} consequently has dimension at most
+two.
+
+Equation~\eqref{eq:hp-mellin} shows that $J_n$ is one solution.  It also
+shows $J_n(1)=0$, since the right side is $O(s^{-2})$ as $s\to+\infty$.
+Integration by parts then shows that $tJ_n'(t)$ is a second solution: the
+boundary terms vanish at both endpoints, and the two moment families for
+$tJ'_n$ reduce to those for $J_n$.  The two solutions are independent by
+their top two coefficients: if $a_N=[t^N]J_n$ and
+$a_{N-1}=[t^{N-1}]J_n$, the determinant formed from the top two coefficients
+of $J_n$ and $tJ_n'$ is
+$a_N(N-1)a_{N-1}-Na_Na_{N-1}=-a_Na_{N-1}\ne0$.  Thus every solution is
+their linear combination.  Direct substitution of the residues
+\eqref{eq:hp-residues}
+gives the constant and linear coefficients of $\Pi_n$; matching those two
+coefficients in this two-dimensional space yields
+\begin{equation}\label{eq:hp-vpoly}
+ V_n(z)=b_n^2z^NP_n(1/z),
+\end{equation}
+where
+\begin{equation}\label{eq:hp-Pn}
+ P_n(t)=-\sum_{k=0}^{N}(-1)^k\binom Nk\binom{n+k}{k}
+ \left((12n+17)\binom{n+k}{k}
+       +(21n+29)\binom{n+k}{k-1}\right)t^k.
+\end{equation}
+The convention is $\binom{n+k}{k-1}=0$ at $k=0$.  In particular, the
+second binomial is $\binom{n+k}{k-1}$, not
+$\binom{n+k-1}{k-1}$.
+
+The first two coefficients follow from the endpoint residues. Put
+$\eta_m=-2H_m-H_{2m+1}$, $\rho_m=2m^2(m+1)$, and
+$\kappa_m=3+2/m-1/(2m+2)$.  Their ratios are
+\[
+ \frac{v_{m,m}}{u_{m,m}}=\eta_m,\qquad
+ \frac{u_{m,m-1}}{u_{m,m}}=\rho_m,\qquad
+ \frac{v_{m,m-1}}{u_{m,m-1}}=\eta_m+\kappa_m.
+\]
+For $n\ge1$, expanding $V_n=B_{n+1}C_n-B_nC_{n+1}$ at its top two
+degrees yields, with $\pi_j=[t^j]\Pi_n$,
+\begin{align*}
+ \pi_0&=u_{n,n}u_{n+1,n+1}(\eta_{n+1}-\eta_n),\\
+ \pi_1&=u_{n,n}u_{n+1,n+1}
+ \bigl((\rho_n+\rho_{n+1})(\eta_{n+1}-\eta_n)
+       -\rho_n\kappa_n+\rho_{n+1}\kappa_{n+1}\bigr).
+\end{align*}
+Here $u_{n,n}=-(n+1)b_n$, $u_{n+1,n+1}=-2(2n+3)b_n$, and
+$\eta_{n+1}-\eta_n=-5/(2(n+1))-1/(2n+3)$.  Substitution yields
+$\pi_0=-b_n^2(12n+17)$ and
+\[
+ \pi_1=b_n^2(2n+1)(n+1)
+       \bigl((n+1)(12n+17)+(21n+29)\bigr).
+\]
+For $n=0$, the residues give the same formulas directly: $\pi_0=-17$ and
+$\pi_1=46$.  For the Casoratian calculation below, put
+$h_m=3H_m-H_{3m+1}$ and
+\[
+ \delta_m=h_{m+1}-h_m=
+ \frac{2(27m^2+54m+23)}{3(m+1)(3m+2)(3m+4)},
+\]
+The values of $\pi_0,\pi_1$ are the first two coefficients of
+$-(12n+17)J_n-(21n+29)tJ'_n/(n+1)$.  The identity
+$\frac{k}{n+1}\binom{n+k}{k}=\binom{n+k}{k-1}$ gives
+\eqref{eq:hp-Pn}.  The dimension bound proves \eqref{eq:hp-vpoly} for every
+$n$, with no finite-range restriction.
+
+For reference, the boundary residues used in this matching can be checked
+directly from \eqref{eq:hp-residues}.  For $m\ge1$,
+\begin{align}
+ u_{m,m-1}&=-\frac{(2m+2)!}{((m-1)!)^2},\qquad
+ u_{m,m}=-\frac{(2m+1)!}{(m!)^2},\\
+ \frac{u_{m,m-1}}{u_{m,m}}&=(2m+2)m^2=2m^2(m+1),\\
+ \frac{v_{m,m-1}}{u_{m,m-1}}-\frac{v_{m,m}}{u_{m,m}}
+   &=3+\frac2m-\frac1{2m+2},\\
+ \frac{u_{n,n}u_{n+1,n+1}}{b_n^2}&=(2n+2)(2n+3).
+\end{align}
+These identities also cover the boundary-residue normalization in the
+three-form extraction below; the case $n=0$ is read directly from
+\eqref{eq:hp-residues}.
+
+Let $d_N=\operatorname{lcm}(1,\ldots,N)$ and
+$Q_n(z)=V_n(z)/b_n^2\in\mathbb Z[z]$.  Since $E_n=W_n+V_n\operatorname{Li}_2$
+vanishes through degree $N$, its polynomial part satisfies
+\[
+ \frac{W_n(z)}{b_n^2}=-[Q_n(z)\operatorname{Li}_2(z)]_{\le N}.
+\]
+Each coefficient on the right has denominators among $r^2$ with
+$1\le r\le N$, and $r\mid d_N$.  Therefore
+\begin{equation}\label{eq:hp-integer-poly}
+ \frac{d_N^2}{b_n^2}W_n,\quad
+ \frac{d_N^2}{b_n^2}V_n\in\mathbb Z[z].
+\end{equation}
+For every fixed integer $a$ with $|a|\ge2$, put
+\begin{equation}\label{eq:hp-integer-form}
+ L_n(a)=a^N\frac{d_N^2}{b_n^2}E_n(1/a)
+       =X_n(a)+Y_n(a)\operatorname{Li}_2(1/a),
+       \qquad X_n(a),Y_n(a)\in\mathbb Z.
+\end{equation}
+The factor $a^N$ clears evaluation denominators because both polynomials in
+\eqref{eq:hp-integer-poly} have degree at most $N$.
+
+\subsection{Remainder bound for both signs}
+For $-1<z<1$, beta integration of \eqref{eq:hp-tail-series} gives the exact
+identity
+\begin{equation}\label{eq:hp-beta}
+ R_n(z)=\frac{(2n+1)!}{(n!)^2}z^{3n+2}
+ \int_0^1\!\int_0^1\frac{tu}{(1-ztu)^2}
+ \left(\frac{t^2u^2(1-t)(1-u)}{(1-ztu)^2}\right)^n dt\,du.
+\end{equation}
+To maximize the bracket, fix $p=tu$.  Since $t+u\ge2\sqrt p$,
+$(1-t)(1-u)=1-(t+u)+p\le(1-\sqrt p)^2$, with equality only at
+$t=u=\sqrt p$.  Write $s=\sqrt p$.  The bracket is at most
+\[
+ g_z(s)=\frac{s^4(1-s)^2}{(1-zs^2)^2},\qquad 0\le s\le1.
+\]
+For $|z|<1$, its unique interior maximum satisfies
+$zs^3-3s+2=0$: differentiating $\log g_z$ gives
+$2-3s+zs^3=0$, and the left side is strictly decreasing on $[0,1]$.
+At that root, $1-zs^2=2(1-s)/s$, so $g_z(s)=s^6/4$.  The prefactor
+$tu/(1-ztu)^2$ in \eqref{eq:hp-beta} is bounded for fixed $z$ with
+$|z|<1$.  Stirling's formula~\cite{WhittakerWatson} and the unit area of the square therefore give
+\begin{equation}\label{eq:hp-R-rate}
+ \limsup_{n\to\infty}|R_n(z)|^{1/n}\le |z|^3s(z)^6.
+\end{equation}
+No cancellation estimate is used.
+
+\subsection{Positive coefficient bound}
+For $z=1/q$, $q>1$, all $u_{n,j}$ have the same (negative) sign.  Put
+$x=j/n$ and
+\[
+ f_q(x)=(3-x)\log(3-x)-2x\log x-3(1-x)\log(1-x)-x\log q,
+ \quad 0\le x\le1,
+\]
+where $0\log0=0$.  Uniform Stirling estimates~\cite{WhittakerWatson} in
+\eqref{eq:hp-residues} give
+\[
+ \log\bigl(|u_{n,j}|q^{-j}\bigr)=nf_q(j/n)+O(\log(n+1))
+\]
+uniformly for $0\le j\le n$.  Indeed, the coefficients of $n\log n$ and
+$n$ cancel, and all factorial contributions are $O(\log(n+1))$,
+including at endpoints.  Now
+\[
+ f_q'(x)=\log\frac{(1-x)^3}{q x^2(3-x)},\qquad
+ f_q''(x)=\frac1{3-x}-\frac2x-\frac3{1-x}<0.
+\]
+There is a unique maximizer $t(q)\in(0,1)$, determined by
+$(1-t)^3=qt^2(3-t)$.  Substitution of this equation gives
+\[
+ \exp(f_q(t))=\left(\frac{3-t}{1-t}\right)^3.
+\]
+Since the sum has only $n+1$ terms,
+\[
+ \limsup_{n\to\infty}|C_n(1/q)|^{1/n}
+ \le \left(\frac{3-t(q)}{1-t(q)}\right)^3.
+\]
+Also $|3H_{n-j}-2H_j-H_{3n+1-j}|\le6(1+\log(3n+1))$, so the same bound
+holds for $B_n(1/q)$.  This upper-bound form of the discrete Laplace
+principle is all that is needed; no unproved ratio limit is used.
+
+\subsection{Negative coefficient bound: contour and endpoint estimate}
+Fix $q>1$, put $z=-1/q$, and define the two logarithmic branches
+\[
+ F_n^\pm(z)=B_n(z)+C_n(z)(-\log q\pm i\pi).
+\]
+Residues of $\Phi_n(w)e^{(-\log q\pm i\pi)w}$ give
+\begin{equation}\label{eq:hp-contour-res}
+ F_n^\pm(z)=\frac1{2\pi i}\oint_{\Gamma_n^\pm}
+          \Phi_n(w)e^{(-\log q\pm i\pi)w}\,dw,
+\end{equation}
+where the rectangle encloses the poles $0,1,\ldots,n$.  Set $\beta_q>0$
+equal to the absolute imaginary part of the lower nonreal root of
+\begin{equation}\label{eq:hp-saddle-cubic}
+ p_q(w)=(q+1)w^3-3(q+1)w^2+3w-1=0.
+\end{equation}
+For all sufficiently large $n$, let $\Gamma_n^+$ be the positively oriented
+rectangle with vertical sides $\Re w=-1/2,n+1/2$ and horizontal sides
+$\Im w=\pm n\beta_q$.  It encloses precisely the poles $0,1,\ldots,n$.
+Its distance from each enclosed pole is at least
+$\min\{1/2,n\beta_q\}$, hence at least $1/2$ once
+$n\beta_q\ge1/2$.  All numerator zeros lie outside the rectangle at distance
+at least $1/2$.  The rate proof uses only these sufficiently large indices.
+For $F_n^-$ use the conjugate exponential branch on the same positively
+oriented rectangle.
+
+We give the uniform sum-to-integral estimate needed on these contours.
+If $\xi=w/n$ lies on the scaled rectangle, then
+\begin{equation}\label{eq:hp-log-em}
+ \log|\Phi_n(n\xi)|=n\left(
+ \int_1^3\log|\xi-r|\,dr-2\int_0^1\log|\xi-r|\,dr\right)
+ +O_q(\log(n+1)),
+\end{equation}
+uniformly along all four sides.  On a horizontal side $|\Im\xi|=\beta_q$,
+the functions $r\mapsto\log|\xi-r|$ have uniformly bounded derivative, so
+the ordinary left/right Riemann-sum error is $O_q(1)$.  On the left
+vertical side $\Re\xi=-1/(2n)$, the real part lies outside both integration
+intervals by at least $1/(2n)$.  On the right side
+$\Re\xi=1+1/(2n)$ it lies outside $[0,1]$ by the same amount.  For $[1,3]$
+there, the only possible near-singularity lies in the first mesh cell:
+its real part is exactly halfway between the endpoint and the first mesh
+point.  If $|\Im\xi|\le1/n$, rescaling this one cell by $r=1+u/n$ shows
+that both its mesh contribution and $n$ times its integral are
+$O(\log(n+1))$; the integral of $\log\sqrt{u^2+v^2}$ over a fixed
+interval is bounded uniformly for $0\le v\le1$.  If
+$|\Im\xi|>1/n$, or on the remaining cells, the total variation is bounded
+by $C_q+\int_{1/n}^{O_q(1)}dr/r=O_q(\log(n+1))$.  Endpoint shifts of one
+mesh point in the numerator product contribute at most another
+$O_q(\log(n+1))$.  This proves \eqref{eq:hp-log-em}; in particular the
+logarithmic singularity is handled explicitly rather than hidden in a
+smooth-function Euler--Maclaurin assertion.
+
+For completeness, the estimate in \eqref{eq:hp-log-em} is a bounded-variation
+Riemann-sum estimate, including the endpoint cell.  Put
+$f_\xi(r)=\log|\xi-r|$.  The numerator sum is the right Riemann sum on
+$[1,3]$, with the extra point $f_\xi(3+1/n)$, and the denominator sum is the
+right Riemann sum on $[0,1]$, with $f_\xi(0)$.  On a horizontal edge the
+total variation is $O_q(1)$.  On a vertical edge the only possible singular
+cell is the first half-mesh cell; after $r=1+u/n$ (or $r=u/n$) its mesh term
+and its $n$-scaled integral are $O(\log(n+1))$.  The remaining variation is
+$O_q(1)+\int_{1/n}^{O_q(1)}dr/r=O_q(\log(n+1))$.  Thus the estimate is
+uniform on all four edges and does not invoke a smooth Euler--Maclaurin
+formula across a logarithmic endpoint.
+
+Combining \eqref{eq:hp-log-em} with the exact modulus of the exponential
+factor gives
+\[
+ \log|\Phi_n(n\xi)e^{(-\log q+i\pi)n\xi}|
+       =nH_q(\xi)+O_q(\log(n+1)),
+\]
+where
+\begin{equation}\label{eq:hp-H}
+ H_q(\xi)=\int_1^3\log|\xi-r|\,dr-2\int_0^1\log|\xi-r|\,dr
+          -\log q\,\Re\xi-\pi\Im\xi.
+\end{equation}
+The discriminant of \eqref{eq:hp-saddle-cubic} is
+$-108q^2(q+1)<0$, and
+$p_q(2)=1-4q<0<p_q(3)=8$.  Thus the real root is in $(2,3)$; the
+conjugate roots have real part $u=(3-R)/2\in(0,1/2)$.  Write the lower
+root as $\xi_0=u-i\beta_q$.  Differentiating the analytic logarithmic
+phase underlying \eqref{eq:hp-H} shows $\partial_xH_q(\xi_0)=0$ by the
+saddle equation $z(\xi-1)^3=\xi^2(\xi-3)$.  Along the lower side,
+\[
+ \frac{d^2}{dx^2}H_q(x-i\beta_q)
+ =-6\Re\frac1{(x-i\beta_q)(x-1-i\beta_q)(x-3-i\beta_q)}<0
+ \quad(0\le x\le1),
+\]
+because the real part of the denominator is
+$x(x-1)(x-3)+\beta_q^2(4-3x)>0$.  Hence the unique lower-side maximum is
+$\xi_0$.  On the vertical sides, parameterized downward,
+\[
+ \frac d{dy}H_q(-iy)=3\arctan y-\arctan(y/3)>0,
+\]
+\[
+ \frac d{dy}H_q(1-iy)=\frac\pi2+2\arctan y-\arctan(y/2)>0.
+\]
+On the lower halves of the limiting vertical sides, parameterized as
+$\xi=-iy$ and $\xi=1-iy$ with $0<y\le\beta_q$, the displayed derivatives
+are strictly positive.  On the upper halves use the exact reflection identity
+$H_q(x+iy)=H_q(x-iy)-2\pi y$ for $y>0$.  Hence neither upper vertical half
+can exceed its reflected lower half, and the maxima on both lower vertical
+halves occur at their lower endpoints.  The strictly concave lower horizontal
+phase has its unique maximum at the interior saddle $\xi_0$, strictly above
+both endpoints.
+
+The logarithmic potentials defining $H_q$ are continuous when $\xi$ approaches
+the real integration intervals because their logarithmic singularities are
+integrable.  They are therefore uniformly continuous on a compact
+neighborhood of the limiting rectangle.  The maxima over the boundaries of
+the scaled finite rectangles converge to the maximum over the limiting
+boundary.  The original rectangles have perimeter $O_q(n)$, while
+\eqref{eq:hp-log-em} contributes only a polynomial factor in $n$ to the
+modulus bound.  Taking $n$-th roots now gives
+the claimed rate bound.
+\begin{equation}\label{eq:hp-F-rate}
+ \limsup_{n\to\infty}|F_n^\pm(-1/q)|^{1/n}\le e^{H_q(\xi_0)}.
+\end{equation}
+
+To evaluate this number, choose logarithms continuously from the lower
+contour.  An antiderivative gives the analytic phase
+\[
+ \Psi_q(\xi)=3(\xi-1)\operatorname{Log}(\xi-1)- (\xi-3)\operatorname{Log}(\xi-3)
+             -2\xi\operatorname{Log}\xi+(-\log q+i\pi)\xi.
+\]
+At the lower saddle choose the principal logarithms of
+$\xi_0,\xi_0-1,\xi_0-3$, whose arguments lie in $(-\pi,0)$ (with the
+negative-real limiting value approached from below).  The algebraic saddle
+equation implies that $\Psi_q'(\xi_0)$ is an integer multiple of $2\pi i$.
+As $q\to\infty$, the lower root satisfies
+$\xi_0=-i/\sqrt{3q}+O(q^{-1})$; the three arguments tend respectively to
+$-\pi/2,-\pi,-\pi$.  The corresponding imaginary-part combination is zero,
+so continuity in $q>1$ forces this integer multiple to vanish identically.
+Substituting the saddle equation into $\Psi_q$ gives
+\[
+ e^{H_q(\xi_0)}=\left|\frac{\xi_0-3}{\xi_0-1}\right|^3.
+\]
+For $y=(\xi-3)/(\xi-1)$ the saddle equation becomes
+$y(y-3)^2=4z$.  Its real root is $y_0=-s_-^2/q$, where
+$s_-(q)\in(0,2/3)$ is the unique solution of
+\begin{equation}\label{eq:hp-sminus}
+ -\frac{s_-^3}{q}-3s_-+2=0.
+\end{equation}
+The product of the three roots of $y(y-3)^2=4z$ is $4z=-4/q$.
+Consequently the squared modulus of either nonreal root is
+$4/s_-^2$, and
+\begin{equation}\label{eq:hp-negative-coeff-rate}
+ e^{H_q(\xi_0)}=\frac8{s_-(q)^3}.
+\end{equation}
+Finally
+\[
+ C_n(-1/q)=\frac{F_n^+-F_n^-}{2\pi i},\qquad
+ B_n(-1/q)=\frac{F_n^++F_n^-}{2}+\log q\,C_n(-1/q).
+\]
+Equations~\eqref{eq:hp-F-rate}--\eqref{eq:hp-negative-coeff-rate} thus give
+the same upper exponential rate $8/s_-^3$ for $B_n(-1/q)$.
+
+\subsection{Integer-form rates and exact cutoffs}
+The prime number theorem gives
+$\log d_N=N+o(N)$, while Stirling~\cite{WhittakerWatson} gives
+$n^{-1}\log b_n\to2\log2$.  With $N=2n+1$,
+\begin{equation}\label{eq:hp-den-rate}
+ \lim_{n\to\infty}\left(\frac{d_N^2}{b_n^2}\right)^{1/n}
+       =\frac{e^4}{16}.
+\end{equation}
+No finite global inequality for $d_N$ is asserted.  Combining
+\eqref{eq:hp-R-rate}, the coefficient bounds, and
+\eqref{eq:hp-casoratian} yields
+\begin{align}
+ \limsup |L_n(q)|^{1/n}&\le
+ r_+(q):=\frac{e^4}{16q}
+       \left(\frac{3-t(q)}{1-t(q)}\right)^3s_+(q)^6,
+       &&a=q>1,\\
+ \limsup |L_n(-q)|^{1/n}&\le
+ r_-(q):=\frac{e^4s_-(q)^3}{2q},
+       &&a=-q<-1,
+\end{align}
+where $s_+$ is the unique root in $(0,1)$ of
+$s_+^3/q-3s_++2=0$.  The factors are as follows: $q^2$ from $|a|^N$,
+$e^4/16$ from \eqref{eq:hp-den-rate}, $q^{-3}s^6$ from the remainder,
+and the relevant coefficient growth rate.  Thus no estimate for an
+uneliminated logarithmic form is being used.
+
+For the positive rate set $z=1/q$.  Implicit differentiation of the two
+root equations gives
+\[
+ \frac{d\log r_+}{d\log z}
+       =1+t+\frac{2zs_+^2}{1-zs_+^2}>0,
+\]
+so $r_+(q)$ decreases with $q$.  On the negative side,
+$q=s_-^3/(2-3s_-)$ is increasing in $s_-$ and
+$r_-(q)=e^4(2-3s_-)/2$ is decreasing.  It remains to check four rational
+endpoints.  The Taylor sum for $e^4$ through degree 16 and a geometric tail
+bound give
+\[
+ \frac{6972316451}{127702575}<e^4<\frac{377139364267}{6907548375}.
+\]
+Opposite signs of the defining cubics at the following rational endpoints
+isolate the roots.  The derivatives are
+$-3(1-t)^2-q(6t-3t^2)<0$ for $t(q)$,
+$3s^2/q-3<0$ for $s_+(q)$, and $-3s^2/q-3<0$ for $s_-(q)$:
+\[
+\begin{array}{c|c}
+ t(11)&(14179/100000,14180/100000)\\
+ s_+(11)&(67602/100000,67604/100000)\\
+ t(12)&(13681/100000,13683/100000)\\
+ s_+(12)&(67521/100000,67523/100000)\\
+ s_-(7)&(65338/100000,65339/100000)\\
+ s_-(8)&(65496/100000,65497/100000)
+\end{array}
+\]
+Exact rational interval substitution gives
+\[
+\begin{array}{c|c}
+ r_+(11)&(10937/10000,10941/10000)\\
+ r_+(12)&(9834/10000,9837/10000)\\
+ r_-(7)&(10877/10000,10879/10000)\\
+ r_-(8)&(9587/10000,9589/10000)
+\end{array}
+\]
+and hence $r_+(12)<1$ and $r_-(8)<1$.  Monotonicity proves
+$r_+(q)<1$ for every integer $q\ge12$ and $r_-(q)<1$ for every integer
+$q\ge8$.
+
+\subsection{All-degree nonvanishing and conclusion}
+It remains to show that the constructed integer forms do not vanish
+eventually.
+Let $U_m=(3m+1)!/(m!)^3$,
+$K_n=((2n+1)!)^3/((3n+2)!)^2$, and
+$h_m=3H_m-H_{3m+1}$.  Direct extraction from
+\eqref{eq:hp-tail-series} gives
+\[
+ \Phi_n(3n+2)=K_n,\qquad
+ \frac{\Phi_n(3n+3)}{K_n}=\frac{8(n+1)}9.
+\]
+For $m\ge0$, put $M_m=B_mC_{m+1}-C_mB_{m+1}$; in particular
+$M_0=B_0C_1-C_0B_1$ is defined by the displayed residue polynomials.
+For $m\ge1$, put $r_m=m^3/(3m+1)$ and $c_m=2+3/m-1/(3m+1)$.
+The lower endpoint residues give
+\[
+ u_{m,0}=-U_m,\quad u_{m,1}=r_m u_{m,0},\quad
+ v_{m,0}=h_m u_{m,0},\quad
+ v_{m,1}=r_m(h_m-c_m)u_{m,0}.
+\]
+Expanding $B_mC_{m+1}-C_mB_{m+1}$ at degrees zero and one gives
+\[
+ M_m(0)=-U_mU_{m+1}\delta_m,
+\]
+\[
+ [z]M_m=U_mU_{m+1}
+ \{-\delta_m(r_m+r_{m+1})+r_{m+1}c_{m+1}-r_mc_m\},
+\]
+The three-form determinant
+\[
+ \Delta_n(z)=\det\begin{bmatrix}
+ A_n&B_n&C_n\\ A_{n+1}&B_{n+1}&C_{n+1}\\ A_{n+2}&B_{n+2}&C_{n+2}
+ \end{bmatrix}
+\]
+has degree at most $3n+3$.  Replacing its first column by the corresponding
+$R$-column and using \eqref{eq:hp-tail-series} shows its order is at least
+$3n+2$.  Expanding along that column gives
+\[
+ \Delta_n=R_nM_{n+1}
+ -R_{n+1}(B_nC_{n+2}-C_nB_{n+2})+R_{n+2}M_n.
+\]
+The last two terms start at degree $3n+5$.  Also
+\[
+ R_n(z)=K_nz^{3n+2}\left(1+\frac{8(n+1)}9z+O(z^2)\right).
+\]
+It follows that
+\[
+ [z^{3n+2}]\Delta_n=K_nM_{n+1}(0),\qquad
+ \frac{[z^{3n+3}]\Delta_n}{[z^{3n+2}]\Delta_n}
+ =\frac{[z]M_{n+1}}{M_{n+1}(0)}+\frac{8(n+1)}9.
+\]
+Substitution of the displayed coefficients gives the ratio $-\theta_n$, with
+\[
+ \theta_n=
+ \frac{-\delta_{n+1}(r_{n+1}+r_{n+2})
+       +r_{n+2}c_{n+2}-r_{n+1}c_{n+1}}{\delta_{n+1}}
+       -\frac{8(n+1)}9.
+\]
+Substituting $r_m,c_m,\delta_m$ and clearing denominators gives
+\begin{equation}\label{eq:hp-theta}
+ \theta_n=\frac{1728n^4+11520n^3+28140n^2+29965n+11770}
+ {18(3n+4)^2(27n^2+108n+104)}.
+\end{equation}
+Therefore
+\begin{equation}\label{eq:hp-delta}
+ \Delta_n(z)=-K_nU_{n+1}U_{n+2}\delta_{n+1}z^{3n+2}(1-\theta_nz),
+\end{equation}
+The numerator is positive for $n\ge0$; denominator minus numerator is
+\[
+ 2646n^4+17640n^3+43140n^2+46067n+18182>0.
+\]
+Also $\delta_{n+1}>0$.  Therefore $\Delta_n(z)\ne0$ for every real
+$0<|z|<1$.
+
+For such $z$, the beta integral \eqref{eq:hp-beta} gives $R_m(z)\ne0$.
+If both $E_n(z)$ and $E_{n+1}(z)$ vanished, the two adjacent minors of the
+columns $A+\operatorname{Li}_2(z)C$ and $B$ would vanish.  Since
+$R_n(z)$ and $R_{n+1}(z)$ are nonzero, this makes the three columns in
+$\Delta_n(z)$ linearly dependent (the conclusion also holds when one of the
+corresponding $B$ entries is zero, by using the other adjacent equation).
+Hence $\Delta_n(z)=0$, contradicting \eqref{eq:hp-delta}.  Thus no two
+consecutive $E_n(z)$ vanish.
+
+Suppose now that $\operatorname{Li}_2(1/a)=r/s$ were rational, in lowest
+terms.  By \eqref{eq:hp-integer-form}, $sL_n(a)$ is an integer for every
+$n$.  The strict rate bounds imply $L_n(a)\to0$, so $sL_n(a)=0$ for all
+sufficiently large $n$.  This contradicts the fact that no two consecutive
+$E_n(1/a)$, and hence no two consecutive $L_n(a)$, vanish.  This proves
+Theorem~\ref{thm:hp-tail}.

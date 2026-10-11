@@ -1,0 +1,878 @@
+\section{Positive logarithmic energy on an interval}\label{sec:p0-analytic}
+
+This section records the analytic passage for the positive P0 determinant,
+including the dependence on the base.  The finite determinant statement is
+for integers $q$ with $2\le q\le11$; a real parameter is used only in the
+continuum interpolation.  All measures, intervals, and the contour below are
+fixed as $q$ varies.  The two endpoint reference measures are the exact data
+in Tables~\ref{tab:q2data} and~\ref{tab:q11data}.
+
+Put $m\in4\mathbb N$, $m\ge8$, $g=m/2$,
+\[
+ I_m=\{m/4,\ldots,5m/4-1\},\qquad
+ J_m=\{0,\ldots,2m-1\},\qquad E=[1/4,5/4],
+\]
+and fix
+\[
+ \Gamma=\{\xi+A\cos u+iB\sin u:0\le u<2\pi\},\quad
+ (\xi,A,B)=\left(\frac{11281}{10000},\frac{12783}{10000},
+                                      \frac{229}{200}\right).
+\]
+Write $\Delta(X)=\prod_{a<b}(x_b-x_a)$ and $K(x,y)=(x+y)^{-1}$.
+The source function and the frequency weight at base $q>1$ are
+\[
+ F_{g,q}(z)=q^z\binom{z+g}{g},\qquad
+ U_i(q)=q^i\binom{i+g}{g},\qquad
+ w_{r,q}=\binom{r-1}{g}q^{-r}\quad(r>g).
+\]
+For integer $q$, let $G_{m,q}$ be the P0 determinant of
+Section~\ref{sec:p0}, with $a=q$.  The diagonal contour identity is
+\begin{equation}\label{eq:p0-contour-q}
+ C^{(g)}_{ij}(q)=-\oint_{m\Gamma}
+       \frac{F_{g,q}(z)}{(z-i)(z-j)}\frac{dz}{2\pi i}
+             +(\log q)U_i(q)\,\mathbf1_{i=j}.
+\end{equation}
+For $i\ne j$ this is the divided-difference residue identity; for $i=j$ it
+follows by differentiating $F_{g,q}$, since
+\[
+ F_{g,q}'(i)=U_i(q)\left(\log q+\sum_{s=1}^g\frac1{i+s}\right).
+\]
+Expanding the rational moment expression in the frequency basis and applying
+Cauchy--Binet~\cite{Gantmacher} gives an absolutely convergent sum over
+$R\subset\{g+1,g+2,\ldots\}$, $|R|=m$, with weight
+$\prod_{r\in R}w_{r,q}$.  After choosing $k$ diagonal rows $S\subset I_m$
+and putting $d=m-k$, its absolute integrand is
+\begin{equation}\label{eq:p0-q-integrand}
+ \begin{aligned}
+ Q_{m,q}(S,R,Z)={}&\left(\prod_{i\in S}(\log q)U_i(q)\right)
+   \left(\prod_{r\in R}w_{r,q}\right)
+   \left(\prod_{z\in Z}|F_{g,q}(z)|\right)\\
+ &\times\left|\det K_{I_m\setminus S,-Z}\det K_{I_m,R}
+                \det K_{(-Z,R),J_m\setminus S}\right|.
+ \end{aligned}
+\end{equation}
+where $Z=(z_1,\ldots,z_d)\in(m\Gamma)^d$.  The integration measure is
+$\prod |dz|/(2\pi)$ and the symmetrization factor is $1/d!$.  The three
+Cauchy factors have, after restoring the deleted fixed-grid factors, the
+same three Vandermonde interactions as at $q=2$: contour-contour, pinned-
+pinned, and frequency-frequency each have coefficient one; pinned-contour
+has coefficient two; pinned-frequency and contour-frequency each have
+ coefficient one.  In particular, no factor depending on $q$ enters the
+ quadratic interaction energy.
+
+\begin{proof}[Cauchy--Binet energy expansion~\cite{Gantmacher}]
+The rational moment expression is obtained by expanding the two Cauchy kernels
+geometrically and using the exact generating identity
+\[
+ \sum_{r\ge g+1}\binom{r-1}{g}(t/q)^r
+       =\left(\frac{t}{q-t}\right)^{g+1},\qquad 0\le t<q.
+\]
+Inserting these moments and applying
+\[
+ \det(XY)=\sum_{|R|=m}\det X_{:,R}\det Y_{R,:}
+\]
+gives the sum over the full frequency sets $R$ stated above.  Splitting the
+diagonal term in \eqref{eq:p0-contour-q} row by row chooses
+$S\subset I_m$; the remaining $d=m-|S|$ rows are represented by contour
+variables $Z$, with the factor $1/d!$ from their antisymmetrization.
+For any two equal-size sets, the Cauchy determinant identity~\cite{Krattenthaler}
+\[
+ \det\left(\frac1{x_i+y_j}\right)_{i,j=1}^r
+ =\frac{\Delta(x)\Delta(y)}{\prod_{i,j}(x_i+y_j)}
+\]
+converts each of the three kernel minors into a Vandermonde quotient.
+Restoring the fixed-grid Vandermonde factors leaves contour-contour,
+pinned-pinned, and frequency-frequency interactions with coefficient one,
+pinned-contour with coefficient two, and the other two mixed interactions
+with coefficient one.  Taking absolute values gives exactly
+\eqref{eq:p0-q-integrand}; all signs and $q$-powers are one-body terms.
+For fixed $m$, the Cauchy minors have at most polynomial growth in the
+frequencies and $w_{r,q}=O_q(r^gq^{-r})$.  The absolute frequency sum
+therefore converges, and increasing finite truncations converge to its
+full absolute envelope.
+\end{proof}
+
+For the normalization, the signed Cauchy--Binet expansion~\cite{Gantmacher}
+can be written
+explicitly. Put $n=m/4$, $Y=S\uplus Z$, and
+\[
+ \begin{aligned}
+ D_m(a)&=(a-n)!(n+m-1-a)!a!(2m-1-a)!,\\
+ P_m(z)&=\prod_{a\in I_m\uplus J_m}(z-a),\qquad
+ Q_m^*(r)=\prod_{a\in I_m\uplus J_m}(r+a).
+ \end{aligned}
+\]
+Then
+\begin{align*}
+G_{m,q}={}&\Delta(I_m)^2\Delta(J_m)
+ \sum_{S\subset I_m}\frac{(-1)^{|S|(n+1)}(\log q)^{|S|}}{d!}
+ \sum_{|R|=m}
+ \left(\prod_{a\in S}\frac{U_a(q)}{D_m(a)}\right)
+ \left(\prod_{r\in R}w_{r,q}\right)\\
+&\quad\times\oint_{(m\Gamma)^d}
+ \frac{\Delta(Y)^2\Delta(R)^2\prod_{y\in Y,r\in R}(y+r)}
+      {\prod_{z\in Z}P_m(z)\prod_{r\in R}Q_m^*(r)}
+      \prod_{z\in Z}\left(F_{g,q}(z)\frac{dz}{2\pi i}\right).
+\end{align*}
+This follows by applying Cauchy--Binet~\cite{Gantmacher} to the two Cauchy
+moment factors,
+then expanding the diagonal summands in the contour formula row by row.
+For every equal-size pair, use the Cauchy determinant identity~\cite{Krattenthaler}
+\[
+ \det\left((x_i+y_j)^{-1}\right)_{i,j=1}^r
+ =\frac{\Delta(x)\Delta(y)}{\prod_{i,j}(x_i+y_j)}.
+\]
+Restoring the deleted fixed-grid factors uses
+\[
+ \Delta(I_m\setminus S)\Delta(J_m\setminus S)
+ =\frac{\Delta(I_m)\Delta(J_m)\Delta(S)^2}
+        {\prod_{a\in S}D_m(a)}.
+\]
+Each pinned index is therefore counted twice in a contour denominator and
+once in a frequency denominator. The three Cauchy factors give
+contour-contour, pinned-pinned, and frequency-frequency interactions with
+coefficient one, pinned-contour with coefficient two, and each remaining
+mixed interaction with coefficient one. Taking absolute values and scaling
+all positions by $m$ gives \eqref{eq:p0-q-integrand} and
+\eqref{eq:p0-q-energy}. The factors $q^a$, $q^{-r}$, and $q^z$ contribute
+only the one-body fields $\lambda\Re z$ and $-\lambda t$ in
+\eqref{eq:p0-q-fields}; the quadratic interaction coefficients are
+independent of $q$.
+
+The fixed-grid normalization is also explicit.  Consecutive integer lists
+satisfy $\Delta(I_m)=\prod_{j=1}^{m-1}j!$ and
+$\Delta(J_m)=\prod_{j=1}^{2m-1}j!$.  Stirling's formula~\cite{WhittakerWatson}
+summed over these
+products gives
+\[
+ \log(\Delta(I_m)^2\Delta(J_m))
+ =3m^2\log m+(2\log2-9/2)m^2+O(m\log m).
+\]
+Equivalently, the fixed Vandermonde contributes $C_0=9/2-2\log2$ to
+the negative logarithmic energy.  The scaled Cauchy quotients cancel all
+$m^2\log m$ terms; their remaining homogeneous factor is
+$m^{-2m-2d}$ before the contour differentials and $m^{-2m-d}$ after them.
+This accounts for the full quadratic normalization in
+\eqref{eq:p0-q-energy}.
+
+\subsection{The fixed variational problem and its affine parameter}
+
+Let $\eta=\kappa+\nu$, where
+\[
+ 0\le\kappa\le1_E\,dx,\quad \nu\ge0,\quad
+ \operatorname{supp}\nu\subset\Gamma,\quad |\kappa|+|\nu|=1,
+\qquad 0\le\mu\le1_{[1/2,20]}dt,\quad |\mu|=1.
+\]
+Write $\mu^-=(-\operatorname{id})_\#\mu$ for reflection onto the negative
+real axis.
+The set $\mathcal A$ of such pairs $(\eta,\mu)$ is independent of $q$.
+Define
+\[
+ A_0(z)=\int_E\log|z-x|\,dx+\int_0^2\log|z-x|\,dx,
+ \qquad
+ B_0(t)=\int_E\log(t+x)\,dx+\int_0^2\log(t+x)\,dx,
+\]
+\begin{align*}
+ \phi_2(z)&=(\log2)\Re z+\int_0^{1/2}\log|z+s|\,ds
+                              +\frac12+\frac12\log2,\\
+ \psi_2(t)&=t\log t-(t-1/2)\log(t-1/2)
+                         +\frac12\log2-t\log2.
+\end{align*}
+For measures on the corresponding reflected supports write
+\[
+ I(\sigma,\tau)=-\iint\log|x-y|\,d\sigma(x)d\tau(y).
+\]
+The energy is
+\begin{align}
+ \mathcal E_{q}(\eta,\mu)={}&C_0+
+     \int(A_0-\phi_q)\,d\eta+\int(B_0-\psi_q)\,d\mu \\
+ &+I(\eta)+I(\mu)+I(\eta,\mu^-),
+ \label{eq:p0-q-energy}
+\end{align}
+Here $I$ is positive on zero-mass variations, while $Q_{\log}$ below uses
+the opposite, positive-logarithm convention.  Also
+$C_0=9/2-2\log2$ and, on writing $q=2e^\lambda$,
+\begin{equation}\label{eq:p0-q-fields}
+ \phi_q(z)=\phi_2(z)+\lambda\Re z,
+ \qquad \psi_q(t)=\psi_2(t)-\lambda t.
+\end{equation}
+The logarithmic integrals are understood in the following regularized sense:
+truncate at the logarithmic singularity, integrate the resulting bounded
+functions, and take the limit after replacing the coincident-cell term by
+the continuous primitive \(u(\log|u|-1)\), with value \(0\) at \(u=0\).
+The measures used below have bounded densities and compact support, so this
+limit is finite.  Substitution into
+\eqref{eq:p0-q-energy} shows, for every fixed admissible pair,
+\begin{equation}\label{eq:p0-q-affine-energy}
+ \mathcal E_\lambda(\eta,\mu)=\mathcal E_0(\eta,\mu)
+       +\lambda\left(-\int\Re z\,d\eta(z)+\int t\,d\mu(t)\right).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:p0-q-alpha}
+ \alpha(\lambda)=\inf_{(\eta,\mu)\in\mathcal A}
+                    \mathcal E_\lambda(\eta,\mu)
+\end{equation}
+is concave.  Indeed, for $0\le\theta\le1$, each fixed-pair energy at
+$\theta\lambda_0+(1-\theta)\lambda_1$ is the corresponding convex
+combination of its endpoint energies, and taking an infimum gives
+\[
+ \alpha(\theta\lambda_0+(1-\theta)\lambda_1)
+       \ge\theta\alpha(\lambda_0)+(1-\theta)\alpha(\lambda_1).
+\]
+Apply the shared quadratic-duality identity of
+Section~\ref{sec:certificate-algorithm} with quadratic part
+$Q_{\rm P0}(\eta,\mu)=I(\eta)+I(\mu)+I(\eta,\mu^-)$.  Fix an admissible
+reference $(\eta_0,\mu_0)$ and put
+\begin{align*}
+ Q_{\log}={}&\iint\log|z-w|\,d\eta_0(z)d\eta_0(w)
+ +\iint\log|t-s|\,d\mu_0(t)d\mu_0(s)\\
+ &+\iint\log|z+t|\,d\eta_0(z)d\mu_0(t).
+\end{align*}
+\[
+Q_{\rm P0}(\eta_0,\mu_0)=-Q_{\log},\qquad
+W_\eta=A_0-\phi_q-2L_{\eta_0}-L_{\mu_0^-},\qquad
+ W_\mu=B_0-\psi_q-2L_{\mu_0}-L_{\eta_0}(-t).
+\]
+If $W_\eta\ge h_\eta$ on $\Gamma$, set
+\[
+ P=\int_E(h_\eta-W_\eta)_+\,dx,\qquad
+ T=\int_{1/2}^{20}(h_\mu-W_\mu)_+\,dt.
+\]
+Then
+\begin{equation}\label{eq:p0-q-dual}
+ \alpha(\lambda)\ge C_0+Q_{\log}+h_\eta+h_\mu-P-T.
+\end{equation}
+For $\sigma=\eta-\eta_0$ and $\tau=\mu^- -\mu_0^-$, the shared identity
+has remainder
+\[
+ I(\sigma)+I(\tau)+I(\sigma,\tau)
+ =\tfrac12 I(\sigma)+\tfrac12 I(\tau)
+                         +\tfrac12 I(\sigma+\tau)\ge0,
+\]
+where $I(\rho)=-\iint\log|x-y|\,d\rho(x)d\rho(y)$ is nonnegative for
+zero-mass signed measures.  The density constraints then give
+$\int W_\eta d\eta\ge h_\eta-P$ and
+$\int W_\mu d\mu\ge h_\mu-T$, proving \eqref{eq:p0-q-dual}.
+
+\subsection{Finite configurations and cell estimates}
+
+For a selected pinned set $S\subset I_m$ and a frequency set $R$, define
+\begin{align*}
+ \kappa_S&=\sum_{i\in S}\mathbf1_{[i/m,(i+1)/m)}dx,
+ &\mu_R&=\sum_{r\in R}\mathbf1_{[(r-1)/m,r/m)}dt,\\
+ \nu_\delta&=\frac1m\sum_{a=1}^{d}\sigma_{z_a/m,\delta},
+ &\delta&=m^{-2}.
+\end{align*}
+Here $\sigma_{z,\delta}$ is probability arclength on the radius-$\delta$
+circle centered at $z$.
+Put $\zeta_a=z_a/m\in\Gamma$.  Thus all logarithms in the continuum
+energy are in scaled coordinates; the powers of $m$ arising from the change
+from $z_a$ to $\zeta_a$ have already been included in the fixed
+Vandermonde normalization in the cell estimate.
+The first two measures have density at most one,
+masses $|S|/m$ and one, and the first frequency cell begins at $1/2$.
+Circle averaging gives
+\begin{equation}\label{eq:p0-circle}
+ \sum_{a\ne b}\log|\zeta_a-\zeta_b|
+ \le m^2\iint\log|z-w|\,d\nu_\delta(z)d\nu_\delta(w)
+                                          +2d\log m.
+\end{equation}
+The fixed-grid and reflected-frequency logarithmic potentials are harmonic
+on the smoothing disks.  The contour field is subharmonic, including across
+the zero segment of $F_{g,q}$.  Thus smoothing has no additional field
+error; the explicit $2d\log m$ is the full smoothing loss.
+
+The exact real-cell estimates used in the envelope are listed here to make
+the finite-size accounting reproducible.  For $n$ distinct lattice sites,
+the cell self-energy inequality is
+\[
+ \sum_{a\ne b}\log|x_a-x_b|
+ \le m^2\iint\log|x-y|\,d\rho(x)d\rho(y)
+                                  +n(\log m+\log(2\pi)),
+\]
+where $\rho$ is the union of their length-$1/m$ cells.  To see the constant,
+write
+\[
+ e_d=\log d-\int_0^1\!\int_0^1\log|d+u-v|\,du\,dv.
+\]
+Then $e_1=3/2-2\log2$ and for $d\ge2$,
+\[
+ e_d=\sum_{j\ge1}\frac1{j(2j+1)(2j+2)d^{2j}}
+       \le\frac1{12d(d-1)},\qquad
+ \sum_{d\ge1}e_d=\tfrac12\log(2\pi)-\tfrac34.
+\]
+Indeed, for $d\ge2$ expand
+$\log(1+(u-v)/d)$ in its absolutely convergent power series and integrate
+term by term; the even moments
+$\int_0^1\!\int_0^1(u-v)^{2j}\,du\,dv=2/((2j+1)(2j+2))$
+give the displayed series, while the $d=1$ integral is elementary.  Summing
+the same identity from $d=1$ to $M$, exchanging the positive series, and
+using Stirling's Wallis limit~\cite{WhittakerWatson}
+$\log M!=(M+\tfrac12)\log M-M+\tfrac12\log(2\pi)+o(1)$
+gives the displayed infinite sum.  Thus no numerical cell constant is being
+imported.
+There are at most two sites at each distance from a fixed site.  This proves
+the displayed inequality by summing the self-cell and pair-cell errors.
+Applied to the selected pinned and frequency sites and to the fixed
+Vandermonde, it contributes $4m(\log m+\log(2\pi))$.
+
+The remaining one-body and mixed-cell bounds are as follows.  Binomial
+entropy gives
+\[
+ \log U_i(q)\le m\phi_q(i/m),\qquad
+ \log w_{r,q}\le m\psi_q(r/m).
+\]
+The exact cell corrections from the affine parameter are
+$-\lambda m/2$ for frequencies and $-\lambda|S|/2$ for pinned cells.
+For the base-$2$ frequency field,
+\[
+ \psi_2'(t)=\log\frac{t}{t-1/2}-\log2,\qquad
+ \int_{1/2}^{1}(\psi_2'(t))_+\,dt=\tfrac12\log2.
+\]
+Summing endpoint-to-cell differences over disjoint frequency cells costs
+at most $(m/2)\log2$.  Monotone quadrature for the fixed-grid field gives,
+for $t\ge1/2$,
+\[
+ 0\le mB_0(t)-\sum_{i\in I_m}\log(t+i/m)
+                    -\sum_{j\in J_m}\log(t+j/m)
+ \le\log(35/3).
+\]
+Thus the frequency one-body cost is at most
+$m(\log(35/3)+\tfrac12\log2)-\lambda m/2$.
+
+For the pinned denominator, take $N$ consecutive sites starting at $a$ and
+containing $i$, with $n_L=i-a$ and $n_R=a+N-1-i$.  Comparing the omitted
+site product on the two sides of $i$ with its cell integral gives
+\[
+ \log(n_L!n_R!)-(N-1)\log m
+ -m\int_{a/m}^{(a+N)/m}\log|i/m-y|\,dy
+ \ge\log\frac{m}{n_R+1}.
+\]
+This follows from monotone logarithmic sums and
+$n_R\log(1+1/n_R)\le1$; the zero case is direct.  The $I_m$ contribution
+is nonnegative and the $J_m$ contribution is at least $-\log2$.
+Direct integration of the explicit derivatives gives
+$\int_E| (\phi_2-A_0)'|\le\log6+2\log2+\log7=\log168$.
+Consequently pinned quadrature costs at most $m\log336$.  Its affine
+correction is $-\lambda|S|/2$, since the linear-field integral on each
+cell is centered one half-cell to the right of the selected lattice point.
+For an exact bookkeeping check, $q/2-\log q$ is increasing and positive on
+$[2,\infty)$, hence $(\log\log q)_+\le\lambda$.  Therefore the diagonal
+and cell-shift contribution satisfies
+\[
+ |S|(\log\log q)_+-\frac\lambda2(|S|+m)
+ \le-\frac\lambda2(m-|S|)\le0.
+\]
+The displayed pointwise estimate keeps the positive term and drops these
+favorable shifts, so it remains valid without relying on this cancellation.
+
+The ellipse clearances are
+\[
+ d_+=\operatorname{dist}(\Gamma,[0,2])=751/5000,\qquad
+ d_-=\operatorname{dist}(\Gamma,(-\infty,-1/2])=1749/5000.
+\]
+They follow by minimizing the squared distance as a quadratic in
+$\cos u$ on the ellipse parametrization.  The pinned-contour displacement
+costs $m/d_+$, the fixed contour denominators cost $3m/(2d_+)$, and the
+contour-frequency displacement costs $m/(2d_-)$.  The pinned-frequency
+cell displacement is centered; Taylor's inequality, with
+$i/m+r/m\ge3/4$ and cell width $1/m\le1/4$, bounds its total loss by $1/3$.
+Together these contributions are at most
+\[
+ m\left(\frac5{2d_+}+\frac1{2d_-}\right)+\frac13.
+\]
+Set $T_\delta=\{z:\operatorname{dist}(z,\Gamma)\le\delta\}$, with the tube
+radius $\delta$ used in the transfer argument below.
+For the finite contour product the required inequality is one-sided.  Fix
+$z\in T_\delta$, put $\zeta=mz$, $r=-\Re\zeta$, $b=\Im\zeta$, and
+$f(u)=\log|\zeta+u|$.  Then
+\[
+ f'(u)=\frac{u-r}{(u-r)^2+b^2},
+\]
+so $f$ decreases to $r$ and increases after $r$.  Put $H=\max(f,0)$.
+The negative part of $f$ is supported near $r$; after translating $r$ and
+using $\int_{-1}^{1}(\log|u|)_-\,du=2$, its integral over every unit cell
+meeting $r$ is at most $2$.  On each of the two monotone pieces the
+  right-endpoint quadrature error for $H$ is nonpositive on the decreasing
+  piece and nonnegative on the increasing piece.  The positive contribution
+  is bounded by the variation on the increasing piece.  The sampled endpoint
+  values are bounded by
+$\log(4(g+1))$ near the turning cell and by
+$\log(6(g+1))$ at the right endpoint, so this variation is at most
+$\log(6(g+1))$.  Thus the complete discrepancy satisfies
+\[
+ \sum_{k=0}^{g-1}f(k+1)-\int_0^g f(u)\,du
+ \le 2+\log(6(g+1)).
+\]
+This is the bounded-variation estimate for the truncated function $H$; it
+also covers the cases where the zero of $f$ lies outside $[0,g]$.  We retain
+the looser uniform quantity
+\[
+ \beta_m=4\log(g+1)+9+10\log2
+\]
+below.  Restoring the factors $\log m$ gives the cell integral in the
+contour-product estimate.
+Thus, for every $z\in T_\delta$,
+\begin{equation}\label{eq:p0-q-contour-product}
+ \log|F_{g,q}(mz)|\le m\phi_q(z)+\beta_m.
+\end{equation}
+The scalar factor $q^{mz}$ is exactly the affine field term and adds no
+discrepancy.  No lower bound for this discrepancy is used.
+Since $g+1\le m$ for $m\ge8$, the contour
+and circle errors together contribute $2m\log m+m\beta_m$.
+
+Combining the preceding terms with the fixed Vandermonde normalization and
+discarding favorable powers of $m$ gives, for every configuration,
+\[
+ \log Q_{m,q}(S,R,Z)
+ \le -m^2\mathcal E_q(\kappa_S+\nu_\delta,\mu_R)
+   +10m\log m+c_*m+\frac13
+   +|S|\log\log q,
+\]
+where the real-cell constant is
+\begin{align*}
+c_*={}&4\log(2\pi)+9+\frac{21}{2}\log2+\log336+\log(35/3)
+                         +\frac5{2d_+}+\frac1{2d_-}\\
+ <{}&49.978.
+\end{align*}
+The displayed logarithm bounds can be checked with the rational series
+\[
+ \log x=2\sum_{j=0}^{N}\frac{u^{2j+1}}{2j+1}+R_N,\qquad
+ 0<R_N<\frac{2u^{2N+3}}{(2N+3)(1-u^2)},\quad
+ u=\frac{x-1}{x+1}.
+\]
+For $x=710/113$ use $N=50$; for
+$x=2,21/16,35/24,39/32$ use $N=16$.  The rational series gives
+\[
+ \log(710/113)<1.83787716,\quad \log2<0.69314719,
+ \quad \log(21/16)<0.27193372,
+\]
+\[
+ \log(35/24)<0.37729424,\qquad \log(39/32)<0.19782575.
+\]
+The classical rational bound $\pi<355/113$ therefore gives
+$\log(2\pi)<1.83787716$; hence
+$\log336<8(0.69314719)+0.27193372$ and
+$\log(35/3)<3(0.69314719)+0.37729424$.
+Substitution of the exact rational $d_+=751/5000$ and
+$d_-=1749/5000$ gives $c_*<49.977264<49.978$ and
+$c_*+\log39+1+A<55.920<56$.
+This is the base-$2$ cell constant; the $q$-dependent cell shifts above are
+favorable.  The only $q$-dependent finite factor not absorbed by the affine
+energy is the diagonal multiplier $(\log q)^{|S|}$.  In the pointwise
+envelope it appears as the exact term $|S|\log\log q$.  At $q=2$ this term
+is negative, so the base-$2$ estimate omits that favorable factor; whenever an
+upper bound uniform in $q$ is taken below, it is replaced by
+$|S|(\log\log q)_+$.  Uniformly
+for $2\le q\le11$,
+\[
+ \log q<3,\qquad 0<\log q<3<5,\qquad \log(\log q)<\log3<2,
+\]
+so $|S|(\log\log q)_+<2m$.  For all bases we therefore replace $56m$ by at
+most $58m$; this
+finite correction is $O(m)$ and does not change the limiting energy rate.
+
+\subsection{Tube transfer, frequency tail, and summation}
+
+Let $D$ be the interior of the ellipse.  For $z$ inside $D$ use its interior
+harmonic measure $\omega_z$ on $\Gamma$; outside $D$ use exterior harmonic
+measure of total mass one; on $\Gamma$ use $\delta_z$.
+Let $W$ be the exterior inverse of
+$\mathcal J(w)=\xi+cw+d/w$, where $c=(A+B)/2$ and $d=(A-B)/2$.  Define
+$e(z)=0$ in $D$ and $e(z)=\log|W(z)|$ outside.  The factorization
+$\mathcal J(w_1)-\mathcal J(w_2)=(w_1-w_2)(c-d/(w_1w_2))$ and the Green
+identity imply
+\[
+ \int K_0(x,y)\,d\omega_z(y)\le K_0(x,z)+e(z),\qquad
+ I(\omega_z,\omega_w)\le K_0(z,w)+e(z)+e(w),
+\]
+where $K_0=-\log|\cdot|$ and $I$ denotes its mutual energy.  The interior
+deficit is the Green function of $D$; the exterior deficit is the
+nonnegative disk Green function; the cross-boundary deficit is zero.
+For $w=\rho e^{iu}$, $\rho\ge1$, the equipotential $|W(z)|=\rho$ is
+the confocal ellipse
+\[
+ \Gamma_\rho:
+ z=\xi+(c\rho+d/\rho)\cos u+i(c\rho-d/\rho)\sin u.
+\]
+It equals $\Gamma$ at $\rho=1$.  If $z=\mathcal J(w)$ and
+$\zeta=\mathcal J(v)\in\Gamma$, $|v|=1$, the exact factorization gives
+\[
+ |z-\zeta|=|w-v|\left|c-\frac{d}{wv}\right|
+ \ge(\rho-1)(c-d/\rho)\ge B(\rho-1).
+\]
+Taking the infimum over $\zeta$ and using $\log\rho\le\rho-1$ proves
+\[
+ e(z)\le\operatorname{dist}(z,\Gamma)/B\le\delta/B
+ \qquad(z\notin D,\ z\in T_\delta).
+\]
+
+For $x\in[0,2]$, set
+$\chi(z)=1-(\Re z-\xi)^2/A^2-(\Im z)^2/B^2$.  On $D$,
+$|\nabla\chi|\le2/B$, while $\chi(x)>1/5$.  The level curve
+$\chi=1/8$ is more than $1/32$ from $[0,2]$, so the Green function there is
+at most $\log160<6$.  The barrier $48\chi$ on the collar gives
+\[
+ g_D(z,x)\le96\delta/B\qquad(z\in D\cap T_\delta,\ x\in[0,2]).
+\]
+Since $A_0$ has source mass three and $\lambda\Re z$ is harmonic, the
+interior field-sweep loss for $A_0-\phi_q$ is at most $288\delta/B$.
+The term $-V$ is favorable in this estimate: $V$ is subharmonic, with
+distributional Laplacian $2\pi$ times the source measure on
+$[-1/2,0]$, so its harmonic sweep is at least its interior value and the
+$-V$ contribution can be dropped from an upper bound.
+For exterior $z=\mathcal J(w)$, the swept mean coordinate is
+$\xi+c/\overline w+d/w$, within $(A+B)\delta/B$ of $z$.
+For the base-$2$ terms the source bound is
+$[1/2+(A+B)\log2]\delta/B<3\delta/B$: $A_0$ changes by exactly
+$-3e(z)$, and the remaining coordinate displacement is at most
+$(A+B)\delta/B$.  The additional affine term is at most
+$\lambda(A+B)\delta/B<6\delta/B$ because
+$\lambda=\log(q/2)<2$ and $A+B<3$.
+
+The logarithmic source in $\phi_q$ needs a separate collar estimate.  Put
+\[
+ V(z)=\int_0^{1/2}\log|z+s|\,ds.
+\]
+For $0<\delta\le1/64$ and an exterior point with
+$\operatorname{dist}(z,\Gamma)\le\delta$, the explicit primitive
+\[
+ V(z)=\Re\bigl((z+1/2)\operatorname{Log}(z+1/2)
+              -z\operatorname{Log}z-1/2\bigr)
+\]
+on either side of the source segment gives
+\[
+ \nabla V(z)=\operatorname{Log}(z+1/2)-\operatorname{Log}z.
+\]
+For $z=\xi+A\cos u+iB\sin u$ on $\Gamma$, minimizing
+$|z|^2$ gives its minimum at $u=\pi$, namely
+$\xi-A=751/5000$; the derivative has no other critical point because
+$A\xi>|A^2-B^2|$.  The disk of this radius about $0$ lies inside the ellipse,
+so every exterior point satisfies $|z|\ge751/5000$.  For the radial
+comparison path, $h\le\delta/B$ and
+\[
+ |\mathcal J((1+h)e^{iu})-\mathcal J(e^{iu})|
+ \le(c+d)h=Ah\le\frac AB\delta
+ =\frac{12783}{11450}\delta<1.117\delta.
+\]
+This is about $1.116\delta$ and is less than $0.02$ when
+$\delta\le1/64$.  Thus all points used in the estimate have
+$\Re z\ge-751/5000-(12783/11450)/64>-1/4$.  Therefore
+\[
+ \frac{|z+1/2|}{|z|}
+ \le1+\frac1{2|z|}
+ \le1+\frac{2500}{751}
+ =\frac{3251}{751}<4.33,
+ \qquad
+ |\arg(z+1/2)-\arg z|\le\pi.
+\]
+Since $|z+1/2|^2-|z|^2=\Re z+1/4>0$, the ratio is at least one, and
+the modulus term in the difference of logarithms is at most $\log(4.33)$.
+The angle difference is at most $\pi$ because the two points lie on the
+same horizontal line.  Also $e^{3/2}>4.33$ by the first six terms of its
+positive series, so $\log(4.33)<3/2$.  Thus, on both sides of the cut,
+\[
+ |\nabla V(z)|
+ \le\sqrt{(3/2)^2+(22/7)^2}<3.72.
+\]
+At the contact point $z_0=\xi-A=-751/5000$ the classical gradient is not
+defined, but these are the bounded one-sided traces and they give the
+required Lipschitz bound across the smooth ellipse and the source cut.  The
+Joukowski boundary parametrization has speed at most $4/3$, so its
+pullback is $6$-Lipschitz.  If the exterior pole is $w=\rho e^{iu}$, write
+$\rho=1+h$.  The elementary estimate
+\[
+ \int_{-\pi}^{\pi}|t|P_{1+h}(t)\,\frac{dt}{2\pi}
+ \le \frac{3\pi h}{8}\log(1+4/h^2)
+\]
+is used for $0<h\le1$ and follows from
+$1-\cos t\ge2t^2/\pi^2$.  In the present collar
+$h\le\delta/B\le25/1832<1$, so this is the required range.  Since
+$\operatorname{dist}(\mathcal J(w),\Gamma)\ge Bh$ and $\delta\le1/64$,
+these bounds imply
+\[
+ \left|\int_\Gamma V(\zeta)\,d\omega_z(\zeta)-V(z)\right|
+ \le20\delta\log(1/\delta).
+\]
+Thus the exterior field loss is at most
+$9\delta/B+20\delta\log(1/\delta)$.  Combining this with the interior
+bound gives a uniform field loss at most
+$288\delta/B+20\delta\log(1/\delta)$.
+
+The three interaction terms change by at most $3b$, where
+$b=\int e\,d\nu\le|\nu|\delta/B$.  Since $|\nu|\le1$, their total loss is
+ at most $3\delta/B$.  Consequently the full transfer cost is at most
+$291\delta/B+20\delta\log(1/\delta)
+ <300\delta+20\delta\log(1/\delta)$ because $B=229/200>1$.
+Thus
+\[
+ \mathcal E_q(\kappa+\nu_\delta,\mu)
+       \ge\alpha(\lambda)-300\delta-20\delta\log(1/\delta),
+       \qquad \frac{291}{B}<300.
+\]
+The dual problem is posed on the printed support interval \([1/2,20]\).
+The frequency-cutoff argument below first replaces the full frequency sum by
+the range \(R\subset\{g+1,\ldots,20m\}\), with a positive multiplicative
+tail factor.  Hence every finite configuration used in the variational bound
+has its frequency measure in this compact interval; the omitted tail is
+accounted for separately in \eqref{eq:p0-frequency-cutoff}.
+
+For completeness, the unbounded frequency sum is reduced to a finite one
+before counting configurations.  For $H\ge g+1$, define
+\[
+ E_{m,q}(H)=\sum_{S\subset I_m}\frac1{d!}
+ \int_{(m\Gamma)^d}
+ \sum_{\substack{R\subset\{g+1,\ldots,H\}\\|R|=m}}
+ Q_{m,q}(S,R,Z)\prod_{z\in Z}\frac{|dz|}{2\pi}.
+\]
+The Cauchy--Binet expansion~\cite{Gantmacher} gives
+$|G_{m,q}|\le E_{m,q}(\infty)$.
+For fixed $S,Z$, its frequency-dependent
+factor is
+\[
+ f_q(R)=
+ \frac{\prod_{r\in R}w_{r,q}\,\Delta(R)^2
+       \prod_{r\in R,z\in Z}|r+z|}
+      {\prod_{r\in R,i\in I_m}(r+i)
+       \prod_{r\in R,j\in J_m\setminus S}(r+j)}.
+\]
+If $r=\max R>20m$, replace $r$ by the least missing
+$s\in\{g+1,\ldots,g+m\}$, so $s\le3m/2$.  The exact ratio of
+the frequency weights, both frequency Vandermonde factors, and all
+contour-frequency factors gives
+\[
+\frac{f_q(R)}{f_q(R')}\le
+      12500^m\frac{m^2}{4r^2}w_{r,2}.
+\]
+For the constant, at most two integers lie at each distance from $s$, so
+\[
+ \prod_{u\in R\setminus\{r\}}|s-u|
+ \ge d_m:=
+ \left\lfloor\frac{m-1}{2}\right\rfloor!
+ \left\lceil\frac{m-1}{2}\right\rceil!
+ \ge e^{-1}\left(\frac{m}{2e}\right)^{m-1}.
+\]
+Cancel the common factors in the two Cauchy determinants.  The two
+frequency Vandermonde ratios contribute the squared products of distances
+from $r$ and $s$; each contour-frequency factor is bounded by the
+corresponding ratio involving $r+g$ and $s+g$, and the fixed-grid factors
+are bounded by $5^m$.  The explicit denominator bounds
+$s+i\le11m/4$, $s+j\le7m/2$, and ellipse bounds
+$\Re z>-m/6$, $|z|<5m/2$ give
+\[
+ \frac{f_q(R)}{f_q(R')}
+ \le \frac{w_{r,q}}{w_{s,q}}
+       \left(\frac{77}{8}\right)^m
+       \left(\frac{189}{16}\right)^{m-|S|}
+       \frac{m^{2m}}{r^2d_m^2}.
+\]
+For $r>s$, $w_{r,q}/w_{s,q}\le w_{r,2}/w_{s,2}$ and
+$w_{s,2}\ge2^{-3m/2}$ because $s\le3m/2$ and
+$\binom{s-1}{g}\ge1$.  Substituting this and $e<3$ into the last
+display gives the asserted $12500^m m^2w_{r,2}/(4r^2)$ bound.  This is the
+full constant calculation; it does not require an estimate for $w_{s,q}$.
+The exact base comparison is
+\[
+ \frac{w_{r,q}/w_{s,q}}{w_{r,2}/w_{s,2}}
+       =\left(\frac2q\right)^{r-s}\le1.
+\]
+\begin{proof}[Frequency cutoff]\label{eq:p0-frequency-cutoff}
+\[
+ \vartheta_m=\frac{m}{1600}12500^m\sum_{r>20m}w_{r,2}.
+\]
+Indeed, the replacement map has at most $m$ preimages for each pair
+$(R',r)$, and $m^2/(4r^2)<1/1600$ when $r>20m$.  For $t=15/8$,
+\[
+ \sum_{r>20m}w_{r,2}
+ \le(8/15)^{20m}\sum_{r\ge g+1}w_{r,2}(15/8)^r
+ =(8/15)^{20m}15^{g+1}.
+\]
+Since $g=m/2$ and
+$12500\sqrt{15}<50000$, this gives
+\[
+ \vartheta_m\le\frac{15m}{1600}
+       \left[50000(8/15)^{20}\right]^m
+ <\frac3{320}2^{-m}<\frac12.
+\]
+The strict inequality uses $200000\cdot8^{20}<15^{20}$ and
+$m2^{-m}\le1$.  If $Z_M$ denotes the finite frequency sum through $M$,
+the replacement map gives $Z_M-Z_{20m}\le \vartheta_mZ_M$.  Hence
+$Z_M\le(1-\vartheta_m)^{-1}Z_{20m}\le(1+2\vartheta_m)Z_{20m}$.
+\[
+ 2\vartheta_m<\frac3{160}2^{-m}.
+\]
+Monotone convergence as $M\to\infty$ now proves
+\[
+ E_m(\infty)\le\left(1+\frac3{160}2^{-m}\right)E_m(20m).
+\]
+\end{proof}
+There are $2^m$ pinned subsets and at most $\binom{39m/2}{m}$ retained
+frequency sets.  The normalized contour length is at most $mA$, hence
+$(mA)^d/d!\le e^{mA}$.  Using $c_*<49.979$ and
+$c_*+\log39+1+A<56$, the finite configuration bound, the tube transfer
+with $\delta=m^{-2}$, and the tail factor imply the following.
+
+\begin{lemma}[Uniform smoothing bound]\label{lem:p0-smoothing-transfer}
+For every integer $q\in\{2,\ldots,11\}$ and every $m\in4\mathbb N$,
+ $m\ge8$,
+\begin{equation}\label{eq:p0-q-uniform-det}
+ \log|G_{m,q}(\Li_2(1/q))|
+ \le-\alpha(\log(q/2))m^2+10m\log m+58m+301+40\log m.
+\end{equation}
+The frequency quantifier before replacement is the full set
+$R\subset\{g+1,g+2,\ldots\}$ of cardinality $m$.  The constant $58$ is
+uniform in $q$; the constant $301$ includes the tube cost $300$, the
+real-cell remainder $1/3$, and the exponentially small frequency-tail
+factor.  The additional $40\log m$ is the explicit logarithmic collar cost.
+\end{lemma}
+
+\begin{proof}
+For each finite configuration the cell measures above are admissible in the
+$m^{-2}$ tube problem.  Tube transfer bounds their energy below by
+$\alpha(\lambda)-300m^{-2}-40m^{-2}\log m$.  Inserting this into the pointwise determinant
+envelope gives a $300+40\log m$ additive loss.  Summing the $2^m$ pinned choices,
+the $\binom{39m/2}{m}$ retained frequency choices, and the contour integral
+ adds at most $(\log39+1+A)m$ beyond $c_*m$.  The first contribution is
+strictly less than $56m$ by the displayed $c_*+\log39+1+A<56$; the extra
+diagonal factor is strictly less than $e^{2m}$.  Hence the coefficient of
+$m$ is strictly less than $56+2=58$.  The cell remainder is $1/3$.  For
+$m\ge8$ the tail factor obeys
+\[
+ \log\left(1+\frac3{160}2^{-m}\right)
+ \le\frac3{160}2^{-m}\le\frac3{40960},
+\]
+so $300+1/3+3/40960<301$.  Taking the
+monotone limit of the finite frequency cutoffs proves the estimate for the
+full half-line.
+\end{proof}
+
+\subsection{Endpoint certificates and the interval comparison}
+
+The exact reference masses and thresholds are printed in
+Tables~\ref{tab:q2data} and~\ref{tab:q11data}.  Their directed dual checks
+prove
+\begin{equation}\label{eq:p0-q-endpoint-bounds}
+ \alpha(0)\ge\frac{248035}{125000},\qquad
+ \alpha(\log(11/2))\ge\frac{77597}{100000}.
+\end{equation}
+These are lower bounds for the full continuum infimum, not empirical
+minimizers.  In each certificate the contour inequality is checked on the
+whole ellipse; the pinned positive-part integral is checked on its full
+support; the frequency positive-part integral is checked through $81/10$.
+The endpoint inequalities at $81/10$ are part of the directed integrals
+recomputed from the printed measures: they give $W_\mu(81/10)>31/10$
+for $q=2$ and $W_\mu(81/10)>56/5$ for $q=11$, while the respective thresholds
+are $1427/500$ and $1217/200$.
+
+The infinite tail has a direct bound that uses only the masses and supports
+of these two references.  Both $\eta_0$ have mass one and support in
+$E\cup\Gamma$, whose real part is at least $-751/5000$; both $\mu_0$ have
+mass one and support in $[1/2,9/2]$.  Also $B_0'$ is the Cauchy transform
+of a positive measure of mass three on $[0,2]$.  Differentiating the
+definition of $W_\mu$ therefore gives, for $t\ge81/10$,
+\begin{align*}
+ W_\mu'(t)
+ &=B_0'(t)+\log q-\log\frac{t}{t-1/2}
+   -2\int\frac{d\mu_0(s)}{t-s}
+   -\int\Re\frac{d\eta_0(z)}{t+z}\\
+ &\ge H(t):=\frac3{t+2}+\log q-\log\frac{t}{t-1/2}
+       -\frac2{t-9/2}-\frac1{t-751/5000}.
+\end{align*}
+For $t\ge81/10$, differentiation yields
+\[
+H'(t)=-\frac3{(t+2)^2}+\frac1{2t(t-1/2)}
+       +\frac2{(t-9/2)^2}+\frac1{(t-751/5000)^2}>0,
+\]
+because the last two positive terms exceed $3/t^2$, while
+$3/(t+2)^2<3/t^2$.  Thus $H(t)\ge H(81/10)$.  The elementary bounds
+$\log q\ge\log2>2/3$, $\log(81/76)<1/13$, and
+$5000/39749<13/100$ give
+\[
+W_\mu'(t)\ge H(81/10)>
+\frac{30}{101}+\frac{69}{100}-\frac1{13}-\frac59-\frac{13}{100}
+=\frac{66338}{295425}>\frac{31}{684}.
+\]
+Here we used the elementary rational-series bounds
+$\log2>69/100$, $\log11>23/10$, $\log(81/76)<1/13$, and
+$5000/39749<13/100$; the $q=11$ lower bound is larger than $1$.
+Consequently $W_\mu'(t)>31/684>1/50$ for $q=2$ and is $>1$ for
+$q=11$.  Hence $W_\mu(t)>h_\mu$ on the entire omitted ray, so $T$ has no
+omitted tail.  The directed endpoint records are summarized in
+Table~\ref{tab:p0-q-bounds}; the exact mass lists are the two preceding
+reference tables.
+
+For auditability, the scalar inputs and the outward rational penalties used
+by the two records are listed here (the displayed finite decimals are
+outward lower bounds for $Q_{\log}$):
+\begin{table}[ht]
+\centering
+\caption{Scalar data in the two directed endpoint certificates.}
+\label{tab:p0-q-bounds}
+\renewcommand{\arraystretch}{1.12}
+ {\normalsize
+\begin{tabular}{@{}c l@{}}
+\toprule
+$q$ & exact thresholds and directed penalty bounds\\
+\midrule
+$2$ & $h_\eta=-3347002/1000000$, $h_\mu=1427/500$;\\
+    & $Q_{\log}>-0.425508$,\quad
+      $P\le0.087950$,\\
+    & $T\le0.122962$;\\[2pt]
+$11$ & $h_\eta=-3359/500$, $h_\mu=1217/200$;\\
+    & $Q_{\log}>-0.635537$,\quad $P\le0.000001$,\\
+    & $T\le1.069189$.\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The arithmetic rate used for the positive bases is
+\[
+ \tau_+(\lambda)=K+\frac1{16}\log(q-1)-\frac{13}{16}\log q,
+                    \qquad q=2e^\lambda,
+\]
+where the arithmetic estimate gives $K\le1271001/500000$.  Differentiation
+with respect to $\lambda$ gives
+\[
+ \tau_+''(\lambda)=-\frac{q}{16(q-1)^2}<0.
+\]
+Its tangent at $q_0=63/25$ has exact slope
+\[
+ \tau_+'(\log(q_0/2))=-\frac{431}{608}.
+\]
+Concavity places $\tau_+$ below this tangent on the whole interval.  Directed
+logarithm evaluation with the stated rational upper bound for $K$ gives the
+endpoint comparison:
+\begin{center}
+\renewcommand{\arraystretch}{1.12}
+ {\normalsize
+\begin{tabular}{@{}c c c c@{}}
+\toprule
+$q$ & directed $\alpha$ lower bound & tangent upper bound for $\tau_+$
+     & directed gap lower bound\\
+\midrule
+$2$ & $248035/125000$ & $1.981041880111$ & $>3/1000$\\
+$11$ & $77597/100000$ & $0.772577360778$ & $>3/1000$\\
+\bottomrule
+\end{tabular}}
+\end{center}
+The displayed decimal upper bounds are outward roundings of the directed
+intervals; the corresponding directed gaps are respectively
+$0.00323811988930149\ldots$ and $0.00339263922279043\ldots$.
+
+Let $L(\lambda)$ be the chord joining the two lower bounds in
+\eqref{eq:p0-q-endpoint-bounds}.  By concavity of $\alpha$,
+$\alpha(\lambda)\ge L(\lambda)$.  Let $T(\lambda)$ be the tangent to
+$\tau_+$ at $q_0=63/25$.  The two directed endpoint checks show
+$L-T>3/1000$ at both ends.  Since $L-T$ is affine in $\lambda$, it is
+greater than $3/1000$ throughout
+$0\le\lambda\le\log(11/2)$.  Also $\tau_+(\lambda)\le T(\lambda)$.
+We have proved
+\begin{equation}\label{eq:p0-q-positive-margin}
+ \alpha(\lambda)-\tau_+(\lambda)>\frac3{1000}
+                 \quad(0\le\lambda\le\log(11/2)).
+\end{equation}
+The determinant estimate \eqref{eq:p0-q-uniform-det} is a separate
+smoothing estimate; the fixed-base integerizer and nonvanishing sequence are
+applied separately at each integer $q$.  Thus this section uses
+no interpolation of integerizers, seed primes, or endpoint reference
+measures.

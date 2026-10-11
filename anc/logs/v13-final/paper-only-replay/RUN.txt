@@ -1,0 +1,10 @@
+Command:
+  nice -n 10 env PYTHONPATH=anc/scripts python3 anc/scripts/paper_only_replay.py \
+    --tex-root source --out /tmp/li2-alln-v13-replay-final-20261011
+
+Exit status: 0
+Result: PASS
+Runtime: 318.6678276481107 seconds
+Scope: printed reference data; directed P0 endpoint and V fixed-base field-bound replay.
+Checks: 2/2 P0 endpoint bounds strict; 6/6 V alpha lower bounds strict;
+        30/30 V cap checks strict; 10/10 TeX hashes match.

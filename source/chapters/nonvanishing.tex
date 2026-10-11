@@ -1,0 +1,292 @@
+\section{Seed determinants and eventual nonvanishing}\label{sec:nonvanishing}
+
+This section proves the nonvanishing input for the determinants
+used in each of the two constructions.  The P0 family has a base-dependent
+auxiliary prime; the signed construction uses one explicitly listed prime for
+each base $a=-r$, $2\le r\le7$.  The prime-power variable below is always
+separate from the base parameter.  Finite seed calculations are printed, but
+nonvanishing at all sufficiently high powers follows from the residue-block
+identities proved here, not from extrapolating a finite table.
+
+\subsection{The P0 seed and its base-dependent prime}
+
+Write $G^{(0)}_{m,a}(T)$ for the P0 determinant of
+\eqref{eq:p0det}.  At $m=4$ its row and column sets are
+$I_4=\{1,2,3,4\}$ and $J_4=\{0,1,\ldots,7\}$.  Exact elimination in this
+the $8\times8$ determinant gives
+\begin{equation}\label{eq:p0-seed-factor}
+ G^{(0)}_{4,a}(0)=\frac{a^9(a-1)^2H(a)}{D},\qquad
+ D=2090188800000=2^{17}3^6 5^5 7.
+\end{equation}
+For an exact coefficient record, write $H(a)=\sum_{j=0}^{17}h_ja^j$.
+In descending degree the vector $(h_{17},\ldots,h_0)$ is
+\[
+\left(\begin{array}{r}
+10369949184000000\\
+-79502943744000000\\
+273672012096000000\\
+-559106235072000000\\
+754609551358320000\\
+-707442931414800000\\
+469847663340300000\\
+-220367388160080000\\
+71443538332097400\\
+-15753667204602600\\
+2634445947232050\\
+-486626431113900\\
+91676122191935\\
+-9473737791290\\
+424034049270\\
+4759882606\\
+-44546479\\
+1296
+\end{array}
+\right).
+\]
+Reduction of this vector gives
+\begin{equation}\label{eq:p0-seed-mod5}
+ H(a)\equiv a^2+a+1\pmod 5.
+\end{equation}
+The values of the right side at $a=0,1,2,3,4$ are respectively
+$1,3,2,3,1$.  Thus $H(a)\ne0$ for every integer $a$.
+
+Fix any integer $a$ with $|a|\ge2$, and put
+\[
+ N_a=10!\,|a(a-1)H(a)|+1.
+\]
+This integer is greater than one.  Choose any prime divisor $p$ of $N_a$.
+Since $N_a\equiv1\pmod\ell$ for every prime $\ell\le10$, we have $p>10$.
+Also $p$ divides none of $a$, $a-1$, and $H(a)$, and $p\nmid D$ by the
+factorization in \eqref{eq:p0-seed-factor}.  Consequently
+\begin{equation}\label{eq:p0-seed-unit}
+ a,\quad a-1,\quad G^{(0)}_{4,a}(0)\quad\text{are all units in }\mathbb Z_{(p)}.
+\end{equation}
+The choice is allowed to depend on $a$; no fixed prime is asserted to work
+for every base.
+
+\subsection{P0 Frobenius blocks}
+
+Let $Q=p^k$ and $m=4Q$.  Write each index uniquely as $i=Qu+r$ with
+$0\le r<Q$.  The P0 row indices are $i=Q,\ldots,5Q-1$, and its column
+indices are $j=0,\ldots,8Q-1$.  The following congruence is coefficientwise
+in $\mathbb Z_{(p)}[X]$:
+\begin{equation}\label{eq:p0-frobenius}
+ Q^{12Q}G^{(0)}_{4Q,a}(X/Q^2)\equiv
+ G^{(0)}_{4,a}(X)^Q\pmod p.
+\end{equation}
+
+We give the entry argument, including the denominator and permutation
+checks.  In the P0 determinant, all summation denominators, index
+ differences, and diagonal denominators occurring at level $4Q$ are nonzero
+ integers whose absolute values are less than $10Q$.  As $p>10$, each has $p$-adic valuation at most
+$k$; the only other denominators are powers of $a-1$, which are $p$-units by
+\eqref{eq:p0-seed-unit}.  Therefore multiplying each $C$ row by $Q$ and
+each $B-TA$ row by $Q^2$ produces a matrix over $\mathbb Z_{(p)}[X]$.
+Its determinant is exactly the left side of \eqref{eq:p0-frobenius}.
+
+Lucas' congruence and $a^Q\equiv a$ in $\mathbb F_p$ give
+\[
+ \binom{Q(u+2)+r}{2Q}a^{Qu+r}
+ \equiv a^r\binom{u+2}{2}a^u\pmod p.
+\]
+In the finite sums defining the P0 rows, multiplication by $Q$ (or $Q^2$
+on a second-order denominator) kills every summand whose denominator is not
+divisible by $Q$.  The surviving summands, after division of their indices by
+$Q$, are exactly the corresponding level-$4$ sums.  For the correction terms
+this uses $(a/(a-1))^Q\equiv a/(a-1)\pmod p$.  Thus, with $u,v$ denoting
+the quotient indices and $r,s$ the residues,
+\begin{align}
+ Q C_{Qu+r,Qv+s}&\equiv \mathbf 1_{r=s}a^r C_{u,v}\pmod p,\\
+ Q^2 B_{Qu+r,Qv+s}&\equiv \mathbf 1_{r=s}a^r B_{u,v}\pmod p,\\
+ A_{Qu+r,Qv+s}&\equiv \mathbf 1_{r=s}a^r A_{u,v}\pmod p.
+ \label{eq:p0-entry-blocks}
+\end{align}
+For the off-diagonal entries with unequal residues, the first two congruences
+also follow because $v_p(j-i)<k$, so $Q/(j-i)$ is zero modulo $p$ after
+localization.  When the residues agree, $j-i=Q(v-u)$; the reduced nonzero
+differences satisfy $|v-u|\le7<p$.  The diagonal identities follow by the
+same denominator filtering in the displayed harmonic sums.  This proves
+\eqref{eq:p0-entry-blocks} for every entry, including the diagonals.
+
+After grouping rows and columns by residues, the scaled matrix is block
+diagonal modulo $p$, with $Q$ blocks
+\[
+ a^r\begin{bmatrix}C_4(a)\\ B_4(a)-XA_4(a)\end{bmatrix},
+ \qquad 0\le r<Q.
+\]
+There are eight rows in each block, so their scalar product is
+$a^{8\sum_{r=0}^{Q-1}r}=a^{4Q(Q-1)}$.  The column regrouping sign is
+$(-1)^{\binom Q2\binom82}=1$, and interleaving the two four-row families
+has sign $(-1)^{4^2\binom Q2}=1$.  Since $a^{Q-1}\equiv1\pmod p$, the
+scalar product is also $1$ modulo $p$.  Taking determinants proves
+\eqref{eq:p0-frobenius}.
+
+\begin{lemma}[P0 eventual nonvanishing]\label{lem:p0-eventual-nonzero}
+For every fixed integer $a$ with $|a|\ge2$ and every fixed rational number
+$\xi$, there is $k_0=k_0(a,\xi)$ such that
+\[
+ G^{(0)}_{4p^k,a}(\xi)\ne0\qquad(k\ge k_0),
+\]
+where $p$ is any prime selected as above.
+\end{lemma}
+\begin{proof}
+Set $W=Q^2\xi$ in the scaled determinant of
+\eqref{eq:p0-frobenius}.  For all sufficiently large $k$,
+$v_p(W)=2k+v_p(\xi)>0$ (with the assertion immediate for $\xi=0$).  Its
+left-side scaled matrix is over $\mathbb Z_{(p)}$, while its determinant
+reduces modulo $p$ to
+\[
+ G^{(0)}_{4,a}(0)^Q,
+\]
+which is a unit by \eqref{eq:p0-seed-unit}.  The scaled determinant is
+therefore nonzero, and its scaling factor is nonzero; hence
+$G^{(0)}_{4Q,a}(\xi)\ne0$.
+\end{proof}
+
+\subsection{Negative V seeds}
+
+For $a=-r$, $2\le r\le7$, write $G^{(V)}_{4n,a}(T)$ for the
+column-$V$ determinant
+\[
+ G^{(V)}_{4n,a}(T)=\det\begin{bmatrix}C(a)\\ B(a)-TA(a)\\ V\end{bmatrix},
+\]
+with
+\[
+ I=[2n,6n),\qquad J=[n,10n),\qquad
+ \Lambda=\{1,\ldots,n\}.
+\]
+\[
+ C_{ij}=\frac{a^i-a^j}{j-i}\quad(i\ne j),\qquad C_{ii}=0,
+ \qquad A_{ij}=a^i\delta_{ij}.
+\]
+\[
+ t_j=\sum_{s=1}^j\frac{a^{j-s}}s,\qquad
+ b_j=\sum_{s=1}^j\frac{a^{j-s}}{s^2},\qquad
+ \]
+ \[
+ B_{ij}=\begin{cases}(t_i-t_j)/(j-i),&i\ne j,\\ b_i,&i=j,\end{cases}
+ \qquad V_{\ell j}=\frac1{j+\ell}.
+\]
+Here $I,J,\Lambda$ are integer intervals, with increasing order.  At the seed
+level $n=1$, the determinant is $9\times9$, with
+$I=\{2,3,4,5\}$, $J=\{1,\ldots,9\}$, and $\Lambda=\{1\}$.
+The exact source formulas give the following reductions.  Coefficient vectors
+are in ascending powers of $T$; thus each row specifies the entire seed
+polynomial modulo its indicated prime.
+\begin{center}\normalsize\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{c c c l c}
+\hline
+$r$&$a$&$p_r$&$G^{(V)}_{4,-r}(T)\bmod p_r$&$G^{(V)}_{4,-r}(0)\bmod p_r$\\
+\hline
+2&$-2$&11&$(4,2,7,3,9)$&4\\
+3&$-3$&11&$(1,4,6,7,1)$&1\\
+4&$-4$&23&$(5,8,16,21,20)$&5\\
+5&$-5$&11&$(5,2,5,8,7)$&5\\
+6&$-6$&17&$(5,12,4,7,4)$&5\\
+7&$-7$&17&$(8,0,8,16,5)$&8\\
+\hline
+\end{tabular}
+\end{center}
+For example, the first vector means
+$4+2T+7T^2+3T^3+9T^4$ in $\mathbb F_{11}[T]$.  All six constant entries
+are nonzero.  Each $p_r$ exceeds $7$.  The individual seed entries have
+denominators dividing $2520^2$, and hence every coefficient denominator of
+the seed determinant is supported on the primes $2,3,5,7$ (cancellation may
+make it smaller, but need not make it divide $2520^2$).  Thus $p_r$ is prime
+to every seed denominator, to $a$, and to $a-1$.  The seed constant is
+consequently a $p_r$-adic unit and all seed coefficients are defined in
+$\mathbb Z_{(p_r)}$.
+
+\subsection{Signed Frobenius blocks}
+
+Fix $r$ and abbreviate $p=p_r$.  Put $Q=p^k$ and $m=4Q$.  At this level the
+three shape parameters of the V source are all set equal to \(Q\); they are
+distinct from the exponent \(k\) in \(Q=p^k\).  Then the row and column
+intervals are
+\[
+ I=[2Q,6Q),\qquad J=[Q,10Q),\qquad \Lambda=\{1,\ldots,Q\}.
+\]
+Define
+\begin{equation}\label{eq:v-scaled-polynomial}
+ P_{r,k}(X)=Q^{3m+Q}G^{(V)}_{m,-r}(X/Q^2)
+              =Q^{13Q}G^{(V)}_{4Q,-r}(X/Q^2).
+\end{equation}
+The determinant on the left is formed by scaling its $C$ and $V$ rows by
+$Q$ and its $B-TA$ rows by $Q^2$; the middle rows become $Q^2B-XA$.
+Every nonzero denominator in a harmonic sum, index difference, or V-entry is
+an integer whose absolute value is less than $11Q$.  Since $p\ge11$, its $p$-adic valuation is
+at most $k$.  Hence the scaled matrix has entries in
+$\mathbb Z_{(p)}[X]$, and so does $P_{r,k}(X)$.
+
+Write $i=Qi_0+u$ and $j=Qj_0+v$, with residues in $\{0,\ldots,Q-1\}$.
+As in the P0 calculation, only summands with denominator divisible by $Q$
+survive after row scaling.  In particular,
+\begin{equation}\label{eq:v-harmonic-filter}
+ Q t_{Qj_0+u}\equiv a^u t_{j_0},\qquad
+ Q^2 b_{Qj_0+u}\equiv a^u b_{j_0}\pmod p,
+\end{equation}
+because $a^Q\equiv a\pmod p$.  For $C$ and the off-diagonal $B$ entries,
+unequal residues vanish: if $u\ne v$, then $v_p(j-i)<k$.  With equal
+residues and unequal quotient indices, division by $j-i=Q(j_0-i_0)$ gives
+the seed $C$ and $B$ entries with row factor $a^u$; here
+$|j_0-i_0|\le7<p$.  The diagonal $B$ entry follows from
+\eqref{eq:v-harmonic-filter}.  The diagonal $A$ entries satisfy
+$A_{Qi_0+u,Qi_0+u}\equiv a^uA_{i_0i_0}\pmod p$.
+
+For the V rows, fix a column residue $u$.  There is exactly one
+$\ell\in\{1,\ldots,Q\}$ with $\ell+u\equiv0\pmod Q$, namely
+$\ell=Q-u$ when $u>0$ and $\ell=Q$ when $u=0$.  All other scaled entries
+vanish modulo $p$, and for this row
+\[
+ \frac{Q}{j+\ell}=\frac1{j_0+1},
+\]
+the seed V-entry.  Thus residue regrouping gives $Q$ diagonal blocks
+\[
+ \begin{bmatrix}a^u C_4\\ a^u(B_4-XA_4)\\ V_4\end{bmatrix},
+ \qquad 0\le u<Q.
+\]
+Each block has eight rows carrying $a^u$ and one V row.  Row and column
+regrouping contributes a sign $\varepsilon_{r,k}\in\{1,-1\}$, which is a
+$p$-adic unit and need not be evaluated.  Therefore, coefficientwise,
+\begin{equation}\label{eq:v-frobenius}
+ P_{r,k}(X)\equiv
+ \varepsilon_{r,k}a^{4Q(Q-1)}G^{(V)}_{4,-r}(X)^Q\pmod p.
+\end{equation}
+The exponent is $8\sum_{u=0}^{Q-1}u=4Q(Q-1)$.  The table above shows
+$p\nmid G^{(V)}_{4,-r}(0)$, and $p\nmid a$, so the constant coefficient
+on the right of \eqref{eq:v-frobenius} is nonzero modulo $p$.
+
+\begin{lemma}[negative-base eventual nonvanishing]\label{lem:v-eventual-nonzero}
+For each $r\in\{2,3,4,5,6,7\}$ and every fixed rational number $\xi$,
+there is $k_0=k_0(r,\xi)$ such that
+\[
+ G^{(V)}_{4p_r^k,-r}(\xi)\ne0\qquad(k\ge k_0).
+\]
+\end{lemma}
+\begin{proof}
+Use the convention $v_{p_r}(0)=+\infty$.  For all sufficiently large $k$,
+$v_{p_r}(Q^2\xi)=2k+v_{p_r}(\xi)>0$ (and this is immediate when
+$\xi=0$).
+Since $P_{r,k}\in\mathbb Z_{(p_r)}[X]$, its value at $X=Q^2\xi$ is
+congruent modulo $p_r$ to its constant coefficient.  By
+\eqref{eq:v-frobenius}, that coefficient is a unit.  Thus
+$P_{r,k}(Q^2\xi)\ne0$, and the nonzero scaling in
+\eqref{eq:v-scaled-polynomial} yields the claim.
+\end{proof}
+
+\subsection{Use in the determinant criterion}
+
+For a fixed rational target $\xi$, the preceding lemmas give nonvanishing at
+every sufficiently high index of the selected prime-power sequence, not
+merely at one computed level.  Once $k\ge k_0$, the determinants at indices
+$k$ and $k+1$ are both nonzero.  This assertion concerns the
+selected prime-power subsequence only; no nonvanishing assertion is made for
+every intervening integer degree $m$.
+
+For each fixed integer base, the irrationality criterion of
+Section~\ref{sec:criterion} must now be applied to one family at a time:
+P0 with its base-dependent prime, or V with the corresponding $p_r$.
+The integerizer, analytic estimate, and nonzero determinant must all belong
+to that same source.  The prime-power sequences proved here supply exactly the
+nonzero term required by the criterion; they do not by themselves imply a
+common analytic or arithmetic rate across the two families.

@@ -1,0 +1,728 @@
+\section{Arithmetic for the positive determinant}\label{sec:p0-arithmetic}
+
+This section proves the fixed-base denominator estimate for the P0
+pencil.  The base is fixed before the limit in $m$ is taken.  No estimate
+uniform in unbounded $|a|$ at finite $m$ is asserted.  The proof has an
+algebraic part, an exact sum over primes, and a prime-number-theorem limit.
+The algebraic and limiting arguments below are all-$m$ arguments.  The
+large-ratio contribution is specified by the rational table
+\ref{tab:p0-high-potentials} and its type-generation rule.
+
+Write $m=4h$, $g=2h$, $I=\{h,\ldots,5h-1\}$,
+$J=\{0,\ldots,8h-1\}$, and $U=8h-1=2m-1$.  Let
+\[
+ \begin{aligned}
+ d_U&=\operatorname{lcm}(1,2,\ldots,U),\\
+ N_m&=13h^2-4h=\frac{13}{16}m^2-m,\\
+ H_m&=h^2-3h=\frac1{16}m^2-\frac34m.
+ \end{aligned}
+\]
+For a prime $p$, put $d_p=\lfloor\log_p U\rfloor$ and use $v_p$ for the
+usual valuation, including its coefficientwise extension to polynomials.
+The parameter-dependent entries $A(a),B(a),C(a)$ and determinant
+$G_{m,a}(T)$ are those of \eqref{eq:p0det}; in particular the diagonal
+conventions in Section~\ref{sec:p0} are retained.
+
+\subsection{The source Mellin identity}
+For real $a$ with $|a|>1$ put
+\[
+ t_i^0(a)=\sum_{r=1}^{i}\frac{a^{i-r}}r,
+ \quad b_i^0(a)=\sum_{r=1}^{i}\frac{a^{i-r}}{r^2},
+ \quad L(a)=-\sum_{r\ge1}\frac{a^{-r}}r,
+ \quad \beta(a)=\sum_{r\ge1}\frac{a^{-r}}{r^2}.
+\]
+Thus $L(a)=\log(1-1/a)$ and $\beta(a)=\Li_2(1/a)$ with their real
+values on both components of $\{|a|>1\}$.  Define
+\[
+ A^0_{ij}(a)=a^i\delta_{ij},\qquad
+ C^0_{ij}(a)=\begin{cases}(a^i-a^j)/(j-i),&i\ne j,\\0,&i=j,\end{cases}
+\]
+and
+\[
+ B^0_{ij}(a)=\begin{cases}(t_i^0(a)-t_j^0(a))/(j-i),&i\ne j,\\
+ b_i^0(a),&i=j.\end{cases}
+\]
+
+\begin{lemma}[source Mellin identity]
+\label{lem:p0-source-mellin}
+For $|a|>1$ and all $i,j\ge0$,
+\begin{equation}\label{eq:p0-source-mellin}
+ M_{ij}(a):=B^0_{ij}(a)+L(a)C^0_{ij}(a)-\beta(a)A^0_{ij}(a)
+ =-\sum_{r\ge1}\frac{a^{-r}}{(i+r)(j+r)}
+ =-\int_0^1\!\!\int_0^1\frac{x^iy^j}{a-xy}\,dx\,dy.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The two finite identities
+\[
+ t_i^0(a)+a^iL(a)=-\sum_{r\ge1}\frac{a^{-r}}{i+r},\qquad
+ b_i^0(a)-a^i\beta(a)=-\sum_{r\ge1}\frac{a^{-r}}{(i+r)^2}
+\]
+follow by separating the first $i$ terms of the defining series.  Taking the
+divided difference of the first identity and using
+\[
+ \frac{(i+r)^{-1}-(j+r)^{-1}}{j-i}
+ =\frac1{(i+r)(j+r)}
+\]
+proves the off-diagonal case of \eqref{eq:p0-source-mellin}; the second
+identity proves the diagonal case.  Since $|a|>1$, the geometric series
+$(a-xy)^{-1}=\sum_{r\ge1}a^{-r}(xy)^{r-1}$ converges uniformly on
+$[0,1]^2$, so termwise integration gives the last equality.
+\end{proof}
+
+Put
+\[
+ D_g f(a)=\frac1{g!}\frac{d^g}{da^g}\bigl(a^gf(a)\bigr).
+\]
+On every compact subset of $\{|a|>1\}$ the series in
+\eqref{eq:p0-source-mellin}, after multiplication by $a^g$, and all its
+derivatives through order $g$, are dominated by $C(1+r)^g\rho^r$ with
+$\rho<1$.  Termwise differentiation is therefore valid and
+\begin{equation}\label{eq:p0-source-Dg}
+ D_gM_{ij}(a)=(-1)^{g+1}\sum_{r>g}
+ \frac{\binom{r-1}{g}a^{-r}}{(i+r)(j+r)}.
+\end{equation}
+Indeed $D_ga^{-r}=0$ for $r\le g$ and equals
+$(-1)^g\binom{r-1}{g}a^{-r}$ for $r>g$.
+
+For completeness, the right side is exactly the finite rational table used in
+the determinant.  If $U_i(a)=a^i\binom{i+g}{g}$ and
+$Q_s(a)=(a/(a-1))^s-1$, the finite definitions of $A,B,C$ in
+Section~\ref{sec:p0} already use $a$ throughout.  Leibniz's rule gives
+$D_ga^i=U_i(a)$ and, for $s\ge1$,
+\[
+ \frac{a^sL^{(s)}(a)}{s!}=\frac{(-1)^{s-1}}sQ_s(a),\qquad
+ \frac{a^s\beta^{(s)}(a)}{s!}=\frac{(-1)^{s-1}}s
+ \left(L(a)-\sum_{r=1}^{s-1}\frac{Q_r(a)}r\right).
+\]
+The latter follows from $\beta'(a)=L(a)/a$.  Substitution in
+\eqref{eq:p0-source-mellin} proves
+\begin{equation}\label{eq:p0-source-identity}
+ D_gM_{ij}(a)=B^{(g)}_{ij}(a)+L(a)C^{(g)}_{ij}(a)
+                         -\beta(a)A^{(g)}_{ij}(a).
+\end{equation}
+For $i=j$, the coefficient of $L(a)$ is
+$-U_i(a)\sum_{s=1}^g(i+s)^{-1}$, because
+\[
+ \sum_{s=1}^g\frac{(-1)^{s-1}}s\binom{i+g}{g-s}
+ =\binom{i+g}{g}\sum_{s=1}^g\frac1{i+s}.
+\]
+This identity is the derivative at $x=0$ of
+$\binom{i+g+x}{g}=\sum_{s=0}^g\binom{i+g}{g-s}\binom{x}{s}$;
+the coefficient of $-\beta$ is $U_i(a)$.  Hence the diagonal conventions,
+and not only the off-diagonal divided differences, are covered by
+\eqref{eq:p0-source-identity}.
+
+\subsection{The polynomial divisor}
+
+We first record the two polynomial divisibilities that account for the
+exceptional primes.  All statements in this subsection are identities for
+every $h\ge1$.
+
+\begin{lemma}[formal divisor at $a=0$]\label{lem:p0-a-divisor}
+With $b=a-1$,
+\begin{equation}\label{eq:p0-denom}
+ d_U^{3m}b^{gm}G_{m,a}(T)\in\mathbb Z[a,T],
+ \qquad
+ d_U^{3m}b^{gm}G_{m,a}(T)\in a^{N_m}\mathbb Z[a,T].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The only parameter denominators in the finite source formulas are powers of
+$b$ in
+\[
+ Q_s(a)=\left(\frac{a}{a-1}\right)^s-1.
+\]
+After multiplying each lower row by $b^g$, its occurrence becomes the integer
+polynomial
+\[
+ R_s(a)=b^gQ_s(a)=a^s b^{g-s}-b^g\in\mathbb Z[a]
+ \quad(1\le s\le g).
+\]
+Its constant coefficient is $-(-1)^g$, a unit.  The other source
+denominators are harmonic indices, summation indices, and divided-difference
+denominators.  Every such positive index is at most $U$: for example
+$i+g\le7h-1<U$, and $|j-i|\le7h-1<U$.  Multiplication of each top row by
+$d_U$ and each lower row by $d_U^2$ clears them.  Thus
+\[
+ P_m(a,T):=d_U^{3m}b^{gm}G_{m,a}(T)\in\mathbb Z[a,T].
+\]
+
+To find its order at $a=0$, work in $\mathbb Q[[a]]$.  Set
+\[
+ c_i=\binom{i+g}{g},\quad u_i=c_i a^i,\quad
+ h_i=\sum_{s=1}^g\frac1{i+s},\quad
+ \gamma_i=\frac12\left(h_i^2-\sum_{s=1}^g\frac1{(i+s)^2}\right),
+\]
+and $L_1=\sum_{r\ge1}a^r/r$, $L_2=\sum_{r\ge1}a^r/r^2$.  The source
+identities, coefficientwise in $a$, are
+\begin{align}
+ t_i-L_1u_i&=\sum_{k\ne i}\frac{c_ka^k}{i-k}-u_i h_i,
+ \label{eq:p0-formal-t}\\
+ b_i+L_1u_i h_i+L_2u_i
+ &=\sum_{k\ne i}\frac{c_ka^k}{(i-k)^2}+\gamma_i u_i.
+ \label{eq:p0-formal-b}
+\end{align}
+Here the $b_i$ on the left is the diagonal source entry, not the parameter
+$b=a-1$.  We use a direct coefficient check, so no auxiliary logarithmic
+symbol is being differentiated.  For $r\ge0$, expand every finite source
+entry in $\mathbb Q[[a]]$, replace
+\[
+ [a^r]L_1=\frac1r\quad(r\ge1),\qquad
+ [a^r]L_2=\frac1{r^2},
+\]
+and use
+\[
+ [a^r]u_i=\binom{i+g}{g}[r=i],\qquad
+ \gamma_i=\sum_{1\le s<t\le g}\frac1{(i+s)(i+t)}.
+\]
+The coefficient of the first source identity is then
+\[
+ [a^r]t_i-[a^r](L_1u_i)=
+ \begin{cases}c_r/(i-r),&r\ne i,\\-c_i h_i,&r=i,\end{cases}
+\]
+which is exactly the right side of \eqref{eq:p0-formal-t}.  For the second
+identity, the coefficient is
+\[
+ [a^r]\bigl(b_i+L_1u_i h_i+L_2u_i\bigr)=
+ \begin{cases}c_r/(i-r)^2,&r\ne i,\\c_i\gamma_i,&r=i.\end{cases}
+\]
+This is the coefficient of its right side, including the diagonal correction.
+All sums are finite at a fixed coefficient, so these are identities in
+$\mathbb Q[[a]]$ coefficient by coefficient.  The only binomial identity
+used in collecting the harmonic terms is the differentiated finite identity
+\[
+ \binom{i+g+x}{g}=\sum_{s=0}^g\binom{i+g}{g-s}\binom{x}{s}
+\]
+at $x=0$; hence the argument does not assume a formal primitive for $1/a$.
+
+For an independent indeterminate $X$, form
+\[
+ \mathcal H(a,X)=
+ \begin{bmatrix}
+ C(a)\\ B(a)-L_1(a)C(a)+L_2(a)A(a)-XA(a)
+ \end{bmatrix}.
+\]
+For a fixed $k\ge0$, let $e_I(i)=[i=k]$,
+$v_I(i)=(i-k)^{-1}$ for $i\ne k$ and $v_I(k)=0$, and
+$w_I=v_I^2$; define $e_J,v_J,w_J$ in the same way.  Equations
+\eqref{eq:p0-formal-t}--\eqref{eq:p0-formal-b} give the exact rank-one
+expansion
+\begin{equation}\label{eq:p0-rank-one}
+ [a^k]\mathcal H=c_k\left(
+ \binom{e_I}{v_I-h_ke_I}v_J^{\mathsf T}
+ +\binom{0}{-e_I}w_J^{\mathsf T}
+ +\binom{v_I-h_ke_I}{-w_I-h_kv_I+(\gamma_k-X)e_I}e_J^{\mathsf T}
+ \right).
+\end{equation}
+In entries, the lower block of this coefficient is
+\[
+ [a^k]\bigl(B-L_1C+L_2A-XA\bigr)_{ij}
+ =c_k\begin{cases}
+ ((i-k)(j-k))^{-1},&i\ne k,\ j\ne k,\\
+ -h_k(j-k)^{-1}-(j-k)^{-2},&i=k,\ j\ne k,\\
+ -(i-k)^{-2}-h_k(i-k)^{-1},&i\ne k,\ j=k,\\
+ \gamma_k-X,&i=j=k.
+ \end{cases}
+\]
+The first feature has weight $k$; the second is present only when $k\in I$,
+and the third only when $k\in J$.  A nonzero $2m$-row determinant term must
+choose $2m$ distinct rank-one features.  Since $I=[h,5h)$ and $J=[0,8h)$,
+the least possible total feature weight is obtained from two copies of
+$0,\ldots,h-1$ and three copies of $h,\ldots,3h-1$.  Its value is
+\[
+ 2\sum_{k=0}^{h-1}k+3\sum_{k=h}^{3h-1}k=13h^2-4h=N_m.
+\]
+Finite multilinearity is legitimate coefficientwise: a coefficient of $a^r$
+can involve only features of weight at most $r$.  Thus
+$a^{N_m}\mid\det\mathcal H(a,X)$ in $\mathbb Q[[a]][X]$.  The determinant-one
+row shear gives
+$\det\mathcal H(a,X)=G_{m,a}(X-L_2(a))$; since $L_2\in a\mathbb Q[[a]]$,
+translation preserves the order at zero.  Therefore $a^{N_m}$ divides
+$P_m$ in $\mathbb Q[a,T]$.  As $P_m\in\mathbb Z[a,T]$ and the divisor is
+the monomial $a^{N_m}$, the quotient is also in $\mathbb Z[a,T]$.
+\end{proof}
+
+\begin{lemma}[endpoint pole divisor]\label{lem:p0-pole}
+Coefficientwise in $T$,
+\[
+ \operatorname{ord}_{a=1}G_{4h,a}(T)\ge3h-h^2.
+\]
+Consequently
+\begin{equation}\label{eq:p0-refined-divisor}
+ d_U^{3m}(a-1)^{H_m}G_{m,a}(T)
+       \in a^{N_m}\mathbb Z[a,T].
+\end{equation}
+The exponent $3h-h^2$ is a sufficient lower bound; equality for every $h$ is
+not asserted.
+\end{lemma}
+
+\begin{proof}
+Put $b=a-1$ and $f(x)=\binom{x+g}{g}$.  At $a=1$, the full top block,
+including its diagonal, is the divided-difference polynomial
+\[
+ C(x,y)=\frac{f(x)-f(y)}{y-x},\qquad C(x,x)=-f'(x),
+\]
+of total degree at most $g-1$.  For the lower block, the source Mellin
+identity gives
+\[
+ (D_gM_{ij})(a)=(-1)^{g+1}\sum_{r\ge1}
+   \binom{r-1}{g}\frac{a^{-r}}{(r+i)(r+j)}
+ =B_{ij}+L(a)C_{ij}-\Li_2(1/a)A_{ij}.
+\]
+Polynomial division in $r$ yields
+\[
+ \frac{\binom{r-1}{g}}{(r+i)(r+j)}
+ =\sum_{d=0}^{g-2}q_d(i,j)r^d+O(r^{-1}),
+ \qquad \deg_{i,j}q_d\le g-2-d.
+\]
+The power sum $\sum_{r\ge1}r^d(1+b)^{-r}$ has pole order at most $d+1$;
+the remainder is $O(1+|\log b|)$.  Since $B$ is rational in $b$, while
+$LC-\Li_2(1/a)A=O(1+|\log b|)$, this identifies its entire principal
+part, including diagonal entries:
+\[
+ [b^{-s}]B_{ij}(1+b)=P_s(i,j),\qquad
+ \deg P_s\le g-1-s\quad(1\le s\le g-1).
+\]
+Apply forward differences of orders $u=0,\ldots,m-1$ to the rows in each
+block and $v=0,\ldots,2m-1$ to columns.  These are unitriangular transforms,
+so they preserve the determinant.  The degree bounds imply
+\[
+ \operatorname{ord}_b\widehat C_{uv}\ge[ u+v\ge g],\qquad
+ \operatorname{ord}_b(\widehat B-T\widehat A)_{uv}
+       \ge\min(0,u+v-g+1).
+\]
+In a determinant term, let $k$ be the number of lower entries with a negative
+bound.  Then $0\le k\le g-1$, and their distinct row and column indices
+give a total order at least $k(k-g)$.  Their columns lie among
+$0,\ldots,g-2$; hence at most $g-k$ top entries can have order-zero bounds,
+so at least $m-g+k$ top entries contribute order at least one.  Every
+determinant term has order at least
+\[
+ m-g+k+k(k-g)=m-g+k(k-g+1).
+\]
+For $m=4h$, $g=2h$, this is
+\[
+ 2h+(k-h)(k-h+1)-h(h-1)\ge3h-h^2,
+\]
+because $(k-h)(k-h+1)\ge0$ for integral $k$.  This proves the order bound,
+including all diagonal entries.
+
+By Lemma~\ref{lem:p0-a-divisor},
+$P_m=d_U^{3m}b^{8h^2}G=a^{N_m}S$ with $S\in\mathbb Z[a,T]$.  The pole
+bound shows that $b^{7h^2+3h}$ divides $P_m$ in $\mathbb Q[a,T]$.
+This divisor is monic, so division preserves integrality; it is coprime to
+$a^{N_m}$.  Cancelling it yields
+\[
+ d_U^{3m}b^{8h^2-(7h^2+3h)}G
+ =d_U^{3m}b^{H_m}G\in a^{N_m}\mathbb Z[a,T],
+\]
+as claimed.  The argument also covers $h=1,2$, when $H_m=-2$; in those
+cases the displayed expression is an identity of rational functions whose
+right side is the stated integer polynomial.
+\end{proof}
+
+\subsection{Primewise valuation bounds}
+
+For a fixed integer $a$ with $|a|\ge2$, define
+\[
+ F_{m,p}(a)=3m d_p+H_m v_p(a-1)-N_m v_p(a).
+\]
+We next define a second, moving-prime bound.  For an odd prime satisfying
+$p^2>U+g$, put
+\[
+ r=g\bmod p,\qquad
+ \kappa_n=[n\bmod p\ge p-r],\qquad
+ \theta_n=(\kappa_n-1)[n\ge p\text{ or }p\le g],
+\]
+where $\kappa_n=0$ if $r=0$.  Define the integer $W_m(p)$ by the following
+deterministic rule (it is the chosen upper bound, not an undefined optimum):
+\begin{itemize}
+\item if $p^2\le U+g$, set $W_m(p)=3m d_p$;
+\item if $p^2>U+g$ and $p$ lies on a positive-ratio wall, set $W_m(p)=3m$;
+\item otherwise, for $p/m<1/2$, set $W_m(p)$ to the smaller of the two
+  integer right sides in \eqref{eq:p0-low-W}; for
+  $1/2<p/m<5/2$, generate the groups from the affine endpoints below,
+  sum the displayed row and column potentials in Table~\ref{tab:p0-high-potentials}
+  over those groups, and take that exact integer objective;
+\item if $p>U+g$, set $W_m(p)=0$.
+\end{itemize}
+At the low-ratio endpoint $p/m=1/2$, the wall convention $3m$ applies.
+The group widths are integers because $4\mid m$ and all endpoint intercepts
+have denominator at most four; consequently the high-ratio objective is an
+integer, not a real relaxation.  These clauses define $W_m(p)$ for every
+prime before it is used in \ref{lem:p0-entry-bounds}.
+The finite collection of walls in $[1/128,5/2]$ is defined below.  These
+rules are compatible at overlapping cases: the generic denominator bound is
+used first, and $p>U+g$ is outside every positive-ratio cell.
+
+\begin{lemma}[coefficientwise entry bounds]\label{lem:p0-entry-bounds}
+For every integer specialization $a$ and every coefficient in $T$, the
+valuation of the determinant satisfies
+\[
+ -v_p(G_{m,a})\le W_m(p)+gm\,v_p(a-1).
+\]
+Also, for every prime $p$,
+\[
+ -v_p(G_{m,a})\le F_{m,p}(a).
+\]
+\end{lemma}
+
+\begin{proof}
+The second inequality follows directly from
+\eqref{eq:p0-refined-divisor}.  For the first, multiply every lower row by
+$b^g$, so that
+$\det[C;b^g(B-TA)]=b^{gm}G_{m,a}(T)$.  When $p^2\le U+g$, the factors
+$d_U$ and $d_U^2$ clear top and lower rows, giving the claimed $3md_p$
+bound.  When $p>U+g$, every source denominator is a $p$-unit and the scaled
+entries are $p$-integral.
+
+It remains to consider odd $p$ with $p^2>U+g$.  Every relevant upper index
+is less than $p^2$.  Kummer's carry rule therefore gives
+\[
+ v_p\binom{n+g}{g}=\kappa_n.
+\]
+If $p\mid s$, then $g-s$ has the same units digit as $g$, so
+\[
+ v_p\binom{n+g}{g-s}\ge\kappa_n;
+\]
+ and, if $p\mid s$ and $s\le n$,
+$v_p\binom{n-s+g}{g}\ge\kappa_n$.  No second carry is possible because
+all sums are below $p^2$.  After multiplying by $b^g$, each $Q_s$ is the
+primitive polynomial $R_s$ above, whose Gauss valuation is zero.  In these
+sums, terms with $p\nmid s$ are $p$-integral; in the mixed
+$B_{ii}$ terms, a single $p$-denominator contributes at worst
+$-1\ge\kappa_i-2$, since $\kappa_i\le1$.  Every nonzero source denominator
+and every row or column difference is less than
+$p^2$, hence has $p$-valuation at most one.  The ultrametric inequality now
+gives the following lower bounds for scaled entries:
+\begin{center}
+\renewcommand{\arraystretch}{1.12}
+\normalsize
+\begin{tabular}{@{}p{0.43\linewidth}p{0.46\linewidth}@{}}
+\toprule
+Entry & Lower bound for $v_p$ \\
+\midrule
+$C_{ij}$, $i\ne j$ & $\min(\kappa_i,\kappa_j)-[i\equiv j\pmod p]$ \\
+$C_{ii}$ & $(\kappa_i-1)[p\le g]$ \\
+$(b^gB)_{ij}$, $i\ne j$ & $\min(\theta_i,\theta_j)-[i\equiv j\pmod p]$ \\
+$(b^gB)_{ii}$, $i\ge p$ or $2p\le g$ & $\kappa_i-2$ \\
+$(b^gB)_{ii}$, $i<p$ and $p\le g<2p$ & $-1$ \\
+$(b^gB)_{ii}$, $i<p$ and $p>g$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+For $C_{ii}$, the case $p\le g$ uses the general bound
+$v_p(U_i/(i+s))\ge\kappa_i-1$, since $i+s<p^2$.  If $p>g$ and
+$p\mid i+s$, then $1\le s\le g<p$, so $i\bmod p=p-s$; adding $g$ to
+$i$ produces exactly one base-$p$ carry and hence $\kappa_i=1$.  Thus every
+term with a $p$-divisible denominator is still $p$-integral, and all other
+terms are $p$-integral because $v_p(U_i)=\kappa_i\ge0$.  For the lower diagonal, a squared denominator
+in the first sum requires $i\ge p$; two $p$-denominators in the correction
+sum require $2p\le g$.  In either case the relevant binomial coefficient
+has valuation at least $\kappa_i$.  If $p\le g<2p$ and $i<p$, at most one
+denominator is divisible by $p$; if $p>g$ and $i<p$, none is.  The term
+$-TA$ is integral after the row scaling and does not weaken these bounds.
+
+By the Leibniz expansion, minus the determinant valuation is at most the
+maximum assignment weight formed by negating these entry lower bounds.
+The exact profile $W_m(p)$ bounds that assignment in each range.  The
+certificate details follow.
+\end{proof}
+
+\subsection{Exact moving-prime profile}
+
+Let $\rho=p/m$.  For a residue $v\in\{0,\ldots,p-1\}$, the copy counts are
+\[
+ c_I(v)=\#\{n\in\mathbb Z:1/4\le v/m+n\rho<5/4\},\qquad
+ c_J(v)=\#\{n\in\mathbb Z:0\le v/m+n\rho<2\}.
+\]
+The carry flag is constant on each residue group.  For $p<g$, let $K_I,K_J$
+count the killed row and column copies ($\kappa_v=1$), and put
+\[
+ S_U=\sum_{\kappa_v=0}\min(2c_I(v),c_J(v)),\qquad
+ S_K=\sum_{\kappa_v=1}\min(2c_I(v),c_J(v)).
+\]
+The two feasible assignment bounds are
+\begin{equation}\label{eq:p0-low-W}
+ W_m(p)\le\min\{m+S_U,\;3m-2K_I-K_J+S_K\}.
+\end{equation}
+Indeed, after subtracting the lower-row baseline $m$, the assignment score is
+$x-z$, where $x$ counts unkilled same-residue matches and $z$ killed
+off-residue matches.  If $y$ is the number of killed same-residue matches,
+then $x\le S_U$, $y\le S_K$, and counting killed row and column copies gives
+$z+y\ge2K_I+K_J-2m+x$.  These yield the two inequalities.
+
+All group endpoints are generated by a finite exact rule.  For a fixed open
+wall cell and any interior rational sample $\rho_0$, set
+$q=\lfloor1/(2\rho_0)\rfloor$ and order the affine endpoints
+\[
+ (0,0),\ (0,1),\ (-1/2,q+1),\quad
+ (x,-\lfloor x/\rho_0\rfloor)\ (x=1/4,5/4,2),
+\]
+by their values $A+B\rho_0$.  Consecutive endpoints give a group of width
+$A+B\rho$.  At its midpoint $t$, the $I$- and $J$-copy lists are respectively
+\[
+ \left\lceil\frac{1/4-t}{\rho_0}\right\rceil\le n<
+ \left\lceil\frac{5/4-t}{\rho_0}\right\rceil,
+ \qquad
+ \left\lceil\frac{-t}{\rho_0}\right\rceil\le n<
+ \left\lceil\frac{2-t}{\rho_0}\right\rceil,
+\]
+and the group is killed precisely when
+$t\ge(q+1)\rho_0-1/2$.  These data remain constant throughout the open cell.
+The full wall set in a compact ratio interval is generated by
+\[
+\mathcal W([r_0,r_1])=\{r_0,r_1\}\cup
+\left\{\frac{x-y}{n}:\begin{aligned}[t]
+&x,y\in\{0,1/4,5/4,2,-1/2\},\quad x>y,\\
+&n\in\mathbb N,\quad r_0<\frac{x-y}{n}<r_1
+\end{aligned}\right\}.
+\]
+It is finite because $x-y\le5/2$ and $n<(x-y)/r_0$.
+
+For $\rho\in[\delta,1/2]$, $\delta=1/128$, the rule gives 756 lower-envelope
+affine pieces.  Their exact integral is
+\begin{equation}\label{eq:p0-low-integral}
+ L_*=
+ \frac{\begin{array}{c}
+ \texttt{1448276314740194964855260100800462127260298}\\
+ \texttt{03104279674952972562737001039673489563365828533335}\\
+ \texttt{0450905704443029571002838710237}
+ \end{array}}
+ {\begin{array}{c}
+ \texttt{140409888158080315725937691852162573583946167555}\\
+ \texttt{38734362972176526622161627829570435939660600468548}\\
+ \texttt{26150978176673015236224000}
+ \end{array}}.
+\end{equation}
+In each array, concatenate its three rows to obtain the integer.  This value
+is obtained by integrating the minimum in \eqref{eq:p0-low-W}
+on each rational group cell, splitting at its rational affine crossings.
+The formula above is the exact reconstruction rule; no optimizer is used.
+
+For $0<\rho<\delta$, zero column potentials give
+$W_m(p)\le3m-2K_I$.  Since an interval of $m$ consecutive integers contains
+at least $\lfloor m/p\rfloor(g\bmod p)$ killed indices, the profile
+$f_{\rm tail}(\rho)=3-2\{1/(2\rho)\}+2\rho$ satisfies
+$W_m(p)/m\le f_{\rm tail}(\rho)$.
+Writing $\delta=1/(2Q)$ with $Q=64$ and substituting
+$x=1/(2\rho)$ gives
+\[
+ \int_0^\delta\left(3-2\left\{\frac1{2\rho}\right\}\right)d\rho
+ =\frac1{2Q}+\sum_{q\ge Q}\left(\frac1q-\log(1+1/q)\right).
+\]
+For each $q\ge Q$, the summand differs from $1/(2q(q+1))$ by
+\[
+ \int_0^1\frac{s(1-s)}{q(q+s)(q+1)}\,ds
+ \le\frac1{6q^2(q+1)}.
+\]
+Summing this bound and integrating the added $2\rho$ term yields
+\begin{equation}\label{eq:p0-small-tail}
+ \int_0^\delta f_{\rm tail}(\rho)\,d\rho\le
+ 2\delta+2\delta^2=\frac{129}{8192}.
+\end{equation}
+
+For $1/2<\rho<5/2$, $p>g$, so each group has a carry bit $k\in\{0,1\}$.
+If $n$ denotes a copy index, put
+$\theta=(k-1)[n\ge1]$.  A row type is $(j,n,e,k)$, where $j$ is its group,
+$n$ is an $I$-copy and $e\in\{0,1\}$ is the top or lower block; a column
+type is $(j,n,k)$ with $n$ a $J$-copy.  Order row types by increasing group,
+then copy, then $e=0,1$; order column types by increasing group then copy.
+For a row type $r$ and column type $c$, the required potential inequality is
+\[
+ u_r+v_c\ge w_{rc}.
+\]
+For different groups the right side is $-\min(k_r,k_c)$ in the top block
+and $-\min(\theta_r,\theta_c)$ in the lower block.  For the same group but
+distinct copies add $1$.  For a same-index top diagonal use $0$; for a
+same-index lower diagonal use $(2-k_r)$ if $n\ge1$, and $0$ if $n=0$.
+These are exactly the negated entry bounds of
+Lemma~\ref{lem:p0-entry-bounds}, including both diagonal cases.  The
+following integer vectors give feasible potentials on every large-ratio
+interval; spaces separate successive coordinates and the semicolon separates
+the row and column vectors.  The group and copy ordering is the rule just
+given.  Each group contains exactly $m(A_j+B_j\rho)$ residues; this is an
+integer because $m$ is divisible by four and all endpoint intercepts have
+denominator at most four.  Thus the potential objective is an integer upper
+bound at every prime ratio, not merely a real-valued relaxation.
+
+\renewcommand{\arraystretch}{1.15}
+\normalsize
+\begin{longtable}{@{}c p{0.33\linewidth}p{0.34\linewidth}c@{}}
+\caption{Exact large-ratio assignment potentials.  The last column is
+  $\sum_r u_r(A_{j(r)}+B_{j(r)}\rho)+
+    \sum_c v_c(A_{j(c)}+B_{j(c)}\rho)$.}\label{tab:p0-high-potentials}\\
+\toprule
+Ratio cell & Row potentials $u$ & Column potentials $v$ & Objective \\
+\midrule
+\endfirsthead
+\toprule
+Ratio cell & Row potentials $u$ & Column potentials $v$ & Objective \\
+\midrule
+\endhead
+$(1/2,7/12)$ &
+\texttt{1 2 1 2 0 1 0 1 1 2 0 1 0 1 0 1 0 1} &
+\texttt{0 0 0 0 0 0 0 0 -1 -1 -1 -1 0 0 0 0 0 0 0} & $1$ \\
+$(7/12,5/8)$ &
+\texttt{1 2 1 2 1 2 1 2 1 2 0 1 0 1} &
+\texttt{0 0 0 0 0 0 0 0 -1 -1 -1 -1 -1 -1 -1 0 0 0} & $3\rho-3/4$ \\
+$(5/8,2/3)$ &
+\texttt{1 2 1 2 1 2 0 1 0 1 1 2} &
+\texttt{0 0 0 0 0 0 0 -1 -1 -1 0 0 0 -1 -1 -1} & $\rho+1/2$ \\
+$(2/3,3/4)$ &
+\texttt{1 2 1 2 0 1 0 1 1 2 0 1} &
+\texttt{0 0 0 -1 -1 -1 0 0 0 -1 -1 -1 0 0} & $4\rho-3/2$ \\
+$(3/4,5/6)$ &
+\texttt{1 2 0 1 0 1 0 1 0 1 0 1 0 1 0 1} &
+\texttt{0 0 0 1 1 1 0 0 0 0 0 0 0} & $3\rho-3/4$ \\
+$(5/6,7/8)$ &
+\texttt{1 2 0 1 0 1 0 1 0 1 0 1 0 1 0 1} &
+\texttt{0 0 0 1 1 1 1 1 0 0 0 0} & $7/4$ \\
+$(7/8,1)$ &
+\texttt{1 2 0 1 0 1 0 1 0 1 0 1} &
+\texttt{0 0 0 1 1 1 1 0 1 0 0} & $7/4$ \\
+$(1,5/4)$ &
+\texttt{1 2 1 1 1 1 1 1} &
+\texttt{0 0 -1 0 -1 1 -1 0 -1} & $15/4-2\rho$ \\
+$(5/4,7/4)$ &
+\texttt{0 0 0 0 0 0} &
+\texttt{0 1 0 2 0 0 0} & $15/4-2\rho$ \\
+$(7/4,2)$ &
+\texttt{0 0} &
+\texttt{0 1 0 0 0 0} & $2-\rho$ \\
+$(2,5/2)$ & $\texttt{0 0}$ & $\texttt{0 0 0 0}$ & $0$ \\
+\bottomrule
+\end{longtable}
+
+The eleven large-ratio intervals are exactly the walls generated by
+$\mathcal W([1/2,5/2])$.  For each interval, the group formula above
+determines the row and column types, and the displayed vectors satisfy all
+the pairwise rational inequalities.  The edge, diagonal, and wall comparisons
+are generated by the same displayed rule.  Summing the
+type potentials times their affine group widths
+gives the objective column; taking its exact integral over the high cells
+yields
+\[
+ \int_{1/2}^{5/2}f_{\rm high}(\rho)\,d\rho=\frac{287}{192}.
+\]
+At a wall use $W_m(p)=3m$; there are finitely many walls, so this changes
+the prime sum by $O(m\log m)$ for each $m$.
+
+The exact profile constant is
+\begin{align}
+ K&=L_*+\frac{129}{8192}+\frac{287}{192}\\
+ &=\frac{\begin{array}{c}
+ \texttt{28553776527336974955476146348812001767941}\\
+ \texttt{86855224421109769015232357578975297803041084792395}\\
+ \texttt{8183617568292693602659280722163521}
+ \end{array}}
+ {\begin{array}{c}
+ \texttt{112327910526464252580750153481730058867156934044}\\
+ \texttt{30987490377741221297729302263656348751728480374838}\\
+ \texttt{609207825413384121889792000}
+ \end{array}}\\
+ &=2.542001929307655\ldots<2.542002.
+\label{eq:p0-K}
+\end{align}
+The displayed rational table and the type-generation rule are the complete
+finite input for this part of the estimate.
+
+\subsection{Exceptional primes and the PNT limit}
+
+Define the rational scalar
+\begin{equation}\label{eq:p0-delta}
+ \Delta_{m,a}=\prod_p p^{E_{m,p}(a)},\qquad
+ E_{m,p}(a)=\min\{W_m(p)+gm\,v_p(a-1),\ F_{m,p}(a)\}.
+\end{equation}
+Negative exponents are allowed; $\Delta_{m,a}>0$ is a rational number.
+The product is finite: if $p>U+g$ and $p\nmid a(a-1)$, both entries in
+the minimum are zero.  Lemma~\ref{lem:p0-entry-bounds} implies
+coefficientwise that
+\begin{equation}\label{eq:p0-integerization}
+ \Delta_{m,a}G_{m,a}(T)\in\mathbb Z[T].
+\end{equation}
+This is a specialization-wise p-adic argument; it does not claim that the
+sharp scalar $\Delta_{m,a}$ is the specialization of an integer polynomial
+in $a$.
+
+Since $\gcd(a,a-1)=1$, the exceptional sets $p\mid a$ and $p\mid a-1$
+are disjoint.  For a fixed $p\mid a$,
+\[
+ F_{m,p}=O(m\log m)-N_m v_p(a),
+ \qquad W_m(p)+gmv_p(a-1)=W_m(p),
+\]
+and the quadratic negative term makes $F_{m,p}$ the minimum for all
+sufficiently large $m$.  For a fixed $p\mid a-1$,
+\[
+ F_{m,p}=O(m\log m)+H_m v_p(a-1),\qquad
+ W_m(p)+gmv_p(a-1),
+\]
+and $gm-H_m=7h^2+3h$ makes $F_{m,p}$ eventually the minimum.  These
+comparisons apply also to $p=2$, which divides exactly one of $a,a-1$.
+For every other fixed prime the moving profile applies, with the
+$p^2\le U+g$ range contributing $o(m^2)$ in aggregate:
+Put $X=U+g$.  The squarefull part is bounded without counting a
+prime more than once by
+\[
+ \sum_{p\le\sqrt X}3m d_p\log p
+ \le 3m\sum_{j=1}^{\lfloor\log_2 U\rfloor}
+    \vartheta\!\left(\min\{\sqrt X,U^{1/j}\}\right)
+ =O(m^{3/2}\log m)=o(m^2),
+\]
+where $\vartheta(x)=\sum_{p\le x}\log p$.  The displayed equality is an
+upper-bound comparison (the left side is bounded by the right side),
+since $d_p$ is the number of admissible exponent layers and each layer is
+charged to $p^j\le U$; the extra $\log m$ is harmless after normalization.
+
+On any fixed positive ratio interval, $W_m(p)\le m f(p/m)$ with $f$ bounded
+and piecewise affine, apart from the finite wall values.  The weighted prime
+number theorem, obtained from the ordinary PNT by partial summation, gives
+\[
+ \frac1m\sum_p f(p/m)\log p\longrightarrow\int f(\rho)\,d\rho.
+\]
+For $0<\rho<\eps$, first remove the already negligible range
+$p\le\sqrt{U+g}$ and then omit $\sqrt{U+g}<p\le\eps m$; there $d_p=1$ and
+the crude bound $3m\vartheta(\eps m)$ has normalized limsup at most
+$3\eps$.  Apply the weighted PNT on $[\eps,\delta]$ and then let
+$\eps\downarrow0$.  The exact
+tail bound \eqref{eq:p0-small-tail}, the low integral \eqref{eq:p0-low-integral},
+and the high integral therefore imply
+\[
+ \limsup_{\substack{m\to\infty\\4\mid m}}
+ \frac1{m^2}\sum_{p\nmid a(a-1)}E_{m,p}(a)\log p\le K.
+\]
+The fixed exceptional primes contribute
+\[
+ \frac{H_m}{m^2}\log|a-1|
+ -\frac{N_m}{m^2}\log|a|
+ \longrightarrow
+ \frac1{16}\log|a-1|-\frac{13}{16}\log|a|.
+\]
+We have proved the following fixed-base estimate.
+
+\begin{proposition}[P0 fixed-base denominator rate]\label{prop:p0-sharp-arith}
+For every fixed integer $|a|\ge2$, the rational number $\Delta_{m,a}$ in
+\eqref{eq:p0-delta} satisfies \eqref{eq:p0-integerization} and
+\[
+ \limsup_{\substack{m\to\infty\\4\mid m}}
+ \frac{\log\Delta_{m,a}}{m^2}
+ \le K+\frac1{16}\log|a-1|-
+             \frac{13}{16}\log|a|,
+ \qquad K<2.542002.
+\]
+The statement is for each fixed base.  In particular, its finite-$m$
+remainder is not uniform as $|a|\to\infty$.
+\end{proposition}
+
+\paragraph{Completion of the estimate.}
+The formal divisor and pole lemmas, Kummer bounds, residue-cell formulas,
+exceptional-prime comparisons, and PNT passage are all-$m$ derivations.
+The low profile is reconstructed by the rational wall-and-crossing rule
+above.  The high profile is hand-checkable from the printed potential vectors
+and the stated type-generation rule: each vector pair reduces the full
+assignment inequality to finitely many integer comparisons.  The low profile
+has 756 affine pieces and the high profile eleven cells.  The all-$m$
+conclusion uses the displayed identities, the finite comparison count above,
+and the weighted prime number theorem.
