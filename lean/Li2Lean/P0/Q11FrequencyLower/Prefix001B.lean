@@ -1,0 +1,104 @@
+/-
+Copyright (c) 2026 Ruiyi Zhang. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Author: Ruiyi Zhang (ryzfsu@gmail.com, https://github.com/ryzfsu)
+-/
+import Li2Lean.P0.Q11FrequencyLower.Common
+
+namespace Li2Lean.P0.Q11Data
+
+/-! Generated q=11 frequency lower checks.  Each chunk reuses the chained
+    endpoint-vector checker; the source table rows are unchanged. -/
+
+open Li2Lean.F_L8
+open Li2Lean.P0.CA.Frequency
+open Li2Lean.P0.CA.Receipt
+def q11FrequencyRowsRows001ChunkB00 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 64).take 8
+
+theorem q11FrequencyRowsRows001ChunkB00_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB00) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB00_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB00) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB00_check
+
+def q11FrequencyRowsRows001ChunkB01 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 72).take 8
+
+theorem q11FrequencyRowsRows001ChunkB01_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB01) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB01_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB01) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB01_check
+
+def q11FrequencyRowsRows001ChunkB02 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 80).take 8
+
+theorem q11FrequencyRowsRows001ChunkB02_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB02) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB02_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB02) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB02_check
+
+def q11FrequencyRowsRows001ChunkB03 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 88).take 8
+
+theorem q11FrequencyRowsRows001ChunkB03_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB03) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB03_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB03) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB03_check
+
+def q11FrequencyRowsRows001ChunkB04 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 96).take 8
+
+theorem q11FrequencyRowsRows001ChunkB04_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB04) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB04_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB04) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB04_check
+
+def q11FrequencyRowsRows001ChunkB05 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 104).take 8
+
+theorem q11FrequencyRowsRows001ChunkB05_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB05) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB05_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB05) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB05_check
+
+def q11FrequencyRowsRows001ChunkB06 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 112).take 8
+
+theorem q11FrequencyRowsRows001ChunkB06_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB06) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB06_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB06) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB06_check
+
+def q11FrequencyRowsRows001ChunkB07 : List ReceiptCell :=
+  (q11FrequencyRowsRows001.drop 120).take 8
+
+theorem q11FrequencyRowsRows001ChunkB07_check :
+    q11ShardCheckWeightedTight (q11ChunkRows q11FrequencyRowsRows001ChunkB07) = true := by
+  decide +kernel
+
+theorem q11FrequencyRowsRows001ChunkB07_lower :
+    Q11FrequencyCellsLower (q11ChunkCells q11FrequencyRowsRows001ChunkB07) :=
+  q11ChunkCells_lower_of_check q11FrequencyRowsRows001ChunkB07_check
+
+end Li2Lean.P0.Q11Data

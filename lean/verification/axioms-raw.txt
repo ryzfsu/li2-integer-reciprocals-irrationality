@@ -1,0 +1,1 @@
+'li2_inv_irrational' depends on axioms: [propext, Classical.choice, Quot.sound]

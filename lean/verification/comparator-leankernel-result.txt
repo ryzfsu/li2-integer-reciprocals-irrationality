@@ -1,0 +1,7 @@
+status=pending
+source_commit=f9768a9c1db0f24ef5cef62a5ada4642e6c89524
+command=comparator verification/comparator-leankernel.json
+enable_nanoda=false
+result=not_yet_recorded
+earlier_run_source_commit=311bf92a16f599cfbe2bc6091bc41eda53308010
+earlier_run_status=passed (Lean default kernel accepts the solution; comparator_rc=0; 17:26:07)

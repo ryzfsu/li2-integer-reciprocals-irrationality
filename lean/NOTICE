@@ -1,0 +1,30 @@
+Li2Lean project notices
+=======================
+
+This project formalizes the author's proof of the irrationality of Li2(1/n)
+for every nonzero integer n. No Lean source of other Li2 formalizations has
+been consulted or copied.
+
+Third-party source (updated 2026-10-13; full details in THIRD_PARTY_NOTICES.md,
+license text in LICENSES/Apache-2.0.txt):
+
+- PrimeNumberTheoremAnd (https://github.com/AlexKontorovich/PrimeNumberTheoremAnd,
+  commit c39a751132c88b6e8080b74c74023fd95b3d8be0, Apache-2.0): ten files
+  vendored with modifications under Li2Lean/Vendor/PNT (see
+  Li2Lean/Vendor/PNT/NOTICE and LICENSE there). This replaces the former
+  PrimeNumberTheoremAnd package dependency.
+- openai/math (https://github.com/openai/math, commit
+  fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb, Catalan 005, Apache-2.0):
+  Li2Lean/Kit/LogMonomial.lean is adapted from
+  lean/OAI/NumberTheory/Catalan/Analysis/LogMonomial.lean;
+  Li2Lean/Kit/GlobalApproximation.lean, Li2Lean/P0/PinnedResidualEvaluator.lean
+  and Li2Lean/P0/Tube.lean are pattern-informed only (no source copied).
+
+The proof build requires only Mathlib (with Mathlib's own pinned
+dependencies). The comparator tool is used for acceptance checking only and is
+not a dependency of the proof build.
+
+Adapted third-party files keep their original license and copyright headers
+and carry an `Adapted from <repo>@<commit>:<path>` header; the source
+repository, commit, license and files are recorded in this notice and in
+THIRD_PARTY_NOTICES.md.

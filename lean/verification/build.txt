@@ -1,0 +1,4 @@
+source_commit=f9768a9c1db0f24ef5cef62a5ada4642e6c89524
+command=lake build Solution Challenge
+result=passed
+exit_code=0

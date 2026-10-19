@@ -1,0 +1,40 @@
+{
+  "status": "pending",
+  "source_commit": "f9768a9c1db0f24ef5cef62a5ada4642e6c89524",
+  "command": "comparator verification/comparator-leankernel.json",
+  "configuration": {
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "li2_inv_irrational"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "enable_nanoda": false
+  },
+  "input_sha256": {
+    "Challenge.lean": "074468555de47d27c852a9d77118c4bfa99604cec840bb417e0670c1cca536fd",
+    "Solution.lean": "006467bba3f356d986020f2ee97ee0a5ca669bc1001b4ccf46ed1021afcdf3f1",
+    "comparator.json": "db021f8364b3c90f68e04ac42991e995a6de9e51001071ee42be71f80c83d486",
+    "comparator configuration": "7c4be51a010540f36788ece08d4075081b941ae94548db85fb9db1dc654eb72f"
+  },
+  "result": null,
+  "runs": [
+    {
+      "source_commit": "311bf92a16f599cfbe2bc6091bc41eda53308010",
+      "note": "Run on the first frozen commit. The release commit differs from it only in the proofs of three declarations in Li2Lean/B3/Q2ActualSeedResidueProof.lean and Li2Lean/V/NegativeTwoSeed.lean; no statement changed.",
+      "status": "passed",
+      "result": "Lean default kernel accepts the solution; Your solution is okay!; comparator_rc=0",
+      "wall_time": "17:26:07",
+      "peak_rss_kb": 11748612,
+      "end_utc": "2026-10-19T17:13:46Z"
+    },
+    {
+      "source_commit": "f9768a9c1db0f24ef5cef62a5ada4642e6c89524",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+source_commit=f9768a9c1db0f24ef5cef62a5ada4642e6c89524
+command=lake env lean SolutionAxioms.lean
+exit_code=0
+expected_axioms=propext,Classical.choice,Quot.sound
+second_host_check=committed HEAD f9768a9c, clean status, build rc 0 (10635 jobs), axioms [propext, Classical.choice, Quot.sound] (2026-10-19)

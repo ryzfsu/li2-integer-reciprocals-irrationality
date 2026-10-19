@@ -1,0 +1,3 @@
+forbidden_identity_matches=0
+allowed_third_party_attribution=not counted
+conditional_source_present=0

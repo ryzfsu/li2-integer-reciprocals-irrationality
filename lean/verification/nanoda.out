@@ -1,0 +1,6 @@
+status=passed
+source_commit=f9768a9c1db0f24ef5cef62a5ada4642e6c89524
+input_sha256=726b869c1cb87e33eea2ae3a48e4eb44f067e394b5462aaf553e866b73207300
+Checked 127511 declarations with no typechecker errors, 1 pretty printer errors: [
+    "Unable to print axioms",
+]

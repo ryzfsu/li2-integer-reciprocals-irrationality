@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "source_commit": "f9768a9c1db0f24ef5cef62a5ada4642e6c89524",
+  "command": "zstd -dc solution-f976.ndjson.zst | nanoda_bin verification/nanoda.json",
+  "configuration": {
+    "use_stdin": true,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "unpermitted_axiom_hard_error": true,
+    "nat_extension": true,
+    "string_extension": true,
+    "num_threads": 12,
+    "print_success_message": true
+  },
+  "input": "solution-f976.ndjson.zst",
+  "input_sha256": "726b869c1cb87e33eea2ae3a48e4eb44f067e394b5462aaf553e866b73207300",
+  "result": {
+    "stdout": "Checked 127511 declarations with no typechecker errors, 1 pretty printer errors: [\"Unable to print axioms\"]",
+    "stderr": "",
+    "exit_status": 0,
+    "wall_time": "1:43:39",
+    "peak_rss_kb": 30022836,
+    "nanoda_bin_sha256": "cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5",
+    "date_utc": "2026-10-19T14:58:38Z/2026-10-19T16:42:17Z"
+  }
+}

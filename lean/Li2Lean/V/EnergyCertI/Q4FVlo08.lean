@@ -1,0 +1,95 @@
+/-
+Copyright (c) 2026 Ruiyi Zhang. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Author: Ruiyi Zhang (ryzfsu@gmail.com, https://github.com/ryzfsu)
+-/
+/-
+Generated certificate data
+from v13 `v-reference-data.tex` (sha256 e3983e04...cd9b).  elaborated.
+-/
+
+import Li2Lean.V.EnergyCertI.Q4Rows
+import Li2Lean.V.EnergyCertI.Consts
+
+namespace Li2Lean.V.EnergyCertI
+
+open IK
+
+/-- Breakpoints of cells 560..569 of piece `vlo` (q = 4). -/
+def q4F_vlo_056_b : List QF := [
+  (11933, 25600), (29907, 64000), (59963, 128000), (3757, 8000),
+  (60261, 128000), (6041, 12800), (60559, 128000), (15177, 32000),
+  (60857, 128000), (30503, 64000), (12231, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_056 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_056_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 570..579 of piece `vlo` (q = 4). -/
+def q4F_vlo_057_b : List QF := [
+  (12231, 25600), (7663, 16000), (61453, 128000), (30801, 64000),
+  (61751, 128000), (619, 1280), (62049, 128000), (31099, 64000),
+  (62347, 128000), (1953, 4000), (12529, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_057 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_057_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 580..589 of piece `vlo` (q = 4). -/
+def q4F_vlo_058_b : List QF := [
+  (12529, 25600), (31397, 64000), (62943, 128000), (15773, 32000),
+  (63241, 128000), (6339, 12800), (63539, 128000), (7961, 16000),
+  (63837, 128000), (31993, 64000), (12827, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_058 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_058_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 590..599 of piece `vlo` (q = 4). -/
+def q4F_vlo_059_b : List QF := [
+  (12827, 25600), (16071, 32000), (64433, 128000), (32291, 64000),
+  (64731, 128000), (811, 1600), (65029, 128000), (32589, 64000),
+  (65327, 128000), (16369, 32000), (525, 1024)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_059 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_059_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 600..609 of piece `vlo` (q = 4). -/
+def q4F_vlo_060_b : List QF := [
+  (525, 1024), (32887, 64000), (65923, 128000), (8259, 16000),
+  (66221, 128000), (6637, 12800), (66519, 128000), (16667, 32000),
+  (66817, 128000), (33483, 64000), (13423, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_060 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_060_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 610..619 of piece `vlo` (q = 4). -/
+def q4F_vlo_061_b : List QF := [
+  (13423, 25600), (1051, 2000), (67413, 128000), (33781, 64000),
+  (67711, 128000), (3393, 6400), (68009, 128000), (34079, 64000),
+  (68307, 128000), (8557, 16000), (13721, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_061 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_061_b = true := by
+  decide +kernel
+
+/-- Breakpoints of cells 620..629 of piece `vlo` (q = 4). -/
+def q4F_vlo_062_b : List QF := [
+  (13721, 25600), (34377, 64000), (68903, 128000), (17263, 32000),
+  (69201, 128000), (1387, 2560), (69499, 128000), (4353, 8000),
+  (69797, 128000), (34973, 64000), (14019, 25600)]
+
+/-- 10 cells, about 2270 transcendental evaluations (field mode). -/
+theorem q4F_vlo_062 :
+    cellsOK (fieldUB q4D 4 vLogRF .vlo) (kvQ 4) q4F_vlo_062_b = true := by
+  decide +kernel
+
+end Li2Lean.V.EnergyCertI
