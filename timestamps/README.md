@@ -9,7 +9,7 @@ Each proof commits to the SHA-256 of the file below and is anchored in Bitcoin b
 | `li2-integer-reciprocals-irrationality-v1.pdf` | `29483760da63387fd7a09fe87ed30a63fca11abd4fa82c2fa1f526a76548748f` |
 | `li2-integer-reciprocals-irrationality-v1.tar.gz` | `479a56c60fb5dc1b35c3b938b80fb97092d2045b8cef0ff8db95726e5435e1cf` |
 
-Proofs for the assets of release `v2` (pending Bitcoin confirmation):
+Proofs for the assets of release `v2` (anchored in Bitcoin block 972195, 2026-10-19 19:07:41 UTC):
 
 | file | SHA-256 |
 |---|---|
