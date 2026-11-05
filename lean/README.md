@@ -51,10 +51,9 @@ zstd -dc solution.ndjson.zst | nanoda_bin verification/nanoda.json
 The package records the exact input hashes and commands in
 `verification/comparator-receipt.json` and
 `verification/nanoda-receipt.json`, together with the recorded results:
-nanoda passed on the release commit; comparator passed on the first frozen
-commit (which differs from the release commit only in the proofs of three
-declarations, with identical statements), and its run on the release commit is
-recorded in `verification/comparator-receipt.json` when complete.
+nanoda and comparator both passed on the release commit. Comparator also
+passed earlier on the first frozen commit, which differs from the release
+commit only in the proofs of three declarations, with identical statements.
 
 ## Notes on source comments
 

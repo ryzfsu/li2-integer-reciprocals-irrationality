@@ -1,5 +1,5 @@
 {
-  "status": "pending",
+  "status": "passed",
   "source_commit": "f9768a9c1db0f24ef5cef62a5ada4642e6c89524",
   "command": "comparator verification/comparator-leankernel.json",
   "configuration": {
@@ -21,7 +21,7 @@
     "comparator.json": "db021f8364b3c90f68e04ac42991e995a6de9e51001071ee42be71f80c83d486",
     "comparator configuration": "7c4be51a010540f36788ece08d4075081b941ae94548db85fb9db1dc654eb72f"
   },
-  "result": null,
+  "result": "Lean default kernel accepts the solution; Your solution is okay!; comparator_rc=0",
   "runs": [
     {
       "source_commit": "311bf92a16f599cfbe2bc6091bc41eda53308010",
@@ -34,7 +34,11 @@
     },
     {
       "source_commit": "f9768a9c1db0f24ef5cef62a5ada4642e6c89524",
-      "status": "pending"
+      "status": "passed",
+      "result": "Lean default kernel accepts the solution; Your solution is okay!; comparator_rc=0",
+      "wall_time": "17:53:49",
+      "peak_rss_kb": 11744572,
+      "end_utc": "2026-10-20T09:22:07Z"
     }
   ]
 }
